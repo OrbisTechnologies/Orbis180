@@ -29,7 +29,7 @@ public class ProjectStatus {
   @Path("/getOpenFDAData")
   @Produces(MediaType.TEXT_HTML)  
   public void test(){
-  GetOpenFDAData test = new GetOpenFDAData();
+  OpenFDAClient test = new OpenFDAClient();
   test.getOpenFDAData();
   }
       
