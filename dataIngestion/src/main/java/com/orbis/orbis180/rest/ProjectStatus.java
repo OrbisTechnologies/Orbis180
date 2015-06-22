@@ -5,6 +5,7 @@
  */
 package com.orbis.orbis180.rest;
 
+import java.io.IOException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -26,11 +27,22 @@ public class ProjectStatus {
   }
   
   @GET()
-  @Path("/getOpenFDAData")
+  @Path("/getOpenFDAData/addToDatabase")
   @Produces(MediaType.TEXT_HTML)  
-  public void test(){
-  OpenFDAClient test = new OpenFDAClient();
-  test.getOpenFDAData();
+  public void addDataToDatabase() throws IOException{      
+      OpenFDAClient addObj = new OpenFDAClient();
+      addObj.getNumOfRecordsBtwYears();
+
+  }
+  
+  
+   @GET()
+  @Path("/getOpenFDAData/writeToFile")
+  @Produces(MediaType.TEXT_HTML)  
+  public void writeDataToFile() throws IOException{ 
+      OpenFDAClient writeObj = new OpenFDAClient();
+      writeObj.checkRecordLimit();
+      
   }
       
 }
