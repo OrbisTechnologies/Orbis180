@@ -105,7 +105,7 @@ public class SesameInterface {
 
 	private void enableCurrentRepository() {
 		try {
-			SailImplConfig backendConfig = new NativeStoreConfig("spoc,posc", true);
+			//SailImplConfig backendConfig = new NativeStoreConfig("spoc,posc", true);
 
 			// create a configuration for the repository implementation
 			//RepositoryImplConfig repositoryTypeSpec = new SailRepositoryConfig(backendConfig);
