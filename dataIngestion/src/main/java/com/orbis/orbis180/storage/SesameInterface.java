@@ -1,10 +1,12 @@
 package com.orbis.orbis180.storage;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Properties;
 import java.util.Set;
+import java.util.logging.Level;
 import org.openrdf.model.URI;
 import org.openrdf.model.Value;
 import org.openrdf.model.ValueFactory;
@@ -15,6 +17,8 @@ import org.openrdf.repository.config.RepositoryConfig;
 import org.openrdf.repository.config.RepositoryImplConfig;
 import org.openrdf.repository.manager.RemoteRepositoryManager;
 import org.openrdf.repository.sail.config.SailRepositoryConfig;
+import org.openrdf.rio.RDFFormat;
+import org.openrdf.rio.RDFParseException;
 import org.openrdf.sail.config.SailImplConfig;
 import org.openrdf.sail.nativerdf.config.NativeStoreConfig;
 import org.slf4j.Logger;
@@ -23,7 +27,7 @@ import org.slf4j.LoggerFactory;
 /**
  * <code>SesameInterface</code> accesses OpenRDF Sesame server operations.
  *
- * @author Carlos J. Andino <candino@orbistechnologies.com>
+ * @author Carlos Andino <candino@orbistechnologies.com>
  */
 public class SesameInterface {
 
@@ -46,7 +50,7 @@ public class SesameInterface {
 
 			// Obtain session info
 			server = config.getProperty("com.orbis.orbis180.sesame.server");
-//            repositoryID = config.getProperty("com.orbis.orbis180.sesame.repository");
+                        repositoryID = config.getProperty("com.orbis.orbis180.sesame.repository");
 			context = config.getProperty("com.orbis.orbis180.sesame.context");
 			baseURI = config.getProperty("com.orbis.orbis180.sesame.baseuri");
 
@@ -69,7 +73,7 @@ public class SesameInterface {
 			// create a configuration for the repository implementation
 			RepositoryImplConfig repositoryTypeSpec = new SailRepositoryConfig(backendConfig);
 			RepositoryConfig repoConfig = new RepositoryConfig(repositoryID, repositoryTypeSpec);
-			// repoConfig.setTitle("Test repository for SemBio IRAD.");
+			// repoConfig.setTitle("Test repository for openFDA.");
 			manager.addRepositoryConfig(repoConfig);
 			repository = manager.getRepository(repositoryID);
 			repository.initialize();
@@ -104,15 +108,12 @@ public class SesameInterface {
 			SailImplConfig backendConfig = new NativeStoreConfig("spoc,posc", true);
 
 			// create a configuration for the repository implementation
-			RepositoryImplConfig repositoryTypeSpec = new SailRepositoryConfig(backendConfig);
-			RepositoryConfig repoConfig = new RepositoryConfig(repositoryID, repositoryTypeSpec);
-			manager.addRepositoryConfig(repoConfig);
+			//RepositoryImplConfig repositoryTypeSpec = new SailRepositoryConfig(backendConfig);
+			//RepositoryConfig repoConfig = new RepositoryConfig(repositoryID, repositoryTypeSpec);
+			//manager.addRepositoryConfig(repoConfig);
 			repository = manager.getRepository(repositoryID);
 			repository.initialize();
-			Set<String> repos = manager.getRepositoryIDs();
-			for (String repo : repos) {
-				logger.debug("{} repository is available.", repo.toString());
-			}
+			
 			//config.validate();
 
 		} catch (Exception ex) {
@@ -134,8 +135,26 @@ public class SesameInterface {
 		}
 
 	}
+        public void loadFile(File file, RDFFormat format) {
 
-	public String getBaseURI(String humanFriendlyName, String backupName) {
+		try {
+			RepositoryConnection con = repository.getConnection();
+			try {
+				con.add(file, baseURI, format, repository.getValueFactory().createURI(context));
+			} catch (IOException ex) {
+                            logger.error("File {} was not found or the user does not have enough priviledges.", file.getAbsolutePath());
+                        } catch (RDFParseException ex) {
+                            logger.error("The contents of the file {} could not be properly parsed as RDF.", file.getAbsolutePath());
+                    } finally {
+				con.close();
+			}
+		} catch (RepositoryException ex) {
+			logger.error(ex.getLocalizedMessage());
+		}
+
+	}
+
+	public String getBaseURIForEntity(String humanFriendlyName, String backupName) {
 
 		String uri = baseURI;
 
@@ -184,6 +203,10 @@ public class SesameInterface {
 	public String getContext() {
 		return context;
 	}
+        
+        public String getBaseUri(){
+            return this.baseURI;
+        }
 
 	public Repository getRepository() {
 		return repository;
