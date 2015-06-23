@@ -212,15 +212,6 @@
     
 
 
-    <!-- http://www.orbistechnologies.com/ontologies/openFDA#status -->
-
-    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#status">
-        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </DatatypeProperty>
-    
-
-
     <!-- http://www.orbistechnologies.com/ontologies/openFDA#timestamp -->
 
     <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#timestamp">
@@ -298,6 +289,14 @@
     
 
 
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Completed -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Completed">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Status"/>
+    </Class>
+    
+
+
     <!-- http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport -->
 
     <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport">
@@ -320,9 +319,25 @@
     
 
 
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Ongoing -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Ongoing">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Status"/>
+    </Class>
+    
+
+
     <!-- http://www.orbistechnologies.com/ontologies/openFDA#Organization -->
 
     <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Organization"/>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Pending -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Pending">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Status"/>
+    </Class>
     
 
 
@@ -335,6 +350,20 @@
     <!-- http://www.orbistechnologies.com/ontologies/openFDA#Reports -->
 
     <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Reports"/>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Status -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Status"/>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Terminated -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Terminated">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Status"/>
+    </Class>
     
 
 

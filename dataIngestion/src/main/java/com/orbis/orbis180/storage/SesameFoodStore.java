@@ -38,6 +38,7 @@ public class SesameFoodStore implements IStore{
     public void storeFromJson(String jsonData) {
         //Initialize sesame interface items
         sesame = new SesameInterface();
+        //TODO: Obtain repository from configuration file
         String repositoryName = "openFDA-test";
         if(sesame.repositoryExist(repositoryName)){
             sesame.openRepository(repositoryName);
@@ -70,8 +71,6 @@ public class SesameFoodStore implements IStore{
                     storeProperty("recallNumber", recallNumber);
                     String reasonForRecall = results.get(i).get("reason_for_recall").asText();
                     storeProperty("reasonForRecall", reasonForRecall);
-                    String status = results.get(i).get("status").asText();
-                    storeProperty("status", status);
                     String distributionPattern = results.get(i).get("distribution_pattern").asText();
                     storeProperty("distributionPattern", distributionPattern);
                     String quantity = results.get(i).get("product_quantity").asText();
@@ -92,20 +91,25 @@ public class SesameFoodStore implements IStore{
                     storeProperty("codeInfo", codeInfo);
                     String notification = results.get(i).get("initial_firm_notification").asText();
                     storeProperty("initialFirmNotification", notification);
+                    //TODO:Find unique identifier for food elements.  Currently the only difference is in the description, 
+                    //which may be too long in some cases. Once determined, the Food class can be instantiated individually 
+                    //and the description added to it.
+                    String productDescription = results.get(i).get("product_description").asText();
+                    storeProperty("#productDescription", notification);
+                    
+                    //Storing status as a relationship
+                    String status = results.get(i).get("status").asText();
+                    URI statusUri = valueFactory.createURI(baseURI + "#" + status.replace(" ", ""));
+                    sesame.storeTriple(statusUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Status"));
+                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasStatus"),statusUri);
                     
                     //Store product type as a relationship
                     String productType = results.get(i).get("product_type").asText();
-                    String productDescription = results.get(i).get("product_description").asText();
-                    //TODO:Find unique identifier for food elements.  Currently the only difference is in the description, which may be too long in some cases.
-                    URI productUri = valueFactory.createURI(baseURI + "/Product/" + productType.toLowerCase().replace(" ", "_")+ "-" + recallNumber);
                     //Currently only 'Food' is in the ontology model.  The following lines will create a new URI for the product type
-                    //and will make it a subclass of Product.  This will cover for any missing product types in the model
+                    //and will make it a subclass of Product.  This will cover for any missing products in the model
                     URI productTypeUri = valueFactory.createURI(baseURI + "#" + productType.replace(" ", ""));
                     sesame.storeTriple(productTypeUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Product"));
-                    sesame.storeTriple(productUri, RDF.TYPE, productTypeUri);
-                    sesame.storeTriple(productUri, valueFactory.createURI(baseURI + "#productDescription"), 
-                            valueFactory.createLiteral(productDescription));
-                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasProductType"), productUri);
+                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasProductType"),productTypeUri);
                     
                     //Store recalling firm as a relationship
                     String recallingFirm = results.get(i).get("recalling_firm").asText();
@@ -117,13 +121,11 @@ public class SesameFoodStore implements IStore{
                     
                     //Store Classification type as a relationship
                     String classification = results.get(i).get("classification").asText();
-                    URI classificationUri = valueFactory.createURI(baseURI + "/classification/" + classification.toLowerCase().replace(" ", "_"));
                     //Currently only 'Class I - III' are in the ontology model.  The following lines will create a new URI for the classification
                     //and will make it a subclass of Classification.  This will cover for any missing classifications in the model
                     URI classificationTypeUri = valueFactory.createURI(baseURI + "#" + classification.replace(" ", ""));
                     sesame.storeTriple(classificationTypeUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Classification"));
-                    sesame.storeTriple(classificationUri, RDF.TYPE, classificationTypeUri);
-                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasClassification"), classificationUri);
+                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasClassification"), classificationTypeUri);
                 }
             }
             

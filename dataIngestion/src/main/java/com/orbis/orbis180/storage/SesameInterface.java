@@ -5,8 +5,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Properties;
-import java.util.Set;
-import java.util.logging.Level;
 import org.openrdf.model.URI;
 import org.openrdf.model.Value;
 import org.openrdf.model.ValueFactory;
@@ -31,7 +29,7 @@ import org.slf4j.LoggerFactory;
  */
 public class SesameInterface {
 
-	final static protected Logger logger = LoggerFactory.getLogger("command");
+	final static protected Logger logger = LoggerFactory.getLogger(SesameInterface.class);
 	private String server;
 	private String repositoryID;
 	private RemoteRepositoryManager manager;

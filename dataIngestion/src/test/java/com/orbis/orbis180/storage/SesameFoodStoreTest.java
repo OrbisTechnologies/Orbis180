@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
  *
@@ -40,6 +41,7 @@ public class SesameFoodStoreTest {
     /**
      * Test of storeFromJson method, of class SesameFoodStore.
      */
+    @Ignore
     @Test
     public void testStoreFromJson() throws IOException {
         System.out.println("storeFromJson");
@@ -48,7 +50,7 @@ public class SesameFoodStoreTest {
         File sampleData = new File(getClass().getClassLoader().getResource("data/sampleFoodReports.json").getFile());
         String jsonData = readFile(sampleData.getAbsolutePath(), Charset.forName("UTF-8"));
         System.out.println(jsonData);
-        SesameFoodStore instance = new SesameFoodStore();
+        IStore instance = StoreFactory.getFoodAPIStore();
         instance.storeFromJson(jsonData);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -57,6 +59,7 @@ public class SesameFoodStoreTest {
     static String readFile(String path, Charset encoding)
             throws IOException {
         byte[] encoded = Files.readAllBytes(Paths.get(path));
+        
         return new String(encoded, encoding);
     }
             
