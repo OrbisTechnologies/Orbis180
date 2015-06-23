@@ -89,13 +89,17 @@ public class SesameFoodStore implements IStore{
                     storeProperty("voluntaryMandated", voluntary);
                     String codeInfo = results.get(i).get("code_info").asText();
                     storeProperty("codeInfo", codeInfo);
-                    String notification = results.get(i).get("initial_firm_notification").asText();
-                    storeProperty("initialFirmNotification", notification);
                     //TODO:Find unique identifier for food elements.  Currently the only difference is in the description, 
                     //which may be too long in some cases. Once determined, the Food class can be instantiated individually 
                     //and the description added to it.
                     String productDescription = results.get(i).get("product_description").asText();
                     storeProperty("#productDescription", productDescription);
+                    
+                    //Storing Firm Notification as a relationship
+                    String notification = results.get(i).get("initial_firm_notification").asText();
+                    URI notificationUri = valueFactory.createURI(baseURI + "#" + notification.replace(" ", ""));
+                    sesame.storeTriple(notificationUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Notification"));
+                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasInitialFirmNotification"),notificationUri);
                     
                     //Storing status as a relationship
                     String status = results.get(i).get("status").asText();
