@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
  */
 public class SesameFoodStore implements IStore{
 
-    final static protected org.slf4j.Logger logger = LoggerFactory.getLogger("command");
+    final static protected org.slf4j.Logger logger = LoggerFactory.getLogger(SesameFoodStore.class);
     private URI reportId;
     private String baseURI;
     private ValueFactory valueFactory;
