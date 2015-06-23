@@ -87,19 +87,8 @@ public class OpenFDAClient {
                         
                         setSearchParameter(minDateVal,maxDateVal);                        
                         setRecordLimitParameter(MAX_RECORD_LIMIT);
-                        setNextRecordsLimitParameter(NEXT_RECORD_LIMIT);                       
+                        setNextRecordsLimitParameter(NEXT_RECORD_LIMIT);  
                         
-                        
-//                        System.out.println("NEXT_RECORD_LIMIT: " + NEXT_RECORD_LIMIT);
-//                        System.out.println("MAX_RECORD_LIMIT " + MAX_RECORD_LIMIT);
-//                        System.out.println("MAX_NEXT_RECORD_LIMIT " + MAX_NEXT_RECORD_LIMIT);
-//                        System.out.println("RECORD_WRITED_TO_FILE " + RECORD_WRITED_TO_FILE);
-//                        System.out.println("OPEN_FDA_FOOD_URL " + OPEN_FDA_FOOD_URL);
-//                        System.out.println("URL_API_KEY " + URL_API_KEY);
-//                        System.out.println("JSON_DIR_PATH " + JSON_DIR_PATH);
-//                        System.out.println("minDateVal " + minDateVal);
-//                        System.out.println("maxDateVal " + maxDateVal);
-
 		} catch (Exception e) {
                      e.printStackTrace();
 			
@@ -121,17 +110,10 @@ public class OpenFDAClient {
         }
                 
             while((currNumOfRecords < totalRecords) && ((totalRecords - currNumOfRecords) > MAX_RECORD_LIMIT))
-    //           for(int j = 0; j < 5; j++)  //for testing purpose
             {   
-//                System.out.println("addDataToFile Function 2");
-//                System.out.println("TOTAL_RECORDS: " + TOTAL_RECORDS);
-//                System.out.println("CURRENT_NUM_OF_RECORDS: " + CURRENT_NUM_OF_RECORDS);
-//                System.out.println("Difference: "+ (TOTAL_RECORDS - CURRENT_NUM_OF_RECORDS));
-//                System.out.println("MAX_RECORD_LIMIT: "+ MAX_RECORD_LIMIT);
 
                 if((totalRecords - currNumOfRecords) < MAX_RECORD_LIMIT)
                 {
-    //                    System.out.println("In if statment: :)");
 
                     if(isFirstLimitedPull)
                     {
@@ -311,7 +293,7 @@ public class OpenFDAClient {
     {
         String openFDADataLink;
                           
-        //Eg:- https://api.fda.gov/food/enforcement.json?api_key=1mhfdv4IKKTKLbJ8DlDuzQoWKYWXnTf0cQOiLaYl&search=report_date:[20040101+TO+20151231]&limit=100&skip=100"
+        //Eg:- https://api.fda.gov/food/enforcement.json?api_key=<Key_Goes_Here>&search=report_date:[20040101+TO+20151231]&limit=100&skip=100"
         openFDADataLink = OPEN_FDA_FOOD_URL + URL_API_KEY + searchParameter + recordLimitParameter + nextRecordsLimitParameter;
         
         System.out.println("openFDADataLink 2: " + openFDADataLink);
@@ -415,13 +397,7 @@ public class OpenFDAClient {
             int nextFileCounter = MAX_RECORD_LIMIT;
             
             while((currNumOfRecords < totalRecords) && ((totalRecords - currNumOfRecords) > MAX_RECORD_LIMIT))
-//            for(int j = 0; j < 5; j++)  //for testing purpose
             {
-//                System.out.println("addDataToFile Function 2");
-//                System.out.println("TOTAL_RECORDS: " + TOTAL_RECORDS);
-//                System.out.println("CURRENT_NUM_OF_RECORDS: " + CURRENT_NUM_OF_RECORDS);
-//                System.out.println("Difference: "+ (TOTAL_RECORDS - CURRENT_NUM_OF_RECORDS));
-//                System.out.println("MAX_RECORD_LIMIT: "+ MAX_RECORD_LIMIT);
                 
                 setRecordLimitParameter(MAX_RECORD_LIMIT);
                 setNextRecordsLimitParameter(nextFileCounter);
@@ -431,14 +407,7 @@ public class OpenFDAClient {
                 JsonNode rootNode = mapperObj.readTree(dataOutput);            
                 resultsNode = rootNode.path("results");
 
-                //For testing purpose
-//                System.out.println("Output from openFDA Data: \n");
-//                System.out.println("results: " + resultsNode);
-//                System.out.println("Node_Size: " + resultsNode.size());
-//                System.out.println("=================================================================================================");
-
-
-
+                
                 for(int i = 0; i < resultsNode.size(); i++)
                 {   
 
@@ -468,13 +437,6 @@ public class OpenFDAClient {
                     openfda = resultsNode.get(i).get("openfda");
                     initial_firm_notification = resultsNode.get(i).get("initial_firm_notification"); 
 
-
-                    //For testing purpose
-//                    System.out.println("=================================================================================================");
-//                    System.out.println("Data: " + '\n' + recall_number + '\n' +  reason_for_recall + '\n' +  status + '\n' +  distribution_pattern + '\n' + product_quantity + '\n' + 
-//                             recall_initiation_date + '\n' +  state + '\n' +  event_id + '\n' +  product_type + '\n' +  product_description + '\n' + 
-//                             country + '\n' +  city + '\n' +  recalling_firm + '\n' +  report_date + '\n' +  epoch + '\n' +  
-//                             voluntary_mandated + '\n' +  classification + '\n' +  code_info + '\n' +  id + '\n' +  openfda + '\n' + initial_firm_notification);
                 }
                 
                 nextFileCounter = nextFileCounter + resultsNode.size();
