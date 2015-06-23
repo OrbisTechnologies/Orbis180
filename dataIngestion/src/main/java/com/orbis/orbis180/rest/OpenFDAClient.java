@@ -13,6 +13,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -43,6 +45,7 @@ public class OpenFDAClient {
     private int minDate;
     private int maxDate;  
     
+    final static protected Logger logger = LoggerFactory.getLogger("command");
 
     private String searchParameter= "&search=report_date:[" + minDateVal +"+TO+"+ maxDateVal +"]";
 
@@ -126,7 +129,7 @@ public class OpenFDAClient {
                     setNextRecordsLimitParameter(nextFileCounter);
 
 
-                    System.out.println("openFDADataLink 3: " + getOpenFDADataLink());
+                    logger.debug("openFDADataLink 3: " + getOpenFDADataLink());
 
                     getRawData(getOpenFDADataLink());
 
@@ -142,7 +145,7 @@ public class OpenFDAClient {
                     setNextRecordsLimitParameter(nextFileCounter);                    
                     setJsonFileName(minDate,maxDate,nextFileCounter);                
 
-                    System.out.println("openFDADataLink 1: " + getOpenFDADataLink());                    
+                    logger.debug("openFDADataLink 1: " + getOpenFDADataLink());                    
 
                     getRawData(getOpenFDADataLink());
 
@@ -223,7 +226,7 @@ public class OpenFDAClient {
 
             if (response.getStatus() != 200) 
             {
-               System.out.println("Failed : HTTP error code : " + response.getStatus());
+               logger.debug("Failed : HTTP error code : " + response.getStatus());
             }
 
             dataOutput = response.getEntity(String.class);
@@ -263,8 +266,8 @@ public class OpenFDAClient {
 
         getNumOfRecords();
         
-        System.out.println("TOTAL_RECORDS " + totalRecords);
-        System.out.println("MAX_NEXT_RECORD_LIMIT " + MAX_NEXT_RECORD_LIMIT);
+        logger.debug("TOTAL_RECORDS " + totalRecords);
+        logger.debug("MAX_NEXT_RECORD_LIMIT " + MAX_NEXT_RECORD_LIMIT);
         
         while(totalRecords > MAX_NEXT_RECORD_LIMIT)
         {
@@ -281,7 +284,7 @@ public class OpenFDAClient {
 
             }else
             {
-                System.out.println("tempDate " + tempDate);
+                logger.debug("tempDate " + tempDate);
                  tempDate = maxDate + NEXT_YEAR;
                  isThereNewDates = true;
             }
@@ -296,7 +299,7 @@ public class OpenFDAClient {
         //Eg:- https://api.fda.gov/food/enforcement.json?api_key=<Key_Goes_Here>&search=report_date:[20040101+TO+20151231]&limit=100&skip=100"
         openFDADataLink = OPEN_FDA_FOOD_URL + URL_API_KEY + searchParameter + recordLimitParameter + nextRecordsLimitParameter;
         
-        System.out.println("openFDADataLink 2: " + openFDADataLink);
+        logger.debug("openFDADataLink 2: " + openFDADataLink);
         
         return openFDADataLink;
     }
@@ -348,15 +351,15 @@ public class OpenFDAClient {
         if (!dirPathObj.exists()) 
         {
             isDirCreated = dirPathObj.mkdirs();
-            System.out.println("Directory successfully created");
+            logger.debug("Directory successfully created");
             
             isFileCreated = filePathObj.createNewFile();
-            System.out.println("File successfully created: " + jsonFileName);
+            logger.debug("File successfully created: " + jsonFileName);
 
         }
 
         if (isDirCreated && isFileCreated){
-            System.out.println("Writng to File: " + jsonFileName);
+            logger.debug("Writng to File: " + jsonFileName);
             FileWriter writer;
             
             if(isAppend)
@@ -371,7 +374,7 @@ public class OpenFDAClient {
             writer.close();
         }
         else{
-            System.out.println("Failed to create directory");
+            logger.debug("Failed to create directory");
         }
         
     }
