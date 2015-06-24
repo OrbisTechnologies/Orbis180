@@ -136,6 +136,7 @@ public class SesameFoodStore implements IStore{
                     triples.add(new StatementImpl(reportId, valueFactory.createURI(baseURI + "#hasClassification"), classificationTypeUri));
                     
                     sesame.storeTriplesInBatch(triples);
+                    triples.clear();
                 }
             }
             
