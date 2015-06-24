@@ -1,0 +1,51 @@
+#overviewStatistics {    
+	position:absolute;
+	top:10px;
+	left:5px;
+	height: 150px;
+
+}
+.slice {
+   font-size: 12pt;
+   font-family: Calibri;
+   fill: white; //svg specific - instead of color
+   font-weight: bold;	
+  		} 
+
+.axis text {
+    font-family: Calibri;
+    font-size: 11px;
+}
+
+.title {
+	 font-family: Calibri;
+    font-size: 15px;	
+		
+}
+
+#Title1 {
+	font-family: Calibri;
+	font-size  : 16px;
+	fill       : lightblue;
+	font-weight: bold;
+	text-anchor: middle;
+}
+
+#Title2 {
+	font-family: Calibri;
+	font-size  : 70px;
+	fill       : lightgreen;
+	text-anchor: middle;
+	font-weight: bold;
+	/*font-style: italic;*/
+}
+
+svg{
+border-style:solid;
+border-width:2px;
+}
+
+.container-item {
+   display: block;
+   margin: 70px 0;
+}
