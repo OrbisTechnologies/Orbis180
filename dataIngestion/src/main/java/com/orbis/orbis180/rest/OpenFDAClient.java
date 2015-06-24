@@ -5,6 +5,9 @@
  */
 package com.orbis.orbis180.rest;
 
+import com.orbis.orbis180.storage.IStore;
+import com.orbis.orbis180.storage.SesameFoodStore;
+import com.orbis.orbis180.storage.StoreFactory;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -398,6 +401,7 @@ public class OpenFDAClient {
             }
             
             int nextFileCounter = MAX_RECORD_LIMIT;
+            IStore dataStorage = StoreFactory.getFoodAPIStore();
             
             while((currNumOfRecords < totalRecords) && ((totalRecords - currNumOfRecords) > MAX_RECORD_LIMIT))
             {
@@ -409,38 +413,40 @@ public class OpenFDAClient {
 
                 JsonNode rootNode = mapperObj.readTree(dataOutput);            
                 resultsNode = rootNode.path("results");
-
+//                System.out.println("dataOutput: " + dataOutput);
                 
-                for(int i = 0; i < resultsNode.size(); i++)
-                {   
-
-
-                    recall_number = resultsNode.get(i).get("recall_number");
-                    reason_for_recall = resultsNode.get(i).get("reason_for_recall");
-                    status = resultsNode.get(i).get("status");
-                    distribution_pattern = resultsNode.get(i).get("distribution_pattern");
-                    product_quantity = resultsNode.get(i).get("product_quantity");
-
-                    recall_initiation_date = resultsNode.get(i).get("recall_initiation_date");
-                    state = resultsNode.get(i).get("state");
-                    event_id = resultsNode.get(i).get("event_id");
-                    product_type = resultsNode.get(i).get("product_type");
-                    product_description = resultsNode.get(i).get("product_description");
-
-                    country = resultsNode.get(i).get("country");
-                    city = resultsNode.get(i).get("city");
-                    recalling_firm = resultsNode.get(i).get("recalling_firm");
-                    report_date = resultsNode.get(i).get("report_date");
-                    epoch = resultsNode.get(i).get("@epoch");
-
-                    voluntary_mandated = resultsNode.get(i).get("voluntary_mandated");
-                    classification = resultsNode.get(i).get("classification");
-                    code_info = resultsNode.get(i).get("code_info");
-                    id = resultsNode.get(i).get("@id");
-                    openfda = resultsNode.get(i).get("openfda");
-                    initial_firm_notification = resultsNode.get(i).get("initial_firm_notification"); 
-
-                }
+                dataStorage.storeFromJson(dataOutput);
+                
+//                for(int i = 0; i < resultsNode.size(); i++)
+//                {   
+//
+//
+//                    recall_number = resultsNode.get(i).get("recall_number");
+//                    reason_for_recall = resultsNode.get(i).get("reason_for_recall");
+//                    status = resultsNode.get(i).get("status");
+//                    distribution_pattern = resultsNode.get(i).get("distribution_pattern");
+//                    product_quantity = resultsNode.get(i).get("product_quantity");
+//
+//                    recall_initiation_date = resultsNode.get(i).get("recall_initiation_date");
+//                    state = resultsNode.get(i).get("state");
+//                    event_id = resultsNode.get(i).get("event_id");
+//                    product_type = resultsNode.get(i).get("product_type");
+//                    product_description = resultsNode.get(i).get("product_description");
+//
+//                    country = resultsNode.get(i).get("country");
+//                    city = resultsNode.get(i).get("city");
+//                    recalling_firm = resultsNode.get(i).get("recalling_firm");
+//                    report_date = resultsNode.get(i).get("report_date");
+//                    epoch = resultsNode.get(i).get("@epoch");
+//
+//                    voluntary_mandated = resultsNode.get(i).get("voluntary_mandated");
+//                    classification = resultsNode.get(i).get("classification");
+//                    code_info = resultsNode.get(i).get("code_info");
+//                    id = resultsNode.get(i).get("@id");
+//                    openfda = resultsNode.get(i).get("openfda");
+//                    initial_firm_notification = resultsNode.get(i).get("initial_firm_notification"); 
+//
+//                }
                 
                 nextFileCounter = nextFileCounter + resultsNode.size();
                 currNumOfRecords = currNumOfRecords + resultsNode.size();

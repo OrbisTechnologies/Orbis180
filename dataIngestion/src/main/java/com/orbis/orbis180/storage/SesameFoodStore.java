@@ -38,13 +38,14 @@ public class SesameFoodStore implements IStore{
     public void storeFromJson(String jsonData) {
         //Initialize sesame interface items
         sesame = new SesameInterface();
-        //TODO: Obtain repository from configuration file
+        
         String repositoryName = "openFDA-test";
-        if(sesame.repositoryExist(repositoryName)){
+//        if(sesame.repositoryExist(repositoryName)){
             sesame.openRepository(repositoryName);
-        } else {
-            sesame.createRepository(repositoryName);
-        }
+//        } 
+//        else {
+//            sesame.createRepository(repositoryName);
+//        }
         
         //Load ontology model
         sesame.loadFile(new File(getClass().getClassLoader().getResource("models/openFDA-model.owl").getFile()), RDFFormat.RDFXML);
