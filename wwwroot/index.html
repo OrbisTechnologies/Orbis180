@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.js"></script>
+
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
@@ -25,39 +28,45 @@
     <title class=".visible-md-* .visible-lg-*">Wiley: Navigating the data jungle</title>
     <!-- Custom styles -->
     <link href="dashboard.css" rel="stylesheet">
+	
+    <link href="custom_menu.css" rel="stylesheet">
 </head>
 
 <body>
-
-    <div class="navbar  navbar-fixed-top  navbar-inverse  navbar-static-top ">test</div>
-    <nav class="navbar navbar-fixed-top navbar-inverse nav-stacked">
-
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Wiley</a>
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-left">
-                    <li><a href="#">Monitor</a></li>
-                    <li><a href="#">Search</a></li>
-                    <li><a href="#">Help</a></li>
-                </ul>
-                <form class="navbar-form navbar-right">
-                    <input class="form-control" placeholder="Search..." type="text">
-                    <button type="button" class="btn btn-default" aria-label="Left Align" id="btnSubmit">
-                        <span class="glyphicon glyphicon-align-left" aria-hidden="true">Submit</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
+<!-- top navbar -->
+<div class="container">
+	<header class="header-row row" role="banner">
+		<div class="navbar-text text-right col-sm-12  navbar-inverse">
+			<a href="#" class="navbar-link header-nav">Install Notes</a>
+			<a href="#" class="navbar-link  header-nav">Release Notes</a>
+			<a href="#" class="navbar-link  header-nav">Help Files</a>
+		</div>
+	</header>
+	<div class="row">
+		<div class="col-sm-2">
+			<div class="sidebar-nav">
+				<div class="navbar navbar-default" role="navigation">
+					<div class="navbar-header">
+					<!--on collapse, the nav bar will go here -->
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<span class="visible-xs navbar-brand">Wiley</span>
+					</div>
+					<div class="navbar-collapse collapse sidebar-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="#">Wiley          </a></li>
+							<li class="active"><a href="#">Search</a></li>
+							<li><a href="#">Monitor</a></li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12">
     <div class="container-fluid">
         <div class="row-fluid">
             <!--
@@ -74,39 +83,112 @@
         </div>
     </div>
 	-->
-            <div class="span10">
+            <div class="span12">
                 <!--Body content-->
+<!--"col-sm-9  col-md-10main"-->
+				<div class = "row">
+                <div class="col-sm-4 form-group">
+						<form class="form-horizontal">
+<fieldset>
 
-                <div class="col-sm-9  col-md-10main">
-                    <h1 class="page-header">Results</h1>
+<!-- Form Name -->
+<legend>Search</legend>
 
+<!-- Search input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="searchinput">Description</label>
+					<div class="col-md-4">
+						<input id="searchinput" name="searchinput" type="search" placeholder="eg something" class="form-control input-md">
+						<p class="help-block">Food Description</p>
+					</div>
+</div>
+	
+	<!-- Select Basic -->
+	<div class="form-group">
+		<label class="col-md-4 control-label" for="selectlocation">Location</label>
+		<div class="col-md-4">
+			<select id="selectlocation" name="selectlocation" class="form-control">
+				<option value="1">Alabama</option>
+				<option value="2">Alaska</option>
+				<option value="">American Samoa</option>
+				<option value="">Arizona</option>
+				<option value="">Arkansas</option>
+				<option value="">California</option>
+				<option value="">Colorado</option>
+				<option value="">Connecticut</option>
+				<option value="">Delaware</option>
+				<option value="">District of Columbia</option>
+				<option value="">Florida</option>
+				<option value="">Georgia</option>
+				<option value="">Guam</option>
+				<option value="">Hawaii</option>
+				<option value="">Idaho</option>
+				<option value="">Illinois</option>
+				<option value="">Indiana</option>
+				<option value="">Iowa</option>
+				<option value="">Kansas</option>
+				<option value="">Kentucky</option>
+				<option value="">Louisiana</option>
+				<option value="">Maine</option>
+				<option value="">Maryland</option>
+				<option value="">Massachusetts</option>
+				<option value="">Michigan</option>
+				<option value="">Minnesota</option>
+				<option value="">Mississippi</option>
+				<option value="">Missouri</option>
+				<option value="">Montana</option>
+				<option value="">Nebraska</option>
+				<option value="">Nevada</option>
+				<option value="">New Hampshire</option>
+				<option value="">New Jersey</option>
+				<option value="">New Mexico</option>
+				<option value="">New York</option>
+				<option value="">North Carolina</option>
+				<option value="">North Dakota</option>
+				<option value="">Northern Marianas Islands</option>
+				<option value="">Ohio</option>
+				<option value="">Oklahoma</option>
+				<option value="">Oregon</option>
+				<option value="">Pennsylvania</option>
+				<option value="">Puerto Rico</option>
+				<option value="">Rhode Island</option>
+				<option value="">South Carolina</option>
+				<option value="">South Dakota</option>
+				<option value="">Tennessee</option>
+				<option value="">Texas</option>
+				<option value="">Utah</option>
+				<option value="">Vermont</option>
+				<option value="">Virginia</option>
+				<option value="">Virgin Islands</option>
+				<option value="">Washington</option>
+				<option value="">West Virginia</option>
+				<option value="">Wisconsin</option>
+				<option value="">Wyoming</option>
+			</select>
+		</div>
+	</div>
+	
+	<!-- Text input-->
+	<div class="form-group">
+		<label class="col-md-4 control-label" for="daterange">Date Range</label>  
+		<div class="col-md-4">
+			<input id="daterange" name="daterange" type="text" placeholder="dd/mm/yyyy" class="form-control input-md">
+			<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>  
+		</div>
+	</div>
+	
+</fieldset>
+						</form>
+					
+				</div>
+				<div class="col-sm-8">
                     <div class="col-xs-6 col-sm-3 img-responsive" style="height:400px;width:100%" id="map">
 
                     </div>
                 </div>
+				</div>
                 <div class="col-sm-9  col-md-10main">
-                    <h3 class="page-header">Summary</h3>
-
-                    <div class="row placeholders">
-                        <div class="col-xs-6 col-sm-3 placeholder" id="easy-as-pie-chart">
-
-                            <h4>Frequency</h4>
-                        </div>
-                        <!---         <div class="col-xs-6 col-sm-3 placeholder"   id="btnSubmit">-->
-
-                        <div class="col-xs-6 col-sm-3 placeholder" id="classchart">
-                            <h4>Other Thing</h4>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 placeholder">
-                            <h4>Label</h4>
-                            <span class="text-muted">Something else</span>
-                        </div>
-                        <div class="col-xs-6 col-sm-3 placeholder">
-                            <h4>Label</h4>
-                            <span class="text-muted">Something else</span>
-                        </div>
-                    </div>
-
+               
 
 
 
@@ -245,6 +327,10 @@
 
         </div>
     </div>
+			
+		</div>
+	</div>
+	</div>
     <!---this is for search functionality-->
     <script>
         $(document).ready(function btnClick() {
