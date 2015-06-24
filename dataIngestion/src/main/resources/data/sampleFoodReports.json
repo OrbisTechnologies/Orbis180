@@ -1,0 +1,83 @@
+{
+"meta": {
+"disclaimer": "openFDA is a beta research project and not for clinical use. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated.",
+"license": "http://open.fda.gov/license",
+"last_updated": "2015-05-31",
+"results": {
+"skip": 0,
+"limit": 3,
+"total": 271
+}
+},
+"results": [
+{
+"recall_number": "F-0924-2013",
+"reason_for_recall": "The labels on two-liter batches of Regular and Diet Wild Cherry Pepsi were mistakenly swapped during production. This is potential safety issue for individuals who are sensitive to phenylalanine (i.e., phenylketonuric) or who are diabetic.",
+"status": "Ongoing",
+"distribution_pattern": "Massachusetts, Connecticut, Maine, New Hampshire and Vermont",
+"product_quantity": "1064 - 8 pack cases",
+"recall_initiation_date": "20121220",
+"state": "NY",
+"event_id": "63954",
+"product_type": "Food",
+"product_description": "Regular Wild Cherry Pepsi two liter plastic bottles\nUPC 1231100",
+"country": "US",
+"city": "Valhalla",
+"recalling_firm": "Pepsi Cola North America",
+"report_date": "20130130",
+"@epoch": 1424553174.836488,
+"voluntary_mandated": "Voluntary: Firm Initiated",
+"classification": "Class III",
+"code_info": "Best Before Date of Feb2513 and a Manufacturing Code of PF11282",
+"@id": "00051a008281b984d492fc73132fd514042daaa8facd7657b98a5bc33cc7d017",
+"openfda": {},
+"initial_firm_notification": "Letter"
+},
+{
+"recall_number": "F-2331-2014",
+"reason_for_recall": "Undeclared color Red #3 .",
+"status": "Ongoing",
+"distribution_pattern": "CA, KY, LA, MN, MS, NC, NJ, NY, OH, OK, PA, TX, VA",
+"product_quantity": "144 bags",
+"recall_initiation_date": "20140613",
+"state": "VA",
+"event_id": "68755",
+"product_type": "Food",
+"product_description": "Jody's, Breast Cancer Awareness Kettle Corn; Net Wt 3oz  in clear cellophane bag.",
+"country": "US",
+"city": "Virginia Beach",
+"recalling_firm": "Jody's Inc.",
+"report_date": "20140827",
+"@epoch": 1424553174.836488,
+"voluntary_mandated": "Voluntary: Firm Initiated",
+"classification": "Class III",
+"code_info": "3/15/14, 6/12/14",
+"@id": "027da1c2fc0d36277d41b6f7b7d82372f81c142826285f969d8946789db3b522",
+"openfda": {},
+"initial_firm_notification": "Letter"
+},
+{
+"recall_number": "F-1417-2012",
+"reason_for_recall": "Korean canned Medium Smoked Oysters, Napoleon brand, are recalled because the product has been prepared, packed, or held under insanitary conditions whereby it may have become contaminated with filth, or whereby it may have been rendered injurious to health.",
+"status": "Ongoing",
+"distribution_pattern": "Products were distributed in California, Oregon, and Washington.",
+"product_quantity": "21 cases (100 cans/ 3.66 oz)",
+"recall_initiation_date": "20120530",
+"state": "WA",
+"event_id": "61983",
+"product_type": "Food",
+"product_description": "Napoleon canned, Smoked Oysters, Medium.  Item no. 48-312.  Net WT. per can is 3.66 oz (106 g). The UPC is 0 41253 00312 7.\n\nThe product is labeled in parts:\n\"***NAPOLEON***Medium***SMOKED OYSTERS***NET WT. 3.66 OZ (106 g)***INGREDIENTS: SMOKED OYSTERS, SOYA OIL, SALT***PRODUCT OF KOREA***FARM RAISED***\".",
+"country": "US",
+"city": "Bellevue",
+"recalling_firm": "Napoleon Company, The",
+"report_date": "20120620",
+"@epoch": 1424553174.836488,
+"voluntary_mandated": "Voluntary: Firm Initiated",
+"classification": "Class III",
+"code_info": "BEST BEFORE: MAY 2015;\nCan Code: OYSO M LY-39 1505;\n\nCan Code interpretation:\nOYSO = Smoked Oyters;\nM = Medium size;\nLY-39 = Packer Code;\n1 = Year;\n5 = Month;\n04 = Date;",
+"@id": "02b798727590626bfc32ece5885c378ae40511d80b80294ca5146e49e4f41916",
+"openfda": {},
+"initial_firm_notification": "E-Mail"
+}
+]
+}

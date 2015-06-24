@@ -1,0 +1,378 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Ontology rdf:about="http://www.orbistechnologies.com/ontologies/openFDA"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#hasClassification -->
+
+    <ObjectProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#hasClassification">
+        <rdfs:range rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Classification"/>
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#hasLocation -->
+
+    <ObjectProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#hasLocation">
+        <rdfs:range rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Location"/>
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Reports"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#hasRecallInitiationDate -->
+
+    <ObjectProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#hasRecallInitiationDate">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+        <rdfs:range rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Time"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#hasRecallingFirm -->
+
+    <ObjectProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#hasRecallingFirm">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+        <rdfs:range rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Organization"/>
+    </ObjectProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#hasReportDate -->
+
+    <ObjectProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#hasReportDate">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Reports"/>
+        <rdfs:range rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Time"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#city -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#city">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Location"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#codeInfo -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#codeInfo">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#country -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#country">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Location"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#day -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#day">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Time"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#distributionPattern -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#distributionPattern">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#eventId -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#eventId">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Reports"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#initialFirmNotification -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#initialFirmNotification">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#month -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#month">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Time"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#organizationName -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#organizationName">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Organization"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#productDescription -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#productDescription">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Product"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#productQuantity -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#productQuantity">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#reasonForRecall -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#reasonForRecall">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#recallNumber -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#recallNumber">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#state -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#state">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Location"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#timestamp -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#timestamp">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Time"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#voluntaryMandated -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#voluntaryMandated">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#year -->
+
+    <DatatypeProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#year">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Time"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#AdverseEvent -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#AdverseEvent">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Reports"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#ClassI -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#ClassI">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Classification"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#ClassII -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#ClassII">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Classification"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#ClassIII -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#ClassIII">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Classification"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Classification -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Classification"/>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Completed -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Completed">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Status"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Reports"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Food -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Food">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Product"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Location -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Location"/>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Ongoing -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Ongoing">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Status"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Organization -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Organization"/>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Pending -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Pending">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Status"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Product -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Product"/>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Reports -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Reports"/>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Status -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Status"/>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Terminated -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Terminated">
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Status"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Time -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Time"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
