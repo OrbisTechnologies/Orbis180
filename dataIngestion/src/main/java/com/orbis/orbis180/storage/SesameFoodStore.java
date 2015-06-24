@@ -4,14 +4,18 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.openrdf.model.Literal;
+import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
 import org.openrdf.model.ValueFactory;
+import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.model.vocabulary.RDF;
 import org.openrdf.model.vocabulary.RDFS;
 import org.openrdf.rio.RDFFormat;
@@ -29,7 +33,7 @@ public class SesameFoodStore implements IStore{
     private String baseURI;
     private ValueFactory valueFactory;
     private SesameInterface sesame;
-    
+    private List<Statement> triples = new ArrayList<>();
     /**
      * Parses and stores the contents of the <code>jsonData</code> parameter.
      * @param jsonData 
@@ -40,11 +44,12 @@ public class SesameFoodStore implements IStore{
         sesame = new SesameInterface();
         //TODO: Obtain repository from configuration file
         String repositoryName = "openFDA-test";
-        if(sesame.repositoryExist(repositoryName)){
+        //TODO: Fix issue where it is always creating a new repository
+        //if(sesame.repositoryExist(repositoryName)){
             sesame.openRepository(repositoryName);
-        } else {
-            sesame.createRepository(repositoryName);
-        }
+//        } else {
+//            sesame.createRepository(repositoryName);
+//        }
         
         //Load ontology model
         sesame.loadFile(new File(getClass().getClassLoader().getResource("models/openFDA-model.owl").getFile()), RDFFormat.RDFXML);
@@ -61,11 +66,10 @@ public class SesameFoodStore implements IStore{
             if (!results.isMissingNode()) {  //Make sure that data contains results
                 for (int i = 0; i < results.size(); i++) {
                     
-                    
                     //Define unique identifier for the subject
                     String recallNumber = results.get(i).get("recall_number").asText();
                     reportId = valueFactory.createURI(baseURI + "/Report/" + recallNumber);
-                    sesame.storeTriple(reportId, RDF.TYPE, valueFactory.createURI(baseURI + "#EnforcementReport"));
+                    triples.add(new StatementImpl(reportId, RDF.TYPE, valueFactory.createURI(baseURI + "#EnforcementReport")));
                     
                     //Parse and store contents from json
                     storeProperty("recallNumber", recallNumber);
@@ -98,38 +102,41 @@ public class SesameFoodStore implements IStore{
                     //Storing Firm Notification as a relationship
                     String notification = results.get(i).get("initial_firm_notification").asText();
                     URI notificationUri = valueFactory.createURI(baseURI + "#" + notification.replace(" ", ""));
-                    sesame.storeTriple(notificationUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Notification"));
-                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasInitialFirmNotification"),notificationUri);
+                    triples.add(new StatementImpl(notificationUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Notification")));
+                    triples.add(new StatementImpl(reportId, valueFactory.createURI(baseURI + "#hasInitialFirmNotification"),notificationUri));
                     
                     //Storing status as a relationship
                     String status = results.get(i).get("status").asText();
                     URI statusUri = valueFactory.createURI(baseURI + "#" + status.replace(" ", ""));
-                    sesame.storeTriple(statusUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Status"));
-                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasStatus"),statusUri);
+                    triples.add(new StatementImpl(statusUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Status")));
+                    triples.add(new StatementImpl(reportId, valueFactory.createURI(baseURI + "#hasStatus"),statusUri));
                     
                     //Store product type as a relationship
                     String productType = results.get(i).get("product_type").asText();
                     //Currently only 'Food' is in the ontology model.  The following lines will create a new URI for the product type
                     //and will make it a subclass of Product.  This will cover for any missing products in the model
                     URI productTypeUri = valueFactory.createURI(baseURI + "#" + productType.replace(" ", ""));
-                    sesame.storeTriple(productTypeUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Product"));
-                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasProductType"),productTypeUri);
+                    triples.add(new StatementImpl(productTypeUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Product")));
+                    triples.add(new StatementImpl(reportId, valueFactory.createURI(baseURI + "#hasProductType"),productTypeUri));
                     
                     //Store recalling firm as a relationship
                     String recallingFirm = results.get(i).get("recalling_firm").asText();
                     URI firmUri = valueFactory.createURI(baseURI + "/Organization/" + recallingFirm.toLowerCase().replace(" ", "_").replace(".", ""));
-                    sesame.storeTriple(firmUri, RDF.TYPE, valueFactory.createURI(baseURI + "#Organization"));
-                    sesame.storeTriple(firmUri, valueFactory.createURI(baseURI + "#organizationName"), 
-                            valueFactory.createLiteral(recallingFirm));
-                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasRecallingFirm"), firmUri);
+                    triples.add(new StatementImpl(firmUri, RDF.TYPE, valueFactory.createURI(baseURI + "#Organization")));
+                    triples.add(new StatementImpl(firmUri, valueFactory.createURI(baseURI + "#organizationName"), 
+                            valueFactory.createLiteral(recallingFirm)));
+                    triples.add(new StatementImpl(reportId, valueFactory.createURI(baseURI + "#hasRecallingFirm"), firmUri));
                     
                     //Store Classification type as a relationship
                     String classification = results.get(i).get("classification").asText();
                     //Currently only 'Class I - III' are in the ontology model.  The following lines will create a new URI for the classification
                     //and will make it a subclass of Classification.  This will cover for any missing classifications in the model
                     URI classificationTypeUri = valueFactory.createURI(baseURI + "#" + classification.replace(" ", ""));
-                    sesame.storeTriple(classificationTypeUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Classification"));
-                    sesame.storeTriple(reportId, valueFactory.createURI(baseURI + "#hasClassification"), classificationTypeUri);
+                    triples.add(new StatementImpl(classificationTypeUri, RDFS.SUBCLASSOF, valueFactory.createURI(baseURI + "#Classification")));
+                    triples.add(new StatementImpl(reportId, valueFactory.createURI(baseURI + "#hasClassification"), classificationTypeUri));
+                    
+                    sesame.storeTriplesInBatch(triples);
+                    triples.clear();
                 }
             }
             
@@ -142,7 +149,7 @@ public class SesameFoodStore implements IStore{
     private void storeProperty(String propertyName, String propertyValue){
         URI predicate = valueFactory.createURI(baseURI + "#" + propertyName);
         Literal object = valueFactory.createLiteral(propertyValue);
-        sesame.storeTriple(reportId,predicate, object );
+        triples.add(new StatementImpl(reportId,predicate, object ));
     }
     
     private void storeDate(String propertyName, String dateValue){
@@ -166,13 +173,13 @@ public class SesameFoodStore implements IStore{
             Date timestamp = formatter.parse(dateValue);
             
             //Building Time entity
-            sesame.storeTriple(timeUri, RDF.TYPE, valueFactory.createURI(baseURI + "#Time"));
-            sesame.storeTriple(timeUri, monthUri, valueFactory.createLiteral(month));
-            sesame.storeTriple(timeUri, dayUri, valueFactory.createLiteral(day));
-            sesame.storeTriple(timeUri, yearUri, valueFactory.createLiteral(year));
-            sesame.storeTriple(timeUri, timestampUri, valueFactory.createLiteral(timestamp));
+            triples.add(new StatementImpl(timeUri, RDF.TYPE, valueFactory.createURI(baseURI + "#Time")));
+            triples.add(new StatementImpl(timeUri, monthUri, valueFactory.createLiteral(month)));
+            triples.add(new StatementImpl(timeUri, dayUri, valueFactory.createLiteral(day)));
+            triples.add(new StatementImpl(timeUri, yearUri, valueFactory.createLiteral(year)));
+            triples.add(new StatementImpl(timeUri, timestampUri, valueFactory.createLiteral(timestamp)));
             //Associating Time entity to the 'propertyName' of the subject
-            sesame.storeTriple(reportId, predicate, timeUri);
+            triples.add(new StatementImpl(reportId, predicate, timeUri));
             
         } catch (ParseException ex) {
             logger.error("Date value for {} could not be parsed and will not be stored.", propertyName);
@@ -194,12 +201,12 @@ public class SesameFoodStore implements IStore{
         URI countryUri = valueFactory.createURI(baseURI + "#country");
 
         //Building Location entity
-        sesame.storeTriple(locationUri, RDF.TYPE, valueFactory.createURI(baseURI + "#Location"));
-        sesame.storeTriple(locationUri, cityUri, valueFactory.createLiteral(city));
-        sesame.storeTriple(locationUri, stateUri, valueFactory.createLiteral(state));
-        sesame.storeTriple(locationUri, countryUri, valueFactory.createLiteral(country));
+        triples.add(new StatementImpl(locationUri, RDF.TYPE, valueFactory.createURI(baseURI + "#Location")));
+        triples.add(new StatementImpl(locationUri, cityUri, valueFactory.createLiteral(city)));
+        triples.add(new StatementImpl(locationUri, stateUri, valueFactory.createLiteral(state)));
+        triples.add(new StatementImpl(locationUri, countryUri, valueFactory.createLiteral(country)));
         //Associating Location entity to the 'propertyName' of the subject
-        sesame.storeTriple(reportId, predicate, locationUri);
+        triples.add(new StatementImpl(reportId, predicate, locationUri));
     }
     
 }
