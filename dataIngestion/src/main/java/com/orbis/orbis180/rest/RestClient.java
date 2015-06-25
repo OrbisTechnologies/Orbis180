@@ -25,43 +25,20 @@ public class RestClient {
   @GET()
   @Path("/writeToFile")
   @Produces(MediaType.TEXT_HTML)  
-  public void writeDataToFile() throws IOException{ 
+  public String writeDataToFile() throws IOException{ 
       OpenFDAClient writeObj = new OpenFDAClient();
       writeObj.checkRecordLimit();
+      return "{\"sucess\": true}";
       
   }  
   
   @GET()
   @Path("/parsingJsonDataValue")
   @Produces(MediaType.TEXT_HTML)  
-  public void addDataToDatabase() throws IOException{      
+  public String addDataToDatabase() throws IOException{      
       OpenFDAClient addObj = new OpenFDAClient();
       addObj.getNumOfRecordsBtwYears();
-
+      return "{\"sucess\": true}";
   }
-  
-  @GET()
-  @Path("/saveSearched")
-  @Consumes(MediaType.APPLICATION_FORM_URLENCODED) 
-  public void  saveSearchedQuery(@FormParam("dateRange") String dateRang,
-                                 @FormParam("location") String loc,
-                                 @FormParam("foodDescrption") String foodDesc) {
-      
-      SearchQuery queryData = new SearchQuery(dateRang,loc,foodDesc);
-   
-
-  }
-  
-  @GET()
-  @Path("/loadSaveSearched")
-  @Consumes(MediaType.APPLICATION_FORM_URLENCODED) 
-  public void  loadSaveSearchedQuery() {
-      
- //     return SaveSearchedQuery();
-   
-  }
-  
-  
- 
       
 }
