@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.Properties;
+import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
 import org.openrdf.model.Value;
 import org.openrdf.model.ValueFactory;
@@ -133,6 +135,23 @@ public class SesameInterface {
 		}
 
 	}
+        
+        
+	public void storeTriplesInBatch(List<Statement> triples) {
+
+		try {
+			RepositoryConnection con = repository.getConnection();
+			try {
+				con.add(triples, repository.getValueFactory().createURI(context));
+			} finally {
+				con.close();
+			}
+		} catch (RepositoryException ex) {
+			logger.error(ex.getLocalizedMessage());
+		}
+
+	}
+        
         public void loadFile(File file, RDFFormat format) {
 
 		try {
