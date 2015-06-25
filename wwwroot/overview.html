@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+
+
+    <!--remote libraries e.g. cdn -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.js"></script>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+    <link href="../../favicon.ico" rel="icon">
+
+    <title class=".visible-md-* .visible-lg-*">Wiley: Navigating the data jungle</title>
+</head>
+
+<body>
+<!-- top navbar -->
+<div class="container">
+	</header>
+	        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="overview.html">
+                        <img src="wiley.png" width="150" height="150">
+                    </a>
+                </li>
+				<br>
+				<br>
+				<br>
+				<br>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri">Search</font></a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri">Monitor</font></a>
+                </li>
+            </ul>
+        </div>
+	
+    <div class="container-fluid">
+        <div class="row-fluid">
+	
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Install Notes</a></li>
+        <li><a href="#">Release Notes</a></li>
+        <li><a href="#">Help Files</a></li>
+		
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="span10">
+      <!--Body content-->
+	  	<div class="col-sm-5  col-md-4main"></div>
+        <div class="col-sm-8  col-md-2main">
+         <div class="col-xs-2 col-sm-3 img-responsive"  style="width:100%"   id="overviewStatistics">
+             
+			</div>
+		<div class="col-xs-3 col-sm-3 img-responsive"  style="height:110px;width:100%">
+			</div>
+			<div class="col-sm-1  col-md-4main"></div>
+			<font face="calibri" size="10" color="gray">Total Food Recalls since 1/1/2015</font>
+            <div class="col-xs-5 col-sm-3 img-responsive"  style="height:420px;width:100%"   id="timeseries">
+			</div>
+		</div>
+		
+        <div class="col-sm-11  col-md-10main">
+          <!--<h3 class="page-header">Summary</h3>-->
+		  <div class="row placeholders">
+		  <div class="col-sm-4 col-sm-3"></div>
+		  <div class="col-sm-4 col-sm-3"></div>
+		  <div class="col-sm-4 col-sm-3"></div>
+		        Notification Type Frequency
+          </div>
+		  
+          <div class="row placeholders">
+            <!--<div class="col-xs-6 col-sm-3 placeholder"   id="easy-as-pie-chart">
+             
+              <h4>Frequency</h4>
+            </div>-->
+    <!---         <div class="col-xs-6 col-sm-3 placeholder"   id="btnSubmit">-->
+            <!--<div class="col-sm-1 col-sm-3"></div>-->
+            <div class="col-sm-4 col-sm-3 "   id="classification">
+              <h4>Other Thing</h4>
+            </div>
+			
+			<div class="col-sm-1 col-sm-3"></div>
+            <div class="col-sm-5 col-sm-3" id="recall_status">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+			<div class="col-sm-1 col-sm-3"></div>
+           <div class="col-sm-3 col-sm-3" id="horizontal_barchart">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+          </div>
+		  <p "border-style:solid; border-color:#FFFFF;"><font size="1">*Recalls are classified into three categories: Class I, a dangerous or defective product that predictably could cause serious health problems or death, Class II, meaning that the product might cause a temporary health problem, or pose only a slight threat of a serious nature, and Class III, a product that is unlikely to cause any adverse health reaction, but that violates FDA labeling or manufacturing laws.</font></p>
+		  </div>
+
+</body>
+
+
+
+
+
+<!-----Test of D3 Integration 
+
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  width: 960px;
+}
+
+button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
+
+</style>------>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script src="c3/c3.min.js"></script>
+<link href="c3/c3.css" rel="stylesheet" type="text/css">
+<link href="overview_statistics.css" rel="stylesheet" type="text/css">
+<script src="classification_chart.js"></script>
+<script src="recall_status_chart.js"></script>
+<script src="horizontal_barchart.js"></script>
+<script src="overview_statistics.js"></script>
+<script src="timeseries.js"></script>
+
+
+
+</html>

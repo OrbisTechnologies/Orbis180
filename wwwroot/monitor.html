@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+
+
+    <!--remote libraries e.g. cdn -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.js"></script>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+    <link href="../../favicon.ico" rel="icon">
+
+    <title class=".visible-md-* .visible-lg-*">Wiley: Navigating the data jungle</title>
+</head>
+
+<body>
+<!-- top navbar -->
+<div class="container">
+	</header>
+	        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="overview.html">
+                        <img src="wiley.png" width="150" height="150">
+                    </a>
+                </li>
+				<br>
+				<br>
+				<br>
+				<br>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri">Search</font></a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri">Monitor</font></a>
+                </li>
+            </ul>
+        </div>
+	
+    <div class="container-fluid">
+        <div class="row-fluid">
+	
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Install Notes</a></li>
+        <li><a href="#">Release Notes</a></li>
+        <li><a href="#">Help Files</a></li>
+		
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="span10">
+      <!--Body content-->
+	  	<div class="col-sm-1  col-md-4main"></div>
+        <div class="col-sm-10  col-md-8main">
+         <div class="col-xs-4 col-sm-3 img-responsive"  style="width:100%"   id="monitorStatistics">
+             
+			</div>
+		<div class="col-xs-3 col-sm-3 img-responsive"  style="height:110px;width:100%">
+			</div>
+			<div class="col-sm-4  col-md-4main"></div>
+			<font face="calibri" size="10" color="gray">Queries since 6/1/2013</font>
+            <div class="col-xs-3 col-sm-3 img-responsive"  style="height:420px;width:100%"   id="monitorseries">
+			</div>
+		</div>
+		
+        <div class="col-sm-11  col-md-10main">
+          <!--<h3 class="page-header">Summary</h3>-->
+		  
+		  
+		  <h2 class="sub-header">Top Ten Queries</h2>
+          <div class="table-responsive">
+            <table class="table table-striped" id="my-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                  <th>Header</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1,001</td>
+                  <td>Lorem</td>
+                  <td>ipsum</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+                <tr>
+                  <td>1,002</td>
+                  <td>amet</td>
+                  <td>consectetur</td>
+                  <td>adipiscing</td>
+                  <td>elit</td>
+                </tr>
+                <tr>
+                  <td>1,003</td>
+                  <td>Integer</td>
+                  <td>nec</td>
+                  <td>odio</td>
+                  <td>Praesent</td>
+                </tr>
+                <tr>
+                  <td>1,004</td>
+                  <td>dapibus</td>
+                  <td>diam</td>
+                  <td>Sed</td>
+                  <td>nisi</td>
+                </tr>
+                <tr>
+                  <td>1,005</td>
+                  <td>Nulla</td>
+                  <td>quis</td>
+                  <td>sem</td>
+                  <td>at</td>
+                </tr>
+                <tr>
+                  <td>1,006</td>
+                  <td>nibh</td>
+                  <td>elementum</td>
+                  <td>imperdiet</td>
+                  <td>Duis</td>
+                </tr>
+                <tr>
+                  <td>1,007</td>
+                  <td>sagittis</td>
+                  <td>ipsum</td>
+                  <td>Praesent</td>
+                  <td>mauris</td>
+                </tr>
+                <tr>
+                  <td>1,008</td>
+                  <td>Fusce</td>
+                  <td>nec</td>
+                  <td>tellus</td>
+                  <td>sed</td>
+                </tr>
+                <tr>
+                  <td>1,009</td>
+                  <td>augue</td>
+                  <td>semper</td>
+                  <td>porta</td>
+                  <td>Mauris</td>
+                </tr>
+                <tr>
+                  <td>1,010</td>
+                  <td>massa</td>
+                  <td>Vestibulum</td>
+                  <td>lacinia</td>
+                  <td>arcu</td>
+                </tr>
+</body>
+
+
+
+
+<!-----Test of D3 Integration 
+
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  width: 960px;
+}
+
+button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
+
+</style>------>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="c3/c3.min.js"></script>
+<link href="c3/c3.css" rel="stylesheet" type="text/css">
+<link href="monitor_statistics.css" rel="stylesheet" type="text/css">
+<script src="classification_chart.js"></script>
+<script src="recall_status_chart.js"></script>
+<script src="horizontal_barchart.js"></script>
+<script src="monitor_timeseries.js"></script>
+<script src="monitor_statistics.js"></script>
+
+
+</html>
