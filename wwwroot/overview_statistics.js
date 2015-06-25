@@ -87,7 +87,7 @@ var yearly_change = d3.round((year_to_date.meta.results.total / previous_date.me
 function dsLineChartBasics() {
 
 	var margin = {top: 20, right: 0, bottom: 0, left: 0},
-	    width = 1150 - margin.left - margin.right,
+	    width = 1300 - margin.left - margin.right,
 	    height = 125 - margin.top - margin.bottom
 		
 	    ;
@@ -129,15 +129,22 @@ function dsLineChart() {
 	plot.append("text")
 		.text(total_recalls)
 		.attr("id","Title2")
-		.attr("x",100)
+		.attr("x",115)
 		.attr("y",45)	
 		;    
 	svg.append("text")
-		.text("Total Recalls since 1/1/2004")
+		.text("Total Food Recalls since 1/1/2004")
 		.attr("id","Title1")	
-		.attr("x",100)
+		.attr("x",115)
 		.attr("y", height-15)
 		;
+		svg.append("line")
+                         .attr("x1", 120)
+                         .attr("y1", height-15)
+                         .attr("x2", 120)
+                         .attr("y2", height-15)
+                         .attr("stroke-width", 2)
+                         .attr("stroke", "black");
    
     /*
 	 *Total US recalls since 2004
@@ -145,13 +152,13 @@ function dsLineChart() {
 	plot.append("text")
 		.text(us_total)
 		.attr("id","Title2")
-		.attr("x",330)
+		.attr("x",350)
 		.attr("y",45)	
 		;	    
 	svg.append("text")
-		.text("Total US Recalls since 1/1/2004")
+		.text("Total US Food Recalls since 1/1/2004")
 		.attr("id","Title1")	
-		.attr("x",330)
+		.attr("x",350)
 		.attr("y", height-15)
 		;
 		
@@ -162,13 +169,13 @@ function dsLineChart() {
 	plot.append("text")
 		.text(ytd_recalls)
 		.attr("id","Title2")
-		.attr("x",530)
+		.attr("x",600)
 		.attr("y",45)	
 		;	    
 	svg.append("text")
-		.text("Total Year-to-Date Recalls")
+		.text("Total Year-to-Date Food Recalls")
 		.attr("id","Title1")	
-		.attr("x",530)
+		.attr("x",600)
 		.attr("y", height-15)
 		;
 	
@@ -178,16 +185,15 @@ function dsLineChart() {
 	plot.append("text")
 		.text(avg_per_day)
 		.attr("id","Title2")
-		.attr("x",750)
+		.attr("x",850)
 		.attr("y",45)	
 		;	    
 	svg.append("text")
-		.text("Avg Recalls/day per Calendar Year")
+		.text("Avg Food Recalls/day per Calendar Year")
 		.attr("id","Title1")	
-		.attr("x",750)
+		.attr("x",850)
 		.attr("y", height-15)
 		;
-    
 	
 	/*
 	 * Percent Recall Change per Calendar Year
@@ -195,13 +201,13 @@ function dsLineChart() {
 	plot.append("text")
 		.text("+"+ yearly_change + "%")
 		.attr("id","Title2")
-		.attr("x",1000)
+		.attr("x",1150)
 		.attr("y",45)	
 		;	    
 	svg.append("text")
-		.text("% Recall Change per Calendar Year")
+		.text("% Food Recall Change per Calendar Year")
 		.attr("id","Title1")	
-		.attr("x",1000)
+		.attr("x",1150)
 		.attr("y", height-15)
 		;
 		

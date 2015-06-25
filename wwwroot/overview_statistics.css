@@ -25,7 +25,7 @@
 
 #Title1 {
 	font-family: Calibri;
-	font-size  : 16px;
+	font-size  : 15px;
 	fill       : lightblue;
 	font-weight: bold;
 	text-anchor: middle;
@@ -33,7 +33,7 @@
 
 #Title2 {
 	font-family: Calibri;
-	font-size  : 70px;
+	font-size  : 75px;
 	fill       : lightgreen;
 	text-anchor: middle;
 	font-weight: bold;
@@ -43,6 +43,7 @@
 svg{
 border-style:solid;
 border-width:2px;
+background-color: white;
 }
 
 .container-item {

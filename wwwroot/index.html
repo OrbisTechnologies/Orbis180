@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="" name="description">
     <meta content="" name="author">
 
@@ -28,51 +28,57 @@
 
     <link href="../../favicon.ico" rel="icon">
 
+	<style>
+	#detailed-table .popover {
+	  width:400px !important;
+	  
+	}
+	</style>
     <title class=".visible-md-* .visible-lg-*">Wiley: Navigating the data jungle</title>
 </head>
 
 <body>
 <!-- top navbar -->
 <div class="container">
-	<!--<header class="navbar   navbar-inverse   navbar-static-top " role="banner">-->
-		
-
-	<!--	
-		<div class="navbar-text text-right col-sm-12  navbar-inverse">
-			<a href="#" class="navbar-link header-nav">Install Notes</a>
-			<a href="#" class="navbar-link  header-nav">Release Notes</a>
-			<a href="#" class="navbar-link  header-nav">Help Files</a>
-		</div>
-		-->
 	</header>
 	        <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand" height="200" width="225">
+                <li class="sidebar-brand">
                     <a href="overview.html">
-                        <img src="wiley.png" width="225" height="200">
+                        <img src="wiley.png" width="150" height="150">
                     </a>
                 </li>
 				<br>
 				<br>
 				<br>
 				<br>
-				<br>
-				<br>
-				<br>
                 <li>
-                    <a href="#">Search</a>
+                    <a href="#"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri">Search</font></a>
                 </li>
                 <li>
-                    <a href="#">Monitor</a>
+                    <a href="#"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri">Monitor</font></a>
                 </li>
             </ul>
         </div>
 	
-	<div class="col-sm-5 col-md-2 col-lg-1"></div>
-		<div class="col-sm-7 col-md-10 col-lg-11">
     <div class="container-fluid">
         <div class="row-fluid">
+	
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Install Notes</a></li>
+        <li><a href="#">Release Notes</a></li>
+        <li><a href="#">Help Files</a></li>
+		
+      </ul>
+    </div>
+  </div>
+</nav>
+	</header>
+	        <!-- Sidebar -->
             <!--
     <div class="span2">
 	  
@@ -87,32 +93,14 @@
         </div>
     </div>
 	-->
-	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Downloads</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="#">Install Notes</a></li>
-        <li><a href="#">Release Notes</a></li>
-        <li><a href="#">Help Files</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
-
-
-<!---Content Follows ----->
-            <div class="span9">
+            <div class="span12">
                 <!--Body content-->
 <!--"col-sm-9  col-md-10main"-->
 				<div class = "row">
                 <div class="col-sm-4 form-group">
 						<form class="form-horizontal">
 <fieldset>
+
 <!-- Form Name -->
 <legend>Search</legend>
 
@@ -124,6 +112,7 @@
 						<p class="help-block">Food Description</p>
 					</div>
 </div>
+	
 	<!-- Select Basic -->
 	<div class="form-group">
 		<label class="col-md-4 control-label" for="selectlocation">Location</label>
@@ -215,8 +204,88 @@
 
                     <!--PlaceHolder Table-->
                     <h2 class="sub-header">Detailed Report</h2>
-                    <div class="table-responsive">
-                        <table class="table table-striped" id="my-table">
+                   <!-- <div class="table-responsive">-->
+					<!--<div class="container">-->
+					
+					
+					<div id="detailed-table" class="list-group">
+					  <div class="list-group-item"  data-toggle="popover" data-placement="right" data-content="Status: Ongoing <br>Product Quantity: 81 containers <br>Recall Initiation Date: July 2014<br>State: ND<br>Event ID: 62644<br>Product Type: Food<br>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).<br>Country: US<br>City: Fargo<br>Recalling Firm: Cass Clay Creamery AMPI Fargo Division<br>Report Date: November 5, 2014<br>Voluntary Mandated: Voluntary: Firm Initiated<br>Classification: Class II<br>Initial Firm Notification: Two or more of the following: Email">
+						<h4 class="list-group-item-heading">Cass Clay Creamery AMPI Fargo Division</h4>
+						<p class="list-group-item-text">
+						<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: June 2015</span>
+						<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MD</span>
+						<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: corn</span>
+						</p>
+					  </div>
+					<div class="list-group-item">
+						<div data-toggle="collapse" data-parent="#detailed-table" href="#collapse2">
+							<h4 class="list-group-item-heading">Pinnacle Food Group LLC</h4>
+							<p class="list-group-item-text">
+								<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: May 2015</span>
+								<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MD</span>
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Ranch Dressing</span>
+							</p>
+						</div>
+					
+						<div id="collapse2" class="panel-collapse collapse">
+							<div class="panel-body">
+							<ul class="list-unstyled">
+								<li>Status: Ongoing</li>
+								<li>Product Quantity: 81 containers</li>
+								<li>Recall Initiation Date: July 2015</li>
+								<li>State: ND</li>
+								<li>Event ID: 62644</li>
+								<li>Product Type: Food</li> 
+								<li>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).</li>
+								<li>Country: US</li>
+								<li>City: Fargo</li>
+								<li>Recalling Firm: Cass Clay Creamery AMPI Fargo Division</li>
+								<li>Report Date: August 2015</li>
+								<li>Voluntary Mandated: Voluntary: Firm Initiated</li>
+								<li>Classification: Class II</li>
+								<li>Initial Firm Notification: Two or more of the following: Email</li>
+							</ul>
+							</div>
+						</div>
+					
+					  </div>
+					<div class="list-group-item">
+						<h4 class="list-group-item-heading">Vitamin Cottage Natural Food Markets Inc.</h4>
+						<p class="list-group-item-text">
+							<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: January 2014</span>
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MI</span>
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Raw macadamia nuts</span>
+						</p>
+					  </div>
+					<div class="list-group-item">
+						<h4 class="list-group-item-heading">Waymouth Farms, Inc.</h4>
+						<p class="list-group-item-text">
+							<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: February 2015</span>
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: CA</span>
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Raw Pine Nuts</span>
+						</p>
+					  </div>
+					  
+					<div class="list-group-item">
+						<h4 class="list-group-item-heading">Golden Krust Caribbean Bakery & Grill</h4>
+						<p class="list-group-item-text">
+							<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: March 2015</span>
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: NE</span>
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Shrimp Patties, Soya Patties</span>
+						</p>
+					  </div>				  
+					<div class="list-group-item">
+						<h4 class="list-group-item-heading">Good Seed Inc.</h4>
+						<p class="list-group-item-text">
+<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: January 2015</span>
+							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MI</span>
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: GOODSEED Soy Bean Sprouts and GOODSEED Soy Bean Sprouts  </span>
+						</p>
+					  </div>
+					  
+					</div>
+						
+	                 <!--<table class="table table-striped" id="my-table">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -340,8 +409,8 @@
                                     <td>libero</td>
                                 </tr>
                             </tbody>
-                        </table>
-                    </div>
+                        </table> 
+                    </div>-->
                 </div>
 
             </div>
@@ -369,6 +438,13 @@
                 $('#my-table > tbody:last').append('<tr><td>' + item + '</td></tr>');
             });
         });
+		
+		$(function () { $("[data-toggle='popover']").popover({
+			trigger: 'hover',
+			'placement': 'right',
+			 html : true, 
+		}); });
+		
     </script>
 
 

@@ -51,7 +51,7 @@ var recall_occurrence = getOccurrence(food_json).slice();
 var chart = c3.generate({
     bindto: '#timeseries',
 	size: {
-  width: 1100,
+  width: 1300,
 },
     data: {
         x: 'x',

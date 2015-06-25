@@ -25,9 +25,8 @@ var chart = c3.generate({
 },
     data: {
         columns: [
-		
+		    [class_type.results[1].term, class_type.results[1].count],
             [class_type.results[0].term, class_type.results[0].count],
-            [class_type.results[1].term, class_type.results[1].count],
 			[class_type.results[2].term, class_type.results[2].count]
         ],
         type : 'donut',

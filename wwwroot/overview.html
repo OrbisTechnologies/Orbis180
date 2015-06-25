@@ -18,7 +18,7 @@
 	
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
-
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.css" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.js"></script>
 
@@ -38,23 +38,20 @@
 	        <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand" height="200" width="225">
+                <li class="sidebar-brand">
                     <a href="overview.html">
-                        <img src="wiley.png" width="225" height="200">
+                        <img src="wiley.png" width="150" height="150">
                     </a>
                 </li>
 				<br>
 				<br>
 				<br>
 				<br>
-				<br>
-				<br>
-				<br>
                 <li>
-                    <a href="#">Search</a>
+                    <a href="#"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri">Search</font></a>
                 </li>
                 <li>
-                    <a href="#">Monitor</a>
+                    <a href="#"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri">Monitor</font></a>
                 </li>
             </ul>
         </div>
@@ -62,32 +59,30 @@
     <div class="container-fluid">
         <div class="row-fluid">
 	
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Downloads</a>
-    </div>
     <div>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Install Notes</a></li>
         <li><a href="#">Release Notes</a></li>
         <li><a href="#">Help Files</a></li>
+		
       </ul>
     </div>
   </div>
 </nav>
 <div class="span10">
       <!--Body content-->
-	  	<div class="col-sm-1  col-md-4main"></div>
-        <div class="col-sm-10  col-md-8main">
-         <div class="col-xs-4 col-sm-3 img-responsive"  style="width:100%"   id="overviewStatistics">
+	  	<div class="col-sm-5  col-md-4main"></div>
+        <div class="col-sm-8  col-md-2main">
+         <div class="col-xs-2 col-sm-3 img-responsive"  style="width:100%"   id="overviewStatistics">
              
 			</div>
 		<div class="col-xs-3 col-sm-3 img-responsive"  style="height:110px;width:100%">
 			</div>
-			<div class="col-sm-4  col-md-4main"></div>
-			<font face="calibri" size="10" color="gray">Total Recalls since 1/1/2015</font>
-            <div class="col-xs-3 col-sm-3 img-responsive"  style="height:420px;width:100%"   id="timeseries">
+			<div class="col-sm-1  col-md-4main"></div>
+			<font face="calibri" size="10" color="gray">Total Food Recalls since 1/1/2015</font>
+            <div class="col-xs-5 col-sm-3 img-responsive"  style="height:420px;width:100%"   id="timeseries">
 			</div>
 		</div>
 		
@@ -106,7 +101,7 @@
               <h4>Frequency</h4>
             </div>-->
     <!---         <div class="col-xs-6 col-sm-3 placeholder"   id="btnSubmit">-->
-             <div class="col-sm-1 col-sm-3"></div>
+            <!--<div class="col-sm-1 col-sm-3"></div>-->
             <div class="col-sm-4 col-sm-3 "   id="classification">
               <h4>Other Thing</h4>
             </div>
@@ -117,11 +112,12 @@
               <span class="text-muted">Something else</span>
             </div>
 			<div class="col-sm-1 col-sm-3"></div>
-           <div class="col-sm-5 col-sm-3" id="horizontal_barchart">
+           <div class="col-sm-3 col-sm-3" id="horizontal_barchart">
               <h4>Label</h4>
               <span class="text-muted">Something else</span>
             </div>
           </div>
+		  <p "border-style:solid; border-color:#FFFFF;"><font size="1">*Recalls are classified into three categories: Class I, a dangerous or defective product that predictably could cause serious health problems or death, Class II, meaning that the product might cause a temporary health problem, or pose only a slight threat of a serious nature, and Class III, a product that is unlikely to cause any adverse health reaction, but that violates FDA labeling or manufacturing laws.</font></p>
 		  </div>
 
 </body>
@@ -152,8 +148,6 @@ button {
 </style>------>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
-
-<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="c3/c3.min.js"></script>
 <link href="c3/c3.css" rel="stylesheet" type="text/css">
 <link href="overview_statistics.css" rel="stylesheet" type="text/css">

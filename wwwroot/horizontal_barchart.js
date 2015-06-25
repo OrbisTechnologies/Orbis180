@@ -60,19 +60,20 @@ var notification_type = (function(){
 c3.generate({
   bindto: '#horizontal_barchart',
   size: {
-  width: 500,
+  width: 630,
   height: 300
 },
   data: {
     columns: [
-      ['E-mail', email],
-	  ['Press Release',press],
-	  ['Telephone',phone],
+      ['Combination', combo],
 	  ['Visit',visit],
-	  ['Letter',letter],
-	  ['Two or More', more],
-	  ['Combination',combo]
+	  ['Telephone',phone],
+	  ['Email',email],
+	  ['Press Release',press],
+	  ['Letter', letter],
+	  ['Two or More',more]
     ],
+	
     type: 'bar',
   },
   bar: {
@@ -80,6 +81,7 @@ c3.generate({
             ratio: 1.0 // this makes bar width 50% of length between ticks
         }
   },
+  
   axis: {
     rotated: true,
     x: {

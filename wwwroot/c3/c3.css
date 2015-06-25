@@ -1,6 +1,7 @@
 /*-- Chart --*/
 .c3 svg {
-  font: 10px sans-serif; }
+  font: 13px;
+  font-family:calibri;  }
 
 .c3 path, .c3 line {
   fill: none;
@@ -79,7 +80,8 @@
 /*-- Select - Drag --*/
 /*-- Legend --*/
 .c3-legend-item {
-  font-size: 12px; }
+  font-size: 20px;
+  font-family: calibri;  }
 
 .c3-legend-item-hidden {
   opacity: 0.15; }
@@ -115,7 +117,8 @@
   color: #FFF; }
 
 .c3-tooltip td {
-  font-size: 13px;
+  font-size: 15x;
+  font-family: calibri;
   padding: 3px 6px;
   background-color: #fff;
   border-left: 1px dotted #999; }
