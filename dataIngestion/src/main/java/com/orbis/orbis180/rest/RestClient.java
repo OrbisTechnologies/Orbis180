@@ -6,6 +6,8 @@
 package com.orbis.orbis180.rest;
 
 import java.io.IOException;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -23,22 +25,20 @@ public class RestClient {
   @GET()
   @Path("/writeToFile")
   @Produces(MediaType.TEXT_HTML)  
-  public void writeDataToFile() throws IOException{ 
+  public String writeDataToFile() throws IOException{ 
       OpenFDAClient writeObj = new OpenFDAClient();
       writeObj.checkRecordLimit();
+      return "{\"sucess\": true}";
       
   }  
   
   @GET()
   @Path("/parsingJsonDataValue")
   @Produces(MediaType.TEXT_HTML)  
-  public void addDataToDatabase() throws IOException{      
+  public String addDataToDatabase() throws IOException{      
       OpenFDAClient addObj = new OpenFDAClient();
       addObj.getNumOfRecordsBtwYears();
-
+      return "{\"sucess\": true}";
   }
-  
-  
- 
       
 }

@@ -42,7 +42,7 @@ public class SesameFoodStore implements IStore{
     public void storeFromJson(String jsonData) {
         //Initialize sesame interface items
         sesame = new SesameInterface();
-        //TODO: Obtain repository from configuration file
+        
         String repositoryName = "openFDA-test";
         //TODO: Fix issue where it is always creating a new repository
         //if(sesame.repositoryExist(repositoryName)){

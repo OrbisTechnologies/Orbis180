@@ -5,6 +5,9 @@
  */
 package com.orbis.orbis180.rest;
 
+import com.orbis.orbis180.storage.IStore;
+import com.orbis.orbis180.storage.SesameFoodStore;
+import com.orbis.orbis180.storage.StoreFactory;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -45,7 +48,7 @@ public class OpenFDAClient {
     private int minDate;
     private int maxDate;  
     
-    final static protected Logger logger = LoggerFactory.getLogger("command");
+    final static protected Logger logger = LoggerFactory.getLogger(OpenFDAClient.class);
 
     private String searchParameter= "&search=report_date:[" + minDateVal +"+TO+"+ maxDateVal +"]";
 
@@ -297,7 +300,7 @@ public class OpenFDAClient {
         String openFDADataLink;
                           
         //Eg:- https://api.fda.gov/food/enforcement.json?api_key=<Key_Goes_Here>&search=report_date:[20040101+TO+20151231]&limit=100&skip=100"
-        openFDADataLink = OPEN_FDA_FOOD_URL + URL_API_KEY + searchParameter + recordLimitParameter + nextRecordsLimitParameter;
+        openFDADataLink = OPEN_FDA_FOOD_URL + "api_key=" + URL_API_KEY + searchParameter + recordLimitParameter + nextRecordsLimitParameter;
         
         logger.debug("openFDADataLink 2: " + openFDADataLink);
         
@@ -398,6 +401,7 @@ public class OpenFDAClient {
             }
             
             int nextFileCounter = MAX_RECORD_LIMIT;
+            IStore dataStorage = StoreFactory.getFoodAPIStore();
             
             while((currNumOfRecords < totalRecords) && ((totalRecords - currNumOfRecords) > MAX_RECORD_LIMIT))
             {
@@ -409,39 +413,9 @@ public class OpenFDAClient {
 
                 JsonNode rootNode = mapperObj.readTree(dataOutput);            
                 resultsNode = rootNode.path("results");
-
                 
-                for(int i = 0; i < resultsNode.size(); i++)
-                {   
-
-
-                    recall_number = resultsNode.get(i).get("recall_number");
-                    reason_for_recall = resultsNode.get(i).get("reason_for_recall");
-                    status = resultsNode.get(i).get("status");
-                    distribution_pattern = resultsNode.get(i).get("distribution_pattern");
-                    product_quantity = resultsNode.get(i).get("product_quantity");
-
-                    recall_initiation_date = resultsNode.get(i).get("recall_initiation_date");
-                    state = resultsNode.get(i).get("state");
-                    event_id = resultsNode.get(i).get("event_id");
-                    product_type = resultsNode.get(i).get("product_type");
-                    product_description = resultsNode.get(i).get("product_description");
-
-                    country = resultsNode.get(i).get("country");
-                    city = resultsNode.get(i).get("city");
-                    recalling_firm = resultsNode.get(i).get("recalling_firm");
-                    report_date = resultsNode.get(i).get("report_date");
-                    epoch = resultsNode.get(i).get("@epoch");
-
-                    voluntary_mandated = resultsNode.get(i).get("voluntary_mandated");
-                    classification = resultsNode.get(i).get("classification");
-                    code_info = resultsNode.get(i).get("code_info");
-                    id = resultsNode.get(i).get("@id");
-                    openfda = resultsNode.get(i).get("openfda");
-                    initial_firm_notification = resultsNode.get(i).get("initial_firm_notification"); 
-
-                }
-                
+                dataStorage.storeFromJson(dataOutput);
+                                
                 nextFileCounter = nextFileCounter + resultsNode.size();
                 currNumOfRecords = currNumOfRecords + resultsNode.size();
 
