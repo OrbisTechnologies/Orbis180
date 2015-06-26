@@ -97,7 +97,7 @@ public class SesameFoodStore implements IStore{
                     //which may be too long in some cases. Once determined, the Food class can be instantiated individually 
                     //and the description added to it.
                     String productDescription = results.get(i).get("product_description").asText();
-                    storeProperty("#productDescription", productDescription);
+                    storeProperty("productDescription", productDescription);
                     
                     //Storing Firm Notification as a relationship
                     String notification = results.get(i).get("initial_firm_notification").asText();
