@@ -8,6 +8,18 @@
  *Method that builds the Widget with the data received from the endpoint 
  *
  */
+
+ var food_json = (function(){
+			  var food_json = null;
+			  $.ajax({
+			  'async': false,
+	          url: 'http://localhost:8080/dataIngestion/rest/monitor/queryCount' }
+				).done(function(data) {
+				food_json = data; 
+  });
+  return food_json;
+  })(); 
+  console.log(food_json);
 function dsLineChartBasics() {
 
 	var margin = {top: 20, right: 0, bottom: 0, left: 0},
@@ -51,7 +63,7 @@ function dsLineChart() {
 	 *Total recalls since 2004
 	 */
 	plot.append("text")
-		.text(200)
+		.text(food_json)
 		.attr("id","Title2")
 		.attr("x",100)
 		.attr("y",45)	

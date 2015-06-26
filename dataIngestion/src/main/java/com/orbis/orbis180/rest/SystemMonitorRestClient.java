@@ -94,7 +94,6 @@ public class SystemMonitorRestClient {
         dbStore = new DatabaseDAO();
         dbStore.init(false);
         
-        
       this.dbStore.uninit();
    return null;
   }
