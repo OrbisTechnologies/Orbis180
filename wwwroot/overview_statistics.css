@@ -1,16 +1,15 @@
-#overviewStatistics {    
-	position:absolute;
+#overviewStatistics {
+	/*position:absolute;
 	top:10px;
-	left:5px;
+	left:5px;*/
 	height: 150px;
-
 }
 .slice {
    font-size: 12pt;
    font-family: Calibri;
    fill: white; //svg specific - instead of color
-   font-weight: bold;	
-  		} 
+   font-weight: bold;
+  		}
 
 .axis text {
     font-family: Calibri;
@@ -19,8 +18,8 @@
 
 .title {
 	 font-family: Calibri;
-    font-size: 15px;	
-		
+    font-size: 15px;
+
 }
 
 #Title1 {
@@ -33,7 +32,7 @@
 
 #Title2 {
 	font-family: Calibri;
-	font-size  : 75px;
+	font-size  : 70px;
 	fill       : lightgreen;
 	text-anchor: middle;
 	font-weight: bold;
@@ -42,7 +41,7 @@
 
 #Title3 {
 	font-family: Calibri;
-	font-size  : 14px;
+	font-size  : 18px;
 	fill       : lightblue;
 	text-anchor: middle;
 	font-weight: bold;

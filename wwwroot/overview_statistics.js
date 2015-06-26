@@ -88,7 +88,7 @@ function dsLineChartBasics() {
 
 	var margin = {top: 20, right: 0, bottom: 0, left: 0},
 	    width = 1300 - margin.left - margin.right,
-	    height = 130 - margin.top - margin.bottom //125
+	    height = 130 - margin.top - margin.bottom //was 125
 		
 	    ;
 		
@@ -233,6 +233,7 @@ function dsLineChart() {
 		.attr("x",1150)
 		.attr("y", height-15)
 		;
+		
 		
 		
 

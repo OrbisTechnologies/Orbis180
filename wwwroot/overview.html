@@ -8,14 +8,21 @@
     <meta content="" name="description">
     <meta content="" name="author">
 
-
+    <style>
+    .content {
+      margin-left:248px !important;
+    }
+    .navbar-inverse {
+      background-color: #000 !important;
+    }
+    </style>
 
     <!--remote libraries e.g. cdn -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-	
+
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -33,9 +40,7 @@
 
 <body>
 <!-- top navbar -->
-<div class="container">
-	</header>
-	        <!-- Sidebar -->
+<!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
@@ -55,78 +60,72 @@
                 </li>
             </ul>
         </div>
-	
-    <div class="container-fluid">
-        <div class="row-fluid">
-	
+        <div class="content">
+
+
 	<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Install Notes</a></li>
-        <li><a href="#">Release Notes</a></li>
-        <li><a href="#">Help Files</a></li>
-		
-      </ul>
+    <div class="container-fluid">
+      <div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Install Notes</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Help Files</a></li>
+
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
-<div class="span10">
+  </nav>
+
+
       <!--Body content-->
-	  	<div class="col-sm-5  col-md-4main"></div>
-        <div class="col-sm-8  col-md-2main">
-         <div class="col-xs-2 col-sm-3 img-responsive"  style="width:100%"   id="overviewStatistics">
-             
-			</div>
-		<div class="col-xs-3 col-sm-3 img-responsive"  style="height:110px;width:100%">
-			</div>
-			<div class="col-sm-1  col-md-4main"></div>
-			<font face="calibri" size="10" color="gray">Total Food Recalls since 1/1/2015</font>
-            <div class="col-xs-5 col-sm-3 img-responsive"  style="height:420px;width:100%"   id="timeseries">
-			</div>
-		</div>
-		
-        <div class="col-sm-11  col-md-10main">
-          <!--<h3 class="page-header">Summary</h3>-->
-		  <div class="row placeholders">
-		  <div class="col-sm-4 col-sm-3"></div>
-		  <div class="col-sm-4 col-sm-3"></div>
-		  <div class="col-sm-4 col-sm-3"></div>
-		        Notification Type Frequency
+      <div class="row">
+        <div class="col-md-12">
+          <div class="img-responsive"  style="width:1300px;margin: 0 auto;" id="overviewStatistics"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <font face="calibri" size="10" color="gray" style="width:700px;margin: 0 auto; display:block;">Total Food Recalls since 1/1/2015</font>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="img-responsive"  style="height:420px;width:1300px; margin: 0 auto;" id="timeseries"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+
+  		  <div class="col-md-6">
+          <h4 style="width:630px;margin: 0 auto;">Notification Type Frequency</h4>
           </div>
-		  
-          <div class="row placeholders">
-            <!--<div class="col-xs-6 col-sm-3 placeholder"   id="easy-as-pie-chart">
-             
-              <h4>Frequency</h4>
-            </div>-->
-    <!---         <div class="col-xs-6 col-sm-3 placeholder"   id="btnSubmit">-->
-            <!--<div class="col-sm-1 col-sm-3"></div>-->
-            <div class="col-sm-4 col-sm-3 "   id="classification">
-              <h4>Other Thing</h4>
-            </div>
-			
-			<div class="col-sm-1 col-sm-3"></div>
-            <div class="col-sm-5 col-sm-3" id="recall_status">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-			<div class="col-sm-1 col-sm-3"></div>
-           <div class="col-sm-3 col-sm-3" id="horizontal_barchart">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3" >
+          <div id="classification" style="width:300px;margin: 0 auto;"></div>
+        </div>
+        <div class="col-md-3 " >
+          <div id="recall_status" style="width:300px;margin: 0 auto;"></div>
+        </div>
+        <div class="col-md-6" >
+          <div id="horizontal_barchart" style="width:630px;margin: 0 auto;"></div>
+        </div>
+      </div>
 		  <p "border-style:solid; border-color:#FFFFF;"><font size="1">*Recalls are classified into three categories: Class I, a dangerous or defective product that predictably could cause serious health problems or death, Class II, meaning that the product might cause a temporary health problem, or pose only a slight threat of a serious nature, and Class III, a product that is unlikely to cause any adverse health reaction, but that violates FDA labeling or manufacturing laws.</font></p>
 		  </div>
-
+</div>
 </body>
 
 
 
 
 
-<!-----Test of D3 Integration 
+<!-----Test of D3 Integration
 
 <style>
 

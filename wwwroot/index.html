@@ -12,10 +12,10 @@
 
     <!--remote libraries e.g. cdn -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-	
+
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
@@ -27,20 +27,29 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 
     <link href="../../favicon.ico" rel="icon">
+	
+	<script src="js/bootstrap-datepicker.js"></script>
+
+    <link rel="stylesheet" href="css/datepicker.css">
+
+    <script src="js/bootstrap-datepicker.js"></script>
+
+    <link rel="stylesheet" href="css/datepicker.css">
 
 	<style>
-	#detailed-table .popover {
-	  width:400px !important;
-	  
-	}
+	.content {
+    margin-left:248px !important;
+  }
+  .navbar-inverse {
+    background-color: #000 !important;
+  }
 	</style>
     <title class=".visible-md-* .visible-lg-*">Wiley: Navigating the data jungle</title>
 </head>
 
 <body>
 <!-- top navbar -->
-<div class="container">
-	</header>
+<!--<div class="container">-->
 	        <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -61,10 +70,11 @@
                 </li>
             </ul>
         </div>
-	
-    <div class="container-fluid">
-        <div class="row-fluid">
-	
+
+<!--        <div class="row-fluid">-->
+
+<div class="content">
+
 	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div>
@@ -72,32 +82,18 @@
         <li><a href="#">Install Notes</a></li>
         <li><a href="#">Release Notes</a></li>
         <li><a href="#">Help Files</a></li>
-		
+
       </ul>
     </div>
   </div>
 </nav>
-	</header>
 	        <!-- Sidebar -->
             <!--
-    <div class="span2">
-	  
-        <div class="col-sm-3 col-md-2 ">
-          <ul class="nav nav-sidebar">
-		  
-            <li><a href=""><b>Bookmark Current</b></a></li>
-            <li><a href="">Melons Search</a></li>
-            <li><a href="">Fave Search 1</a></li>
-            <li><a href="">Fave Search 2</a></li>
-          </ul>
-        </div>
-    </div>
-	-->
             <div class="span12">
                 <!--Body content-->
 <!--"col-sm-9  col-md-10main"-->
-				<div class = "row">
-                <div class="col-sm-4 form-group">
+				<!--<div class = "row">-->
+              <div class="col-md-4">
 						<form class="form-horizontal">
 <fieldset>
 
@@ -106,100 +102,106 @@
 
 <!-- Search input-->
 <div class="form-group">
-		<label class="col-md-4 control-label" for="begindate">Begin Date</label>  
+  <label class="col-md-4 control-label" for="searchinput">Keyword Search</label>
+</div>
+<div class="form-group">
+		<label class="col-md-4 control-label" for="daterange">Date Range</label>
 		<div class="col-md-4">
-			<input id="begindate" name="begindate" type="text" placeholder="dd/mm/yyyy" class="form-control input-md">
-			<!--<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>--> 
-		</div>
-	</div>
-	
-	<div class="form-group">
-		<label class="col-md-4 control-label" for="enddate">End Date</label>  
-		<div class="col-md-4">
-			<input id="enddate" name="enddate" type="text" placeholder="dd/mm/yyyy" class="form-control input-md">
-			<!--<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>-->
-		</div>
-	</div>
-	
+        <input class="form-control input-md" type="text" id="date-from" placeholder="From" data-date-format="yyyy-mm-dd">
+        <input class="form-control input-md" type="text" id="date-to" placeholder="To" data-date-format="yyyy-mm-dd">
+        <p><i>(yyyy-mm-dd)</i></p>
+  </div>
+</div>
+
 	<!-- Select Basic -->
 	<div class="form-group">
 		<label class="col-md-4 control-label" for="selectlocation">Location</label>
 		<div class="col-md-4">
-			<select id="selectlocation" name="selectlocation" class="form-control">
-				<option value="Alabama">Alabama</option>
-				<option value="Alaska">Alaska</option>
-				<option value="American Samoa">American Samoa</option>
-				<option value="Arizona">Arizona</option>
-				<option value="Arkansas">Arkansas</option>
-				<option value="California">California</option>
-				<option value="Colorado">Colorado</option>
-				<option value="Connecticut">Connecticut</option>
-				<option value="Delaware">Delaware</option>
-				<option value="District of Columbia">District of Columbia</option>
-				<option value="Florida">Florida</option>
-				<option value="Georgia">Georgia</option>
-				<option value="Guam">Guam</option>
-				<option value="Hawaii">Hawaii</option>
-				<option value="Idaho">Idaho</option>
-				<option value="Illinois">Illinois</option>
-				<option value="Indiana">Indiana</option>
-				<option value="Iowa">Iowa</option>
-				<option value="Kansas">Kansas</option>
-				<option value="Kentucky">Kentucky</option>
-				<option value="Louisiana">Louisiana</option>
-				<option value="Maine">Maine</option>
-				<option value="Maryland">Maryland</option>
-				<option value="Massachusetts">Massachusetts</option>
-				<option value="Michigan">Michigan</option>
-				<option value="Minnesota">Minnesota</option>
-				<option value="Mississippi">Mississippi</option>
-				<option value="Missouri">Missouri</option>
-				<option value="Montana">Montana</option>
-				<option value="Nebraska">Nebraska</option>
-				<option value="Nevada">Nevada</option>
-				<option value="New Hampshire">New Hampshire</option>
-				<option value="New Jersey">New Jersey</option>
-				<option value="New Mexico">New Mexico</option>
-				<option value="New York">New York</option>
-				<option value="North Carolina">North Carolina</option>
-				<option value="North Dakota">North Dakota</option>
-				<option value="Northern Marianas Islands">Northern Marianas Islands</option>
-				<option value="Ohio">Ohio</option>
-				<option value="Oklahoma">Oklahoma</option>
-				<option value="Oregon">Oregon</option>
-				<option value="Pennsylvania">Pennsylvania</option>
-				<option value="Puerto Rico">Puerto Rico</option>
-				<option value="Rhode Island">Rhode Island</option>
-				<option value="South Carolina">South Carolina</option>
-				<option value="South Dakota">South Dakota</option>
-				<option value="Tennessee">Tennessee</option>
-				<option value="Texas">Texas</option>
-				<option value="Utah">Utah</option>
-				<option value="Vermont">Vermont</option>
-				<option value="Virginia">Virginia</option>
-				<option value="Virgin Islands">Virgin Islands</option>
-				<option value="Washington">Washington</option>
-				<option value="West Virginia">West Virginia</option>
-				<option value="Wisconsin">Wisconsin</option>
-				<option value="Wyoming">Wyoming</option>
+
+			<select multiple id="selectlocation" name="selectlocation" class="form-control">
+				<option value="AL">Alabama</option>
+				<option value="AK">Alaska</option>
+				<option value="AS">American Samoa</option>
+				<option value="AZ">Arizona</option>
+				<option value="AR">Arkansas</option>
+				<option value="CA">California</option>
+				<option value="CO">Colorado</option>
+				<option value="CT">Connecticut</option>
+				<option value="DE">Delaware</option>
+				<option value="DC">District of Columbia</option>
+				<option value="FL">Florida</option>
+				<option value="GA">Georgia</option>
+				<option value="GU">Guam</option>
+				<option value="HI">Hawaii</option>
+				<option value="ID">Idaho</option>
+				<option value="IL">Illinois</option>
+				<option value="IN">Indiana</option>
+				<option value="IA">Iowa</option>
+				<option value="KS">Kansas</option>
+				<option value="KY">Kentucky</option>
+				<option value="LA">Louisiana</option>
+				<option value="ME">Maine</option>
+				<option value="MD">Maryland</option>
+				<option value="MA">Massachusetts</option>
+				<option value="MI">Michigan</option>
+				<option value="MN">Minnesota</option>
+				<option value="MS">Mississippi</option>
+				<option value="MO">Missouri</option>
+				<option value="MT">Montana</option>
+				<option value="NE">Nebraska</option>
+				<option value="NV">Nevada</option>
+				<option value="NH">New Hampshire</option>
+				<option value="NJ">New Jersey</option>
+				<option value="NM">New Mexico</option>
+				<option value="NY">New York</option>
+				<option value="NC">North Carolina</option>
+				<option value="ND">North Dakota</option>
+				<option value="MP">Northern Marianas Islands</option>
+				<option value="OH">Ohio</option>
+				<option value="OK">Oklahoma</option>
+				<option value="OR">Oregon</option>
+				<option value="PA">Pennsylvania</option>
+				<option value="PR">Puerto Rico</option>
+				<option value="RI">Rhode Island</option>
+				<option value="SC">South Carolina</option>
+				<option value="SD">South Dakota</option>
+				<option value="TN">Tennessee</option>
+				<option value="TX">Texas</option>
+				<option value="UT">Utah</option>
+				<option value="VT">Vermont</option>
+				<option value="VA">Virginia</option>
+				<option value="VI">Virgin Islands</option>
+				<option value="WA">Washington</option>
+				<option value="WV">West Virginia</option>
+				<option value="WI">Wisconsin</option>
+				<option value="WY">Wyoming</option>
 			</select>
 		</div>
 	</div>
-	
+
+
+
 	<!-- Text input-->
-	<div class="form-group">
-  <label class="col-md-4 control-label" for="searchinput">Keyword (One Field)</label>
-					<div class="col-md-4">
-						<input id="searchinput" name="searchinput" type="search" placeholder="eg something" class="form-control input-md">
-						<!--<p class="help-block">Food Description</p>-->
-					</div>
-</div>
 
 	<div class="form-group">
-		<label class="col-md-4 control-label" for="foodgroup">Food Group</label>  
+		<label class="col-md-4 control-label" for="keyword">Keyword</label>  
 		<div class="col-md-4">
-			<input id="foodgroup" name="foodgroup" type="text" class="form-control input-md">
+
+			<input id="keyword" name="keyword" type="text" class="form-control input-md">
 			<!--<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>-->
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-md-4 control-label" for="foodgroup">Food Group</label>
+		<div class="col-md-4">
+			<select multiple id="foodgroup" name="foodgroup" class="form-control">
+				<option value="fruits">Fruits</option>
+				<option value="vegetables">Vegetables</option>
+				<option value="grains">Grains</option>
+				<option value="proteins">Proteins</option>
+				<option value="dairy">Dairy</option>
+			</select>
 		</div>
 	</div>
 	<button id="btnSubmit" type="submit" class="btn btn-default">Submit Search</button>
@@ -240,18 +242,43 @@
 		
     </script>
 	
-</fieldset>
-						</form>
-					
-				</div>
-				<div class="col-sm-8">
-                    <div class="col-xs-6 col-sm-3 img-responsive" style="height:400px;width:100%" id="map">
+	
+
+	<!-- Text input-->
+    <script>
+    $( document ).ready(function() {
+      var checkin = $('#date-from').datepicker().on('changeDate', function(ev) {
+        if (ev.date.valueOf() > checkout.date.valueOf()) {
+          var newDate = new Date(ev.date)
+          newDate.setDate(newDate.getDate() + 1);
+          checkout.setValue(newDate);
+        }
+        checkin.hide();
+        $('#date-to')[0].focus();
+      }).data('datepicker');
+      var checkout = $('#date-to').datepicker({
+        onRender: function(date) {
+          return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+        }
+      }).on('changeDate', function(ev) {
+        checkout.hide();
+      }).data('datepicker');
+      $('#date-from').datepicker();
+      $('#date-to').datepicker();
+    });
+    </script>
+	
+       <div id="detailed-table" class="list-group">
+       </div>
+</div>
+
+
+				<div class="col-md-8">
+                    <div class="col-xs-6 col-sm-3 img-responsive" style="height:600px;width:100%" id="map">
 
                     </div>
                 </div>
 				</div>
-                <div class="col-sm-9  col-md-10main">
-               
 
 
 
@@ -262,92 +289,68 @@
 					
 					
 					<div id="detailed-table" class="list-group">
-					  <div class="list-group-item"  data-toggle="popover" data-placement="right" data-content="Status: Ongoing <br>Product Quantity: 81 containers <br>Recall Initiation Date: July 2014<br>State: ND<br>Event ID: 62644<br>Product Type: Food<br>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).<br>Country: US<br>City: Fargo<br>Recalling Firm: Cass Clay Creamery AMPI Fargo Division<br>Report Date: November 5, 2014<br>Voluntary Mandated: Voluntary: Firm Initiated<br>Classification: Class II<br>Initial Firm Notification: Two or more of the following: Email">
-						<h4 class="list-group-item-heading">Cass Clay Creamery AMPI Fargo Division</h4>
-						<p class="list-group-item-text">
-						<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: June 2015</span>
-						<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MD</span>
-						<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: corn</span>
-						</p>
-					  </div>
-					<div class="list-group-item">
-						<div data-toggle="collapse" data-parent="#detailed-table" href="#collapse2">
-							<h4 class="list-group-item-heading">Pinnacle Food Group LLC</h4>
-							<p class="list-group-item-text">
-								<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: May 2015</span>
-								<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MD</span>
-								<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Ranch Dressing</span>
-							</p>
-						</div>
-					
-						<div id="collapse2" class="panel-collapse collapse">
-							<div class="panel-body">
-							<ul class="list-unstyled">
-								<li>Status: Ongoing</li>
-								<li>Product Quantity: 81 containers</li>
-								<li>Recall Initiation Date: July 2015</li>
-								<li>State: ND</li>
-								<li>Event ID: 62644</li>
-								<li>Product Type: Food</li> 
-								<li>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).</li>
-								<li>Country: US</li>
-								<li>City: Fargo</li>
-								<li>Recalling Firm: Cass Clay Creamery AMPI Fargo Division</li>
-								<li>Report Date: August 2015</li>
-								<li>Voluntary Mandated: Voluntary: Firm Initiated</li>
-								<li>Classification: Class II</li>
-								<li>Initial Firm Notification: Two or more of the following: Email</li>
-							</ul>
-							</div>
-						</div>
-					
-					  </div>
-					<div class="list-group-item">
-						<h4 class="list-group-item-heading">Vitamin Cottage Natural Food Markets Inc.</h4>
-						<p class="list-group-item-text">
-							<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: January 2014</span>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MI</span>
-							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Raw macadamia nuts</span>
-						</p>
-					  </div>
-					<div class="list-group-item">
-						<h4 class="list-group-item-heading">Waymouth Farms, Inc.</h4>
-						<p class="list-group-item-text">
-							<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: February 2015</span>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: CA</span>
-							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Raw Pine Nuts</span>
-						</p>
-					  </div>
-					  
-					<div class="list-group-item">
-						<h4 class="list-group-item-heading">Golden Krust Caribbean Bakery & Grill</h4>
-						<p class="list-group-item-text">
-							<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: March 2015</span>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: NE</span>
-							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Shrimp Patties, Soya Patties</span>
-						</p>
-					  </div>				  
-					<div class="list-group-item">
-						<h4 class="list-group-item-heading">Good Seed Inc.</h4>
-						<p class="list-group-item-text">
-<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: January 2015</span>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MI</span>
-							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: GOODSEED Soy Bean Sprouts and GOODSEED Soy Bean Sprouts  </span>
-						</p>
-					  </div> 
-					</div>
+				
                 </div>
 
             </div>
-
+</div>
         </div>
-    </div>
-			
-		</div>
-	</div>
-	</div>
+  </div>
     <!---this is for search functionality-->
     <script>
+	
+	/*Function that dynamically generates the search query results from the search form using JQuery as a means to append to the div for the
+	 *table
+	 *@param the json response received from the JQuery AJAX request
+	 */
+	 
+	 $("button").click(function(){
+	foodgroup = document.getElementById('foodgroup').value;
+	begindate = document.getElementById('date-from').value;
+	enddate = document.getElementById('date-to').value;
+	selectlocation = document.getElementById('selectlocation').value;
+	keyword = document.getElementById('keyword').value;
+	console.log(begindate);
+    $.ajax({'async': false,url: 'https://api.fda.gov/food/enforcement.json?api_key=LEsaCnFqu5NnXynoyvcNjtaSTEde5r7inxEfcTIH&search=country:"US"', success: function(result){
+        $("#div1").html(result.meta.results.total);
+		
+    }});
+}); 
+function returnSearch(json_test){
+for(var i = 0; i < json_test.results.bindings.length; i++){
+var elm = '<div class="list-group-item">' +
+						'<div data-toggle="collapse" data-parent="#detailed-table" href="#collapse'+i+'">' +
+							'<h4 class="list-group-item-heading">Product Description</h4>' +
+							'<p class="list-group-item-text">' +
+								'<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date:' +  json_test.results.bindings[i].reportDate.value + '</span>' +
+								'<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location:' + json_test.results.bindings[i].location.value + '</span>' +
+								'<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Ranch Dressing</span>' +
+							'</p>' +
+						'</div>'  +
+					        '<div id="collapse'+i+'" class="panel-collapse collapse">' +
+							'<div class="panel-body">' +
+							'<ul class="list-unstyled">' +
+								'<li>Status: Ongoing</li>' +
+								'<li>Distribution Pattern: ' + json_test.results.bindings[i].distPattern.value + '</li>' +
+								'<li>Product Quantity: ' + json_test.results.bindings[i].productQty.value + '</li>' +
+								'<li>Recall Initiation Date: ' + json_test.results.bindings[i].recallInitiationDate.value + '</li>' +
+								'<li>City/State: ' + json_test.results.bindings[i].location.value + '</li>' +
+								'<li>Event ID: ' + json_test.results.bindings[i].eventId.value + '</li>' +
+								'<li>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).</li>' +
+								'<li>Country: US</li>' +
+								'<li>Recalling Firm: ' + json_test.results.bindings[i].recallingFirm.value +'</li>' +
+								'<li>Recall Reason: ' + json_test.results.bindings[i].recallReason.value + '</li>' +
+								'<li>Report Date: ' + json_test.results.bindings[i].reportDate.value + '</li>' +
+								'<li>Voluntary Mandated: Voluntary: Firm Initiated</li>' +
+								'<li>Classification: Class II</li>' +
+								'<li>Initial Firm Notification: Two or more of the following: Email</li>' +
+							'</ul>' +
+							'</div>' +
+						'</div>' +
+					  '</div>';
+$(elm).appendTo('#detailed-table');
+  }
+}
         $(document).ready(function btnClick() {
             //    button click
             $("#btnSubmit").button().click(function() {
@@ -363,13 +366,13 @@
                 $('#my-table > tbody:last').append('<tr><td>' + item + '</td></tr>');
             });
         });
-		
+
 		$(function () { $("[data-toggle='popover']").popover({
 			trigger: 'hover',
 			'placement': 'right',
-			 html : true, 
+			 html : true,
 		}); });
-		
+
     </script>
 
 
@@ -379,17 +382,16 @@
     <script>
 			var map = L.map('map').setView([31.0, -98.0], 10);
 
-		
-		
+
+
         window.pizzaIcon = L.icon({
 			iconUrl: 'celery.png',
-			
 			iconSize:     [48, 48], // size of the icon
 			iconAnchor:   [22, 22], // point of the icon which will correspond to marker's location
 			popupAnchor:  [0, -22] // point from which the popup should open relative to the iconAnchor
 		});
-		
-		
+
+
         L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
             maxZoom: 18,
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -425,9 +427,9 @@
                 .setContent("You clicked the map at " + e.latlng.toString())
                 .openOn(map);
         }
-		
-		
-        //Query Claven for lat/longs ... 
+
+
+        //Query Claven for lat/longs ...
         function getVector() {
             //alert($("#id_textarea").val());
             //console.log($("#id_textarea").val());
@@ -456,16 +458,16 @@
 
                 });
         }
-		
-		
-		
-		
+
+
+
+
         map.on('click', onMapClick);
     </script>
-	
+
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-	
+
     <!-- Menu Toggle Script -->
     <script>
 		$("#menu-toggle").click(function(e) {
@@ -480,7 +482,7 @@
 
 
 
-<!-----Test of D3 Integration 
+<!-----Test of D3 Integration
 
 <style>
 
@@ -502,11 +504,6 @@ button {
 </style>------>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 
-
-<script src="classification_chart.js"></script>
-<script src="product_chart.js"></script>
-<script src="recall_status_chart.js"></script>
-<script src="horizontal_barchart.js"></script>
 
 
 </html>

@@ -1,7 +1,20 @@
+/*
+var class_type = (function(){
+			  var class_type = null;
+			  $.ajax({
+			  'async': false,
+	          url: 'https://api.fda.gov/food/enforcement.json?count=classification.exact',
+			  }
+				).done(function(data) {
+				class_type = data; 
+  });
+  return class_type;
+  })();  
+*/
 var chart = c3.generate({
 	bindto: '#monitorseries',
 	size: {
-  width: 1100,
+  width: 1000,
 },
     data: {
         x: 'x',
