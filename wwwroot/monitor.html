@@ -93,87 +93,6 @@
               <h2 class="sub-header">Top Ten Queries</h2>
               <div class="table-responsive">
                 <table class="table table-striped" id="my-table">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Header</th>
-                      <th>Header</th>
-                      <th>Header</th>
-                      <th>Header</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1,001</td>
-                      <td>Lorem</td>
-                      <td>ipsum</td>
-                      <td>dolor</td>
-                      <td>sit</td>
-                    </tr>
-                    <tr>
-                      <td>1,002</td>
-                      <td>amet</td>
-                      <td>consectetur</td>
-                      <td>adipiscing</td>
-                      <td>elit</td>
-                    </tr>
-                    <tr>
-                      <td>1,003</td>
-                      <td>Integer</td>
-                      <td>nec</td>
-                      <td>odio</td>
-                      <td>Praesent</td>
-                    </tr>
-                    <tr>
-                      <td>1,004</td>
-                      <td>dapibus</td>
-                      <td>diam</td>
-                      <td>Sed</td>
-                      <td>nisi</td>
-                    </tr>
-                    <tr>
-                      <td>1,005</td>
-                      <td>Nulla</td>
-                      <td>quis</td>
-                      <td>sem</td>
-                      <td>at</td>
-                    </tr>
-                    <tr>
-                      <td>1,006</td>
-                      <td>nibh</td>
-                      <td>elementum</td>
-                      <td>imperdiet</td>
-                      <td>Duis</td>
-                    </tr>
-                    <tr>
-                      <td>1,007</td>
-                      <td>sagittis</td>
-                      <td>ipsum</td>
-                      <td>Praesent</td>
-                      <td>mauris</td>
-                    </tr>
-                    <tr>
-                      <td>1,008</td>
-                      <td>Fusce</td>
-                      <td>nec</td>
-                      <td>tellus</td>
-                      <td>sed</td>
-                    </tr>
-                    <tr>
-                      <td>1,009</td>
-                      <td>augue</td>
-                      <td>semper</td>
-                      <td>porta</td>
-                      <td>Mauris</td>
-                    </tr>
-                    <tr>
-                      <td>1,010</td>
-                      <td>massa</td>
-                      <td>Vestibulum</td>
-                      <td>lacinia</td>
-                      <td>arcu</td>
-                    </tr>
-                  </tbody>
                 </table>
               </div>
             </div>
@@ -188,128 +107,37 @@
               </div>
           </div>
         </div>
-<!--
-		<div class="col-xs-3 col-sm-3 img-responsive"  style="height:110px;width:100%">
-			</div>
-			<div class="col-sm-4  col-md-4main"></div>
-			<font face="calibri" size="10" color="gray">Queries since 6/1/2013</font>
-            <div class="col-xs-3 col-sm-3 img-responsive"  style="height:420px;width:100%"   id="monitorseries">
-			</div>
-		</div>
+		
+<script type="text/javascript">
+  
+function returnTopQueries(){
+var elem = '<thead>' +
+                    + '<tr>'
+                    +  '<th>#</th>'
+                    +  '<th>Date</th>'
+                    +  '<th>Location</th>'
+                    +  '<th>Search</th>'
+                    + '<th>Count</th>'
+					+  '<th>Response Time</th>'
+                    + '</tr>'
+                  + '</thead>'
+				  + '<tbody>';
+for(var i = 0; i < 4; i++){
+elem +=               '<tr>'
+                      + '<td>1,001</td>'
+                      + '<td>Lorem</td>'
+                      + '<td>ipsum</td>'
+                      + '<td>dolor</td>'
+                      + '<td>sit</td>'
+					  + '<td>something</td>'
+                    + '</tr>';
 
-        <div class="col-sm-11  col-md-10main">
-          <h3 class="page-header">Summary</h3>
-
-
-		  <h2 class="sub-header">Top Ten Queries</h2>
-          <div class="table-responsive">
-            <table class="table table-striped" id="my-table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-</body>
-
-
-
-
-<!-----Test of D3 Integration
-
-<style>
-
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: auto;
-  position: relative;
-  width: 960px;
 }
-
-button {
-  position: absolute;
-  right: 10px;
-  top: 10px;
+elem += '</tbody>';
+$(elem).appendTo('#my-table');
 }
-
-
-
-</style>------>
-
+returnTopQueries();
+</script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="c3/c3.min.js"></script>
 <link href="c3/c3.css" rel="stylesheet" type="text/css">

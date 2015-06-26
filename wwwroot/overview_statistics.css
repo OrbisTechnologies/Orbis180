@@ -24,7 +24,7 @@
 
 #Title1 {
 	font-family: Calibri;
-	font-size  : 15px;
+	font-size  : 25px;
 	fill       : lightblue;
 	font-weight: bold;
 	text-anchor: middle;
@@ -32,8 +32,17 @@
 
 #Title2 {
 	font-family: Calibri;
-	font-size  : 75px;
+	font-size  : 70px;
 	fill       : lightgreen;
+	text-anchor: middle;
+	font-weight: bold;
+	/*font-style: italic;*/
+}
+
+#Title3 {
+	font-family: Calibri;
+	font-size  : 18px;
+	fill       : lightblue;
 	text-anchor: middle;
 	font-weight: bold;
 	/*font-style: italic;*/
