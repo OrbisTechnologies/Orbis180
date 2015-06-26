@@ -38,7 +38,6 @@ public class StoreFactory {
         } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
            logger.error(ex.getLocalizedMessage());
         }
-        
         return store;
     }
 }

@@ -20,16 +20,23 @@ import org.codehaus.jackson.annotate.JsonProperty;
  */
 public class WileyQuery {
     
-    @JsonProperty("Date")
-    String Date;
     //date
+    @JsonProperty("Date")
+    public String date;
+    
+    //location
     @JsonProperty("Location")
-    String Location;
-//location
-    
+    public String location;
+
+    //searchField
     @JsonProperty("SearchField")
-    String SearchField;
+    public String searchField;
     
+    //used for outgoing messages about 
     @JsonProperty("Count")
-    int Count;
+    public Integer count;
+    
+    //time it took the server to respond
+    @JsonProperty("ResponseTime")
+    public Integer responseTime;
 }
