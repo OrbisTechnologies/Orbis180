@@ -102,90 +102,143 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Search</legend>
+<legend>Advanced Search</legend>
 
 <!-- Search input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="searchinput">Description</label>
-					<div class="col-md-4">
-						<input id="searchinput" name="searchinput" type="search" placeholder="eg something" class="form-control input-md">
-						<p class="help-block">Food Description</p>
-					</div>
-</div>
+		<label class="col-md-4 control-label" for="begindate">Begin Date</label>  
+		<div class="col-md-4">
+			<input id="begindate" name="begindate" type="text" placeholder="dd/mm/yyyy" class="form-control input-md">
+			<!--<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>--> 
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-md-4 control-label" for="enddate">End Date</label>  
+		<div class="col-md-4">
+			<input id="enddate" name="enddate" type="text" placeholder="dd/mm/yyyy" class="form-control input-md">
+			<!--<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>-->
+		</div>
+	</div>
 	
 	<!-- Select Basic -->
 	<div class="form-group">
 		<label class="col-md-4 control-label" for="selectlocation">Location</label>
 		<div class="col-md-4">
 			<select id="selectlocation" name="selectlocation" class="form-control">
-				<option value="1">Alabama</option>
-				<option value="2">Alaska</option>
-				<option value="">American Samoa</option>
-				<option value="">Arizona</option>
-				<option value="">Arkansas</option>
-				<option value="">California</option>
-				<option value="">Colorado</option>
-				<option value="">Connecticut</option>
-				<option value="">Delaware</option>
-				<option value="">District of Columbia</option>
-				<option value="">Florida</option>
-				<option value="">Georgia</option>
-				<option value="">Guam</option>
-				<option value="">Hawaii</option>
-				<option value="">Idaho</option>
-				<option value="">Illinois</option>
-				<option value="">Indiana</option>
-				<option value="">Iowa</option>
-				<option value="">Kansas</option>
-				<option value="">Kentucky</option>
-				<option value="">Louisiana</option>
-				<option value="">Maine</option>
-				<option value="">Maryland</option>
-				<option value="">Massachusetts</option>
-				<option value="">Michigan</option>
-				<option value="">Minnesota</option>
-				<option value="">Mississippi</option>
-				<option value="">Missouri</option>
-				<option value="">Montana</option>
-				<option value="">Nebraska</option>
-				<option value="">Nevada</option>
-				<option value="">New Hampshire</option>
-				<option value="">New Jersey</option>
-				<option value="">New Mexico</option>
-				<option value="">New York</option>
-				<option value="">North Carolina</option>
-				<option value="">North Dakota</option>
-				<option value="">Northern Marianas Islands</option>
-				<option value="">Ohio</option>
-				<option value="">Oklahoma</option>
-				<option value="">Oregon</option>
-				<option value="">Pennsylvania</option>
-				<option value="">Puerto Rico</option>
-				<option value="">Rhode Island</option>
-				<option value="">South Carolina</option>
-				<option value="">South Dakota</option>
-				<option value="">Tennessee</option>
-				<option value="">Texas</option>
-				<option value="">Utah</option>
-				<option value="">Vermont</option>
-				<option value="">Virginia</option>
-				<option value="">Virgin Islands</option>
-				<option value="">Washington</option>
-				<option value="">West Virginia</option>
-				<option value="">Wisconsin</option>
-				<option value="">Wyoming</option>
+				<option value="Alabama">Alabama</option>
+				<option value="Alaska">Alaska</option>
+				<option value="American Samoa">American Samoa</option>
+				<option value="Arizona">Arizona</option>
+				<option value="Arkansas">Arkansas</option>
+				<option value="California">California</option>
+				<option value="Colorado">Colorado</option>
+				<option value="Connecticut">Connecticut</option>
+				<option value="Delaware">Delaware</option>
+				<option value="District of Columbia">District of Columbia</option>
+				<option value="Florida">Florida</option>
+				<option value="Georgia">Georgia</option>
+				<option value="Guam">Guam</option>
+				<option value="Hawaii">Hawaii</option>
+				<option value="Idaho">Idaho</option>
+				<option value="Illinois">Illinois</option>
+				<option value="Indiana">Indiana</option>
+				<option value="Iowa">Iowa</option>
+				<option value="Kansas">Kansas</option>
+				<option value="Kentucky">Kentucky</option>
+				<option value="Louisiana">Louisiana</option>
+				<option value="Maine">Maine</option>
+				<option value="Maryland">Maryland</option>
+				<option value="Massachusetts">Massachusetts</option>
+				<option value="Michigan">Michigan</option>
+				<option value="Minnesota">Minnesota</option>
+				<option value="Mississippi">Mississippi</option>
+				<option value="Missouri">Missouri</option>
+				<option value="Montana">Montana</option>
+				<option value="Nebraska">Nebraska</option>
+				<option value="Nevada">Nevada</option>
+				<option value="New Hampshire">New Hampshire</option>
+				<option value="New Jersey">New Jersey</option>
+				<option value="New Mexico">New Mexico</option>
+				<option value="New York">New York</option>
+				<option value="North Carolina">North Carolina</option>
+				<option value="North Dakota">North Dakota</option>
+				<option value="Northern Marianas Islands">Northern Marianas Islands</option>
+				<option value="Ohio">Ohio</option>
+				<option value="Oklahoma">Oklahoma</option>
+				<option value="Oregon">Oregon</option>
+				<option value="Pennsylvania">Pennsylvania</option>
+				<option value="Puerto Rico">Puerto Rico</option>
+				<option value="Rhode Island">Rhode Island</option>
+				<option value="South Carolina">South Carolina</option>
+				<option value="South Dakota">South Dakota</option>
+				<option value="Tennessee">Tennessee</option>
+				<option value="Texas">Texas</option>
+				<option value="Utah">Utah</option>
+				<option value="Vermont">Vermont</option>
+				<option value="Virginia">Virginia</option>
+				<option value="Virgin Islands">Virgin Islands</option>
+				<option value="Washington">Washington</option>
+				<option value="West Virginia">West Virginia</option>
+				<option value="Wisconsin">Wisconsin</option>
+				<option value="Wyoming">Wyoming</option>
 			</select>
 		</div>
 	</div>
 	
 	<!-- Text input-->
 	<div class="form-group">
-		<label class="col-md-4 control-label" for="daterange">Date Range</label>  
+  <label class="col-md-4 control-label" for="searchinput">Keyword (One Field)</label>
+					<div class="col-md-4">
+						<input id="searchinput" name="searchinput" type="search" placeholder="eg something" class="form-control input-md">
+						<!--<p class="help-block">Food Description</p>-->
+					</div>
+</div>
+
+	<div class="form-group">
+		<label class="col-md-4 control-label" for="foodgroup">Food Group</label>  
 		<div class="col-md-4">
-			<input id="daterange" name="daterange" type="text" placeholder="dd/mm/yyyy" class="form-control input-md">
-			<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>  
+			<input id="foodgroup" name="foodgroup" type="text" class="form-control input-md">
+			<!--<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>-->
 		</div>
 	</div>
+	<button id="btnSubmit" type="submit" class="btn btn-default">Submit Search</button>
+	<script>
+        $(document).ready(function btnClick() {
+            //    button click
+            $("#btnSubmit").button().click(function() {
+                alert("button");
+				foodgroup = document.getElementById('foodgroup').value;
+				begindate = document.getElementById('begindate').value;
+				enddate = document.getElementById('enddate').value;
+				selectlocation = document.getElementById('setlocation').value;
+				searchinput = document.getElementById('searchinput').value;
+				alert(begindate);
+				alert(enddate);
+				alert(foodgroup);
+				alert(searchinput);
+				alert(selectlocation);
+            });
+			//var endpoint = 'https://api.fda.gov/drug/event.json'
+			//var params = "?" + elem + ""
+            var data = ["foo", "bar"];
+            $.get('https://api.fda.gov/drug/event.json?search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&count=patient.reaction.reactionmeddrapt.exact', function(result) {
+                $.each(result.results, function(i, item) {
+                    $('#my-table > tbody:last').append('<tr><td>' + item.term + '</td></tr>');
+                });
+            });
+            $.each(data, function(i, item) {
+                $('#my-table > tbody:last').append('<tr><td>' + item + '</td></tr>');
+            });
+        });
+		
+		$(function () { $("[data-toggle='popover']").popover({
+			trigger: 'hover',
+			'placement': 'right',
+			 html : true, 
+		}); });
+		
+    </script>
 	
 </fieldset>
 						</form>
@@ -281,136 +334,8 @@
 							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MI</span>
 							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: GOODSEED Soy Bean Sprouts and GOODSEED Soy Bean Sprouts  </span>
 						</p>
-					  </div>
-					  
+					  </div> 
 					</div>
-						
-	                 <!--<table class="table table-striped" id="my-table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Header</th>
-                                    <th>Header</th>
-                                    <th>Header</th>
-                                    <th>Header</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1,001</td>
-                                    <td>Lorem</td>
-                                    <td>ipsum</td>
-                                    <td>dolor</td>
-                                    <td>sit</td>
-                                </tr>
-                                <tr>
-                                    <td>1,002</td>
-                                    <td>amet</td>
-                                    <td>consectetur</td>
-                                    <td>adipiscing</td>
-                                    <td>elit</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>Integer</td>
-                                    <td>nec</td>
-                                    <td>odio</td>
-                                    <td>Praesent</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>libero</td>
-                                    <td>Sed</td>
-                                    <td>cursus</td>
-                                    <td>ante</td>
-                                </tr>
-                                <tr>
-                                    <td>1,004</td>
-                                    <td>dapibus</td>
-                                    <td>diam</td>
-                                    <td>Sed</td>
-                                    <td>nisi</td>
-                                </tr>
-                                <tr>
-                                    <td>1,005</td>
-                                    <td>Nulla</td>
-                                    <td>quis</td>
-                                    <td>sem</td>
-                                    <td>at</td>
-                                </tr>
-                                <tr>
-                                    <td>1,006</td>
-                                    <td>nibh</td>
-                                    <td>elementum</td>
-                                    <td>imperdiet</td>
-                                    <td>Duis</td>
-                                </tr>
-                                <tr>
-                                    <td>1,007</td>
-                                    <td>sagittis</td>
-                                    <td>ipsum</td>
-                                    <td>Praesent</td>
-                                    <td>mauris</td>
-                                </tr>
-                                <tr>
-                                    <td>1,008</td>
-                                    <td>Fusce</td>
-                                    <td>nec</td>
-                                    <td>tellus</td>
-                                    <td>sed</td>
-                                </tr>
-                                <tr>
-                                    <td>1,009</td>
-                                    <td>augue</td>
-                                    <td>semper</td>
-                                    <td>porta</td>
-                                    <td>Mauris</td>
-                                </tr>
-                                <tr>
-                                    <td>1,010</td>
-                                    <td>massa</td>
-                                    <td>Vestibulum</td>
-                                    <td>lacinia</td>
-                                    <td>arcu</td>
-                                </tr>
-                                <tr>
-                                    <td>1,011</td>
-                                    <td>eget</td>
-                                    <td>nulla</td>
-                                    <td>Class</td>
-                                    <td>aptent</td>
-                                </tr>
-                                <tr>
-                                    <td>1,012</td>
-                                    <td>taciti</td>
-                                    <td>sociosqu</td>
-                                    <td>ad</td>
-                                    <td>litora</td>
-                                </tr>
-                                <tr>
-                                    <td>1,013</td>
-                                    <td>torquent</td>
-                                    <td>per</td>
-                                    <td>conubia</td>
-                                    <td>nostra</td>
-                                </tr>
-                                <tr>
-                                    <td>1,014</td>
-                                    <td>per</td>
-                                    <td>inceptos</td>
-                                    <td>himenaeos</td>
-                                    <td>Curabitur</td>
-                                </tr>
-                                <tr>
-                                    <td>1,015</td>
-                                    <td>sodales</td>
-                                    <td>ligula</td>
-                                    <td>in</td>
-                                    <td>libero</td>
-                                </tr>
-                            </tbody>
-                        </table> 
-                    </div>-->
                 </div>
 
             </div>
