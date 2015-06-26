@@ -362,7 +362,7 @@ public class OpenFDAClient {
     }
     
     //setup openFDA URL
-    private String getOpenFDADataLink()
+    protected String getOpenFDADataLink()
     {
         String openFDADataLink;
                           
