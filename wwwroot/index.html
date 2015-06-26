@@ -32,6 +32,10 @@
 
     <link rel="stylesheet" href="css/datepicker.css">
 
+    <script src="js/bootstrap-datepicker.js"></script>
+
+    <link rel="stylesheet" href="css/datepicker.css">
+
 	<style>
 	.content {
     margin-left:248px !important;
@@ -172,10 +176,15 @@
 			</select>
 		</div>
 	</div>
-	
+
+
+
+	<!-- Text input-->
+
 	<div class="form-group">
 		<label class="col-md-4 control-label" for="keyword">Keyword</label>  
 		<div class="col-md-4">
+
 			<input id="keyword" name="keyword" type="text" class="form-control input-md">
 			<!--<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>-->
 		</div>
@@ -195,6 +204,40 @@
 	</div>
 	
 	<button id="button" type="submit" class="btn btn-default">Submit Search</button>
+=======
+        <input class="form-control input-md" type="text" id="date-from" placeholder="From" data-date-format="yyyy-mm-dd">
+        <input class="form-control input-md" type="text" id="date-to" placeholder="To" data-date-format="yyyy-mm-dd">
+        <p><i>(yyyy-mm-dd)</i></p>
+  </div>
+</div>
+    <script>
+
+    $( document ).ready(function() {
+
+      var checkin = $('#date-from').datepicker().on('changeDate', function(ev) {
+        if (ev.date.valueOf() > checkout.date.valueOf()) {
+          var newDate = new Date(ev.date)
+          newDate.setDate(newDate.getDate() + 1);
+          checkout.setValue(newDate);
+        }
+        checkin.hide();
+        $('#date-to')[0].focus();
+      }).data('datepicker');
+      var checkout = $('#date-to').datepicker({
+        onRender: function(date) {
+          return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+        }
+      }).on('changeDate', function(ev) {
+        checkout.hide();
+      }).data('datepicker');
+
+      $('#date-from').datepicker();
+      $('#date-to').datepicker();
+
+    });
+
+    </script>
+>>>>>>> 94631f4976285cf61ae7763be15f77b0d52e1342
 
 	<!-- Text input-->
     <script>
