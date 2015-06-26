@@ -367,6 +367,17 @@
                                 '</div>' +
                                 '</div>';
                             $(elm).appendTo('#detailed-table');
+							var map = L.map('map')
+							var bounds = [];
+								//console.log(val);
+								bounds.push([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value]);
+								L.marker([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value], {
+									icon: window.pizzaIcon
+								}).addTo(map)
+								.bindPopup(val.geoname.name);
+							
+							// zoom to bounds of markers
+							map.fitBounds(bounds);
                         }
                     }
 					/*
@@ -451,16 +462,10 @@
         ]).addTo(map).bindPopup("I am a polygon man.");
 
 
-        var popup = L.popup();
-
         function onMapClick(e) {
+//todo remove this once the map is hooked up to data
+        //    getVector();
 
-            getVector();
-
-            popup
-                .setLatLng(e.latlng)
-                .setContent("You clicked the map at " + e.latlng.toString())
-                .openOn(map);
         }
 
 
