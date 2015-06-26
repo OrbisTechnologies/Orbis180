@@ -10,10 +10,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -21,20 +20,16 @@ import javax.ws.rs.core.MediaType;
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.openrdf.OpenRDFException;
-import org.openrdf.model.Literal;
 import org.openrdf.model.Statement;
 import org.openrdf.model.URI;
 import org.openrdf.model.Value;
 import org.openrdf.model.ValueFactory;
 import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.query.BindingSet;
-import org.openrdf.query.MalformedQueryException;
-import org.openrdf.query.Query;
 import org.openrdf.query.QueryLanguage;
 import org.openrdf.query.TupleQuery;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
 import org.slf4j.LoggerFactory;
 
 
@@ -48,6 +43,7 @@ public class RestClient {
   final static protected org.slf4j.Logger logger = LoggerFactory.getLogger(RestClient.class);
   private Map<String, Location> locations;
   private SesameInterface sesame;
+  private String clavinUrl;
   
   @GET()
   @Path("/writeToFile")
@@ -75,16 +71,18 @@ public class RestClient {
    * 
    * @return The success or failure of the request.
    */
-  
   @GET()
   @Path("/getcoordinates")
     @Produces(MediaType.APPLICATION_JSON)
     public String updateGeoCoordinates() {
 
         sesame = new SesameInterface();
+        Properties config = new Properties();
         try {
-
-            sesame.openRepository("openFDA-test");
+            config.load(getClass().getResourceAsStream("/conf/config.properties"));
+            String repositoryName = config.getProperty("com.orbis.orbis180.sesame.repository");
+            clavinUrl = config.getProperty("com.orbis.orbis180.clavin.server");
+            sesame.openRepository(repositoryName);
             RepositoryConnection connection = sesame.getRepository().getConnection();
             locations = new HashMap<>();
             try {
@@ -129,29 +127,36 @@ public class RestClient {
         } catch (OpenRDFException ex) {
             logger.error("Could not open the Sesame repository.\n{}", ex);
             return "{\"sucess\": false}";
-        }
+        } catch (IOException ex) {
+          logger.error("Could not configure the client.  Properties file was not found.\n{}", ex);
+          return "{\"sucess\": false}";
+      }
         return "{\"sucess\": true}";
     }
     
+   /**
+   * Asks Clavin for the coordinates of a given location.
+   * 
+   */
     private String getCoordinates(String locationsFile) {
 
         Client client = Client.create();
 
         WebResource webResource = client
-                .resource("http://localhost:9090/api/v0/geotagmin");
+                .resource(clavinUrl);
 
         ClientResponse response = webResource.type("text/plain")
                 .post(ClientResponse.class, locationsFile);
-
-//		if (response.getStatus() != 201) {
-//			throw new RuntimeException("Failed : HTTP error code : "
-//			     + response.getStatus());
-//		}
         String output = response.getEntity(String.class);
 
         return output;
     }
     
+  /**
+   * Adds the latitude and longitude coordinates obtained from Clavin to 
+   * the collection of locations.
+   * 
+   */
     private void loadCoordinatesFromClavin() {
         //Store the locations in a single String to submit to Clavin in one request
         //StringBuilder locationEntries = new StringBuilder();
@@ -174,6 +179,10 @@ public class RestClient {
             }
         }
     }
+    
+    /**
+    * Updates the the latitude and longitude of the Location entities in Sesame.
+    */
     private void saveCoordinatesToSesame(){
         List<Statement> triples = new ArrayList<>();
         ValueFactory valueFactory = sesame.getValueFactory();
