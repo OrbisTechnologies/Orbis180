@@ -28,6 +28,10 @@
 
     <link href="../../favicon.ico" rel="icon">
 
+    <script src="js/bootstrap-datepicker.js"></script>
+
+    <link rel="stylesheet" href="css/datepicker.css">
+
 	<style>
 	.content {
     margin-left:248px !important;
@@ -166,14 +170,43 @@
 		</div>
 	</div>
 
+
 	<!-- Text input-->
 	<div class="form-group">
 		<label class="col-md-4 control-label" for="daterange">Date Range</label>
 		<div class="col-md-4">
-			<input id="daterange" name="daterange" type="text" placeholder="dd/mm/yyyy" class="form-control input-md">
-			<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>
-		</div>
-	</div>
+        <input class="form-control input-md" type="text" id="date-from" placeholder="From" data-date-format="yyyy-mm-dd">
+        <input class="form-control input-md" type="text" id="date-to" placeholder="To" data-date-format="yyyy-mm-dd">
+        <p><i>(yyyy-mm-dd)</i></p>
+  </div>
+</div>
+    <script>
+
+    $( document ).ready(function() {
+
+      var checkin = $('#date-from').datepicker().on('changeDate', function(ev) {
+        if (ev.date.valueOf() > checkout.date.valueOf()) {
+          var newDate = new Date(ev.date)
+          newDate.setDate(newDate.getDate() + 1);
+          checkout.setValue(newDate);
+        }
+        checkin.hide();
+        $('#date-to')[0].focus();
+      }).data('datepicker');
+      var checkout = $('#date-to').datepicker({
+        onRender: function(date) {
+          return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+        }
+      }).on('changeDate', function(ev) {
+        checkout.hide();
+      }).data('datepicker');
+
+      $('#date-from').datepicker();
+      $('#date-to').datepicker();
+
+    });
+
+    </script>
 
 </fieldset>
 						</form>
