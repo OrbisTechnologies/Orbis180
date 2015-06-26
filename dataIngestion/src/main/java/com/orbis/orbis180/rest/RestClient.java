@@ -6,7 +6,9 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,8 +18,15 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.openrdf.OpenRDFException;
+import org.openrdf.model.Literal;
+import org.openrdf.model.Statement;
+import org.openrdf.model.URI;
 import org.openrdf.model.Value;
+import org.openrdf.model.ValueFactory;
+import org.openrdf.model.impl.StatementImpl;
 import org.openrdf.query.BindingSet;
 import org.openrdf.query.MalformedQueryException;
 import org.openrdf.query.Query;
@@ -37,7 +46,8 @@ import org.slf4j.LoggerFactory;
 public class RestClient {
 
   final static protected org.slf4j.Logger logger = LoggerFactory.getLogger(RestClient.class);
-  
+  private Map<String, Location> locations;
+  private SesameInterface sesame;
   
   @GET()
   @Path("/writeToFile")
@@ -71,12 +81,12 @@ public class RestClient {
     @Produces(MediaType.APPLICATION_JSON)
     public String updateGeoCoordinates() {
 
-        SesameInterface sesame = new SesameInterface();
+        sesame = new SesameInterface();
         try {
 
             sesame.openRepository("openFDA-test");
             RepositoryConnection connection = sesame.getRepository().getConnection();
-            Map<String, Location> locations = new HashMap<>();
+            locations = new HashMap<>();
             try {
                 //Query Sesame for all the available locations
                 String queryStr = "PREFIX openFDA: <http://www.orbistechnologies.com/ontologies/openFDA#>\n" +
@@ -107,17 +117,11 @@ public class RestClient {
                 } finally {
                     result.close();
                 }
-                System.out.println("Obtained " + locations.size() + "locations.");
-                //Store the locations in a single String to submit to Clavin in one request
-                StringBuilder locationEntries = new StringBuilder();
-                for(Map.Entry<String,Location> entry : locations.entrySet()){
-                    Location location = entry.getValue();
-                    //It is safe to presume that all fields have value, if not, 
-                    //they would not return from the Sesame query.
-                    locationEntries.append(location.getCity()).append(", ")
-                            .append(location.getState()).append("\n");
-                }
-                String latLong = getCoordinates(locationEntries.toString());
+                logger.debug("Obtained {} locations.", locations.size());
+                
+                loadCoordinatesFromClavin();
+                saveCoordinatesToSesame();
+                
             } finally {
                 connection.close();
             }
@@ -129,26 +133,61 @@ public class RestClient {
         return "{\"sucess\": true}";
     }
     
-    private String getCoordinates(String locationsFile){
-        
+    private String getCoordinates(String locationsFile) {
+
         Client client = Client.create();
- 
-		WebResource webResource = client
-		   .resource("http://localhost:9090api/v0/geotagmin");
- 
-		ClientResponse response = webResource.type("text/plain")
-		   .post(ClientResponse.class, locationsFile);
- 
+
+        WebResource webResource = client
+                .resource("http://localhost:9090/api/v0/geotagmin");
+
+        ClientResponse response = webResource.type("text/plain")
+                .post(ClientResponse.class, locationsFile);
+
 //		if (response.getStatus() != 201) {
 //			throw new RuntimeException("Failed : HTTP error code : "
 //			     + response.getStatus());
 //		}
- 
-		System.out.println("Output from Server .... \n");
-		String output = response.getEntity(String.class);
-		System.out.println(output);
-        
+        String output = response.getEntity(String.class);
+
         return output;
+    }
+    
+    private void loadCoordinatesFromClavin() {
+        //Store the locations in a single String to submit to Clavin in one request
+        //StringBuilder locationEntries = new StringBuilder();
+        ObjectMapper mapper = new ObjectMapper();
+        for (Map.Entry<String, Location> entry : locations.entrySet()) {
+            Location location = entry.getValue();
+                    //It is safe to presume that all fields have value, if not, 
+            //they would not return from the Sesame query.
+            String searchLocation = location.getCity() + ", " + location.getState();
+            String latLong = getCoordinates(searchLocation);
+            
+            try {
+                JsonNode results = mapper.readTree(latLong).path("resolvedLocationsMinimum");
+                if (results.size() > 0) {
+                    location.setLatitude(results.get(0).get("latitude").asDouble());
+                    location.setLongitude(results.get(0).get("longitude").asDouble());
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(RestClient.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    private void saveCoordinatesToSesame(){
+        List<Statement> triples = new ArrayList<>();
+        ValueFactory valueFactory = sesame.getValueFactory();
+        URI latitudeUri = valueFactory.createURI(sesame.getBaseUri() + "#latitude");
+        URI longitudeUri = valueFactory.createURI(sesame.getBaseUri() + "#longitude");
+        
+        for(Map.Entry<String,Location> entry : locations.entrySet()){
+            URI locationId = valueFactory.createURI(entry.getKey());
+            triples.add(new StatementImpl(locationId,latitudeUri, 
+                    valueFactory.createLiteral(entry.getValue().getLatitude())));
+            triples.add(new StatementImpl(locationId,longitudeUri, 
+                    valueFactory.createLiteral(entry.getValue().getLongitude())));
+        }
+        sesame.storeTriplesInBatch(triples);
     }
       
 }
