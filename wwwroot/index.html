@@ -12,10 +12,10 @@
 
     <!--remote libraries e.g. cdn -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-	
+
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
@@ -29,18 +29,19 @@
     <link href="../../favicon.ico" rel="icon">
 
 	<style>
-	#detailed-table .popover {
-	  width:400px !important;
-	  
-	}
+	.content {
+    margin-left:248px !important;
+  }
+  .navbar-inverse {
+    background-color: #000 !important;
+  }
 	</style>
     <title class=".visible-md-* .visible-lg-*">Wiley: Navigating the data jungle</title>
 </head>
 
 <body>
 <!-- top navbar -->
-<div class="container">
-	</header>
+<!--<div class="container">-->
 	        <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -61,10 +62,11 @@
                 </li>
             </ul>
         </div>
-	
-    <div class="container-fluid">
-        <div class="row-fluid">
-	
+
+<!--        <div class="row-fluid">-->
+
+<div class="content">
+
 	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div>
@@ -72,32 +74,18 @@
         <li><a href="#">Install Notes</a></li>
         <li><a href="#">Release Notes</a></li>
         <li><a href="#">Help Files</a></li>
-		
+
       </ul>
     </div>
   </div>
 </nav>
-	</header>
 	        <!-- Sidebar -->
             <!--
-    <div class="span2">
-	  
-        <div class="col-sm-3 col-md-2 ">
-          <ul class="nav nav-sidebar">
-		  
-            <li><a href=""><b>Bookmark Current</b></a></li>
-            <li><a href="">Melons Search</a></li>
-            <li><a href="">Fave Search 1</a></li>
-            <li><a href="">Fave Search 2</a></li>
-          </ul>
-        </div>
-    </div>
-	-->
             <div class="span12">
                 <!--Body content-->
 <!--"col-sm-9  col-md-10main"-->
-				<div class = "row">
-                <div class="col-sm-4 form-group">
+				<!--<div class = "row">-->
+              <div class="col-md-4">
 						<form class="form-horizontal">
 <fieldset>
 
@@ -112,12 +100,12 @@
 						<p class="help-block">Food Description</p>
 					</div>
 </div>
-	
+
 	<!-- Select Basic -->
 	<div class="form-group">
 		<label class="col-md-4 control-label" for="selectlocation">Location</label>
 		<div class="col-md-4">
-			<select id="selectlocation" name="selectlocation" class="form-control">
+			<select multiple id="selectlocation" name="selectlocation" class="form-control">
 				<option value="1">Alabama</option>
 				<option value="2">Alaska</option>
 				<option value="">American Samoa</option>
@@ -177,250 +165,113 @@
 			</select>
 		</div>
 	</div>
-	
+
 	<!-- Text input-->
 	<div class="form-group">
-		<label class="col-md-4 control-label" for="daterange">Date Range</label>  
+		<label class="col-md-4 control-label" for="daterange">Date Range</label>
 		<div class="col-md-4">
 			<input id="daterange" name="daterange" type="text" placeholder="dd/mm/yyyy" class="form-control input-md">
-			<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>  
+			<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>
 		</div>
 	</div>
-	
+
 </fieldset>
 						</form>
-					
-				</div>
-				<div class="col-sm-8">
-                    <div class="col-xs-6 col-sm-3 img-responsive" style="height:400px;width:100%" id="map">
+
+
+
+
+
+                 <!--PlaceHolder Table-->
+                 <h2 class="sub-header">Detailed Report</h2>
+                <!-- <div class="table-responsive">-->
+       <!--<div class="container">-->
+
+
+       <div id="detailed-table" class="list-group">
+
+       <div class="list-group-item">
+         <div data-toggle="collapse" data-parent="#detailed-table" href="#collapse2">
+           <h4 class="list-group-item-heading">Pinnacle Food Group LLC</h4>
+           <p class="list-group-item-text">
+             <span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: May 2015</span>
+             <span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MD</span>
+             <span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Ranch Dressing</span>
+           </p>
+         </div>
+
+         <div id="collapse2" class="panel-collapse collapse">
+           <div class="panel-body">
+           <ul class="list-unstyled">
+             <li>Status: Ongoing</li>
+             <li>Product Quantity: 81 containers</li>
+             <li>Recall Initiation Date: July 2015</li>
+             <li>State: ND</li>
+             <li>Event ID: 62644</li>
+             <li>Product Type: Food</li>
+             <li>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).</li>
+             <li>Country: US</li>
+             <li>City: Fargo</li>
+             <li>Recalling Firm: Cass Clay Creamery AMPI Fargo Division</li>
+             <li>Report Date: August 2015</li>
+             <li>Voluntary Mandated: Voluntary: Firm Initiated</li>
+             <li>Classification: Class II</li>
+             <li>Initial Firm Notification: Two or more of the following: Email</li>
+           </ul>
+           </div>
+         </div>
+
+         </div>
+       <div class="list-group-item">
+         <h4 class="list-group-item-heading">Vitamin Cottage Natural Food Markets Inc.</h4>
+         <p class="list-group-item-text">
+           <span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: January 2014</span>
+           <span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MI</span>
+           <span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Raw macadamia nuts</span>
+         </p>
+         </div>
+       <div class="list-group-item">
+         <h4 class="list-group-item-heading">Waymouth Farms, Inc.</h4>
+         <p class="list-group-item-text">
+           <span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: February 2015</span>
+           <span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: CA</span>
+           <span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Raw Pine Nuts</span>
+         </p>
+         </div>
+
+       <div class="list-group-item">
+         <h4 class="list-group-item-heading">Golden Krust Caribbean Bakery & Grill</h4>
+         <p class="list-group-item-text">
+           <span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: March 2015</span>
+           <span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: NE</span>
+           <span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Shrimp Patties, Soya Patties</span>
+         </p>
+         </div>
+       <div class="list-group-item">
+         <h4 class="list-group-item-heading">Good Seed Inc.</h4>
+         <p class="list-group-item-text">
+     <span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: January 2015</span>
+           <span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MI</span>
+           <span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: GOODSEED Soy Bean Sprouts and GOODSEED Soy Bean Sprouts  </span>
+         </p>
+         </div>
+
+       </div>
+</div>
+
+
+				<div class="col-md-8">
+                    <div class="col-xs-6 col-sm-3 img-responsive" style="height:600px;width:100%" id="map">
 
                     </div>
                 </div>
 				</div>
-                <div class="col-sm-9  col-md-10main">
-               
-
-
-
-                    <!--PlaceHolder Table-->
-                    <h2 class="sub-header">Detailed Report</h2>
-                   <!-- <div class="table-responsive">-->
-					<!--<div class="container">-->
-					
-					
-					<div id="detailed-table" class="list-group">
-					  <div class="list-group-item"  data-toggle="popover" data-placement="right" data-content="Status: Ongoing <br>Product Quantity: 81 containers <br>Recall Initiation Date: July 2014<br>State: ND<br>Event ID: 62644<br>Product Type: Food<br>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).<br>Country: US<br>City: Fargo<br>Recalling Firm: Cass Clay Creamery AMPI Fargo Division<br>Report Date: November 5, 2014<br>Voluntary Mandated: Voluntary: Firm Initiated<br>Classification: Class II<br>Initial Firm Notification: Two or more of the following: Email">
-						<h4 class="list-group-item-heading">Cass Clay Creamery AMPI Fargo Division</h4>
-						<p class="list-group-item-text">
-						<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: June 2015</span>
-						<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MD</span>
-						<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: corn</span>
-						</p>
-					  </div>
-					<div class="list-group-item">
-						<div data-toggle="collapse" data-parent="#detailed-table" href="#collapse2">
-							<h4 class="list-group-item-heading">Pinnacle Food Group LLC</h4>
-							<p class="list-group-item-text">
-								<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: May 2015</span>
-								<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MD</span>
-								<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Ranch Dressing</span>
-							</p>
-						</div>
-					
-						<div id="collapse2" class="panel-collapse collapse">
-							<div class="panel-body">
-							<ul class="list-unstyled">
-								<li>Status: Ongoing</li>
-								<li>Product Quantity: 81 containers</li>
-								<li>Recall Initiation Date: July 2015</li>
-								<li>State: ND</li>
-								<li>Event ID: 62644</li>
-								<li>Product Type: Food</li> 
-								<li>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).</li>
-								<li>Country: US</li>
-								<li>City: Fargo</li>
-								<li>Recalling Firm: Cass Clay Creamery AMPI Fargo Division</li>
-								<li>Report Date: August 2015</li>
-								<li>Voluntary Mandated: Voluntary: Firm Initiated</li>
-								<li>Classification: Class II</li>
-								<li>Initial Firm Notification: Two or more of the following: Email</li>
-							</ul>
-							</div>
-						</div>
-					
-					  </div>
-					<div class="list-group-item">
-						<h4 class="list-group-item-heading">Vitamin Cottage Natural Food Markets Inc.</h4>
-						<p class="list-group-item-text">
-							<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: January 2014</span>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MI</span>
-							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Raw macadamia nuts</span>
-						</p>
-					  </div>
-					<div class="list-group-item">
-						<h4 class="list-group-item-heading">Waymouth Farms, Inc.</h4>
-						<p class="list-group-item-text">
-							<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: February 2015</span>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: CA</span>
-							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Raw Pine Nuts</span>
-						</p>
-					  </div>
-					  
-					<div class="list-group-item">
-						<h4 class="list-group-item-heading">Golden Krust Caribbean Bakery & Grill</h4>
-						<p class="list-group-item-text">
-							<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: March 2015</span>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: NE</span>
-							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Shrimp Patties, Soya Patties</span>
-						</p>
-					  </div>				  
-					<div class="list-group-item">
-						<h4 class="list-group-item-heading">Good Seed Inc.</h4>
-						<p class="list-group-item-text">
-<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: January 2015</span>
-							<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: MI</span>
-							<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: GOODSEED Soy Bean Sprouts and GOODSEED Soy Bean Sprouts  </span>
-						</p>
-					  </div>
-					  
-					</div>
-						
-	                 <!--<table class="table table-striped" id="my-table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Header</th>
-                                    <th>Header</th>
-                                    <th>Header</th>
-                                    <th>Header</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1,001</td>
-                                    <td>Lorem</td>
-                                    <td>ipsum</td>
-                                    <td>dolor</td>
-                                    <td>sit</td>
-                                </tr>
-                                <tr>
-                                    <td>1,002</td>
-                                    <td>amet</td>
-                                    <td>consectetur</td>
-                                    <td>adipiscing</td>
-                                    <td>elit</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>Integer</td>
-                                    <td>nec</td>
-                                    <td>odio</td>
-                                    <td>Praesent</td>
-                                </tr>
-                                <tr>
-                                    <td>1,003</td>
-                                    <td>libero</td>
-                                    <td>Sed</td>
-                                    <td>cursus</td>
-                                    <td>ante</td>
-                                </tr>
-                                <tr>
-                                    <td>1,004</td>
-                                    <td>dapibus</td>
-                                    <td>diam</td>
-                                    <td>Sed</td>
-                                    <td>nisi</td>
-                                </tr>
-                                <tr>
-                                    <td>1,005</td>
-                                    <td>Nulla</td>
-                                    <td>quis</td>
-                                    <td>sem</td>
-                                    <td>at</td>
-                                </tr>
-                                <tr>
-                                    <td>1,006</td>
-                                    <td>nibh</td>
-                                    <td>elementum</td>
-                                    <td>imperdiet</td>
-                                    <td>Duis</td>
-                                </tr>
-                                <tr>
-                                    <td>1,007</td>
-                                    <td>sagittis</td>
-                                    <td>ipsum</td>
-                                    <td>Praesent</td>
-                                    <td>mauris</td>
-                                </tr>
-                                <tr>
-                                    <td>1,008</td>
-                                    <td>Fusce</td>
-                                    <td>nec</td>
-                                    <td>tellus</td>
-                                    <td>sed</td>
-                                </tr>
-                                <tr>
-                                    <td>1,009</td>
-                                    <td>augue</td>
-                                    <td>semper</td>
-                                    <td>porta</td>
-                                    <td>Mauris</td>
-                                </tr>
-                                <tr>
-                                    <td>1,010</td>
-                                    <td>massa</td>
-                                    <td>Vestibulum</td>
-                                    <td>lacinia</td>
-                                    <td>arcu</td>
-                                </tr>
-                                <tr>
-                                    <td>1,011</td>
-                                    <td>eget</td>
-                                    <td>nulla</td>
-                                    <td>Class</td>
-                                    <td>aptent</td>
-                                </tr>
-                                <tr>
-                                    <td>1,012</td>
-                                    <td>taciti</td>
-                                    <td>sociosqu</td>
-                                    <td>ad</td>
-                                    <td>litora</td>
-                                </tr>
-                                <tr>
-                                    <td>1,013</td>
-                                    <td>torquent</td>
-                                    <td>per</td>
-                                    <td>conubia</td>
-                                    <td>nostra</td>
-                                </tr>
-                                <tr>
-                                    <td>1,014</td>
-                                    <td>per</td>
-                                    <td>inceptos</td>
-                                    <td>himenaeos</td>
-                                    <td>Curabitur</td>
-                                </tr>
-                                <tr>
-                                    <td>1,015</td>
-                                    <td>sodales</td>
-                                    <td>ligula</td>
-                                    <td>in</td>
-                                    <td>libero</td>
-                                </tr>
-                            </tbody>
-                        </table> 
-                    </div>-->
                 </div>
 
             </div>
-
+</div>
         </div>
-    </div>
-			
-		</div>
-	</div>
-	</div>
+  </div>
     <!---this is for search functionality-->
     <script>
         $(document).ready(function btnClick() {
@@ -438,13 +289,13 @@
                 $('#my-table > tbody:last').append('<tr><td>' + item + '</td></tr>');
             });
         });
-		
+
 		$(function () { $("[data-toggle='popover']").popover({
 			trigger: 'hover',
 			'placement': 'right',
-			 html : true, 
+			 html : true,
 		}); });
-		
+
     </script>
 
 
@@ -454,17 +305,17 @@
     <script>
 			var map = L.map('map').setView([31.0, -98.0], 10);
 
-		
-		
+
+
         window.pizzaIcon = L.icon({
 			iconUrl: 'ic_local_pizza_black_48dp.png',
-			
+
 			iconSize:     [48, 48], // size of the icon
 			iconAnchor:   [22, 22], // point of the icon which will correspond to marker's location
 			popupAnchor:  [0, -22] // point from which the popup should open relative to the iconAnchor
 		});
-		
-		
+
+
         L.tileLayer('https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png', {
             maxZoom: 18,
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
@@ -500,9 +351,9 @@
                 .setContent("You clicked the map at " + e.latlng.toString())
                 .openOn(map);
         }
-		
-		
-        //Query Claven for lat/longs ... 
+
+
+        //Query Claven for lat/longs ...
         function getVector() {
             //alert($("#id_textarea").val());
             //console.log($("#id_textarea").val());
@@ -531,16 +382,16 @@
 
                 });
         }
-		
-		
-		
-		
+
+
+
+
         map.on('click', onMapClick);
     </script>
-	
+
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-	
+
     <!-- Menu Toggle Script -->
     <script>
 		$("#menu-toggle").click(function(e) {
@@ -555,7 +406,7 @@
 
 
 
-<!-----Test of D3 Integration 
+<!-----Test of D3 Integration
 
 <style>
 

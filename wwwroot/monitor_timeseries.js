@@ -1,7 +1,7 @@
 var chart = c3.generate({
 	bindto: '#monitorseries',
 	size: {
-  width: 1100,
+  width: 1000,
 },
     data: {
         x: 'x',
