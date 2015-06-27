@@ -8,6 +8,7 @@ package com.orbis.orbis180.rest;
 import com.orbis.orbis180.dataStructures.SummaryData;
 import com.orbis.orbis180.dataStructures.WileyQuery;
 import com.orbis.orbis180.storage.DatabaseDAO;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -70,7 +71,7 @@ public class SystemMonitorRestClient {
   
   @GET
   @Produces(MediaType.TEXT_PLAIN)
-  @Path("queryCount")
+  @Path("/queryCount")
   public String  queryCount() {
       //TODO: Implement Caching and Connection pooling
         dbStore = new DatabaseDAO();
@@ -88,13 +89,30 @@ public class SystemMonitorRestClient {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   @Path("/summary")
-  public SummaryData sendTopKeywords( ) {
+  public SummaryData sendSummary( ) {
       
       //TODO: Implement Caching and Connection pooling
         dbStore = new DatabaseDAO();
         dbStore.init(false);
+        SummaryData retVal = new SummaryData();
+        retVal.A_V_G_QueryTime = this.dbStore.getAvgQueryTime().toString();
+        
         
       this.dbStore.uninit();
    return null;
   }
+  
+    @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  @Path("/topten")
+  public List<WileyQuery> sendTopTen( ) {
+      
+      //TODO: Implement Caching and Connection pooling
+        dbStore = new DatabaseDAO();
+        dbStore.init(false);
+        List<WileyQuery> retVal = dbStore.getTopTen();
+        this.dbStore.uninit();
+   return null;
+  }
+  
 }

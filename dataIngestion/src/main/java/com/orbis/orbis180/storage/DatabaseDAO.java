@@ -16,6 +16,8 @@ import java.sql.DatabaseMetaData;
 import com.orbis.orbis180.dataStructures.WileyQuery;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 //import java.util.Collections.ArrayList;
 
@@ -140,7 +142,7 @@ public class DatabaseDAO {
             
             if(!rs.next())
             {// We create a table...
-              s.execute("create table  queries(keyword varchar(100), location varchar(100), responseTime int)");
+              s.execute("create table  queries(keyword varchar(100), location varchar(100), responseTime int, queryDate date)");
             }
             System.out.println("Created table queries");
             s.close();
@@ -196,7 +198,11 @@ public class DatabaseDAO {
             statements.add(s);
             DatabaseMetaData dbmd = conn.getMetaData();
             //if the table doesn't exist
-            s.executeUpdate("insert into queries (keyword, location, responseTime) values (\'" + keyword + "\', \'" + location + "\', " + responseTime+")");
+            
+            java.util.Date date = new java.util.Date();
+            java.sql.Date sqlDate = new java.sql.Date( date.getTime() );
+
+            s.executeUpdate("insert into queries (keyword, location, responseTime, queryDate) values (\'" + keyword + "\', \'" + location + "\', " + responseTime+ "\', " + sqlDate + ")");
             s.close();
         }
         catch (SQLException sqle)
@@ -245,7 +251,7 @@ public Integer getQueryCount(){
             statements.add(s);
             DatabaseMetaData dbmd = conn.getMetaData();
             //if the table doesn't exist
-            rs = s.executeQuery("select count ( * ) as total from queries");
+            rs = s.executeQuery("select count ( responseTime ) as total from queries");
             if (rs.next()) {
                 returnVal = rs.getInt("total");
             }
@@ -286,5 +292,121 @@ public Integer getQueryCount(){
         } 
         return returnVal;
     }
-  
+     
+    public Integer getAvgQueryTime(){
+        ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
+        Statement s;
+        ResultSet rs = null;
+        int returnVal=0;
+        try{
+            /* Creating a statement object that we can use for running various
+             * SQL statements commands against the database.*/
+            s = conn.createStatement();
+            statements.add(s);
+            DatabaseMetaData dbmd = conn.getMetaData();
+            //if the table doesn't exist
+            rs = s.executeQuery("select avg ( responseTime ) as total from queries");
+            if (rs.next()) {
+                returnVal = rs.getInt("total");
+            }
+            s.close();
+            rs.close();
+        }
+        
+        catch (SQLException sqle)
+        {
+            System.out.println(sqle);
+        } finally {
+            // release all open resources to avoid unnecessary memory usage
+
+            // Statements and PreparedStatements
+            int i = 0;
+            while (!statements.isEmpty()) {
+                // PreparedStatement extend Statement
+                Statement st = (Statement)statements.remove(i);
+                try {
+                    if (st != null) {
+                        st.close();
+                        st = null;
+                    }
+                } catch (SQLException sqle) {
+                    System.out.println(sqle);
+                }
+            }
+
+            //Connection
+            try {
+                if (conn != null) {
+                    conn.close();
+                    conn = null;
+                }
+            } catch (SQLException sqle) {
+                System.out.println(sqle);
+            }
+        } 
+        return returnVal;
+    }
+    
+    
+    public List<WileyQuery> getTopTen(){
+        ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
+        Statement s;
+        ResultSet rs = null;
+        int returnVal=0;
+        List<WileyQuery> retval= new ArrayList<WileyQuery>();
+        try{
+            /* Creating a statement object that we can use for running various
+             * SQL statements commands against the database.*/
+            s = conn.createStatement();
+            statements.add(s);
+            DatabaseMetaData dbmd = conn.getMetaData();
+            //if the table doesn't exist
+            rs = s.executeQuery("SELECT TOP(5) keyword as searchterm, count(*) as total FROM queries " + "GROUP BY keyword ORDER BY Count(*) DESC");
+            for(int i=1; i<11; i++){
+                if (rs.next()) {
+                    WileyQuery  outval = new WileyQuery();
+                    outval.count = rs.getInt("total");
+                    outval.searchField = rs.getString("searchterm");
+                    retval.add(outval);
+                }
+              System.out.println("Count is: " + i);
+            }
+            s.close();
+            rs.close();
+        }
+        
+        catch (SQLException sqle)
+        {
+            System.out.println(sqle);
+        } finally {
+            // release all open resources to avoid unnecessary memory usage
+
+            // Statements and PreparedStatements
+            int i = 0;
+            while (!statements.isEmpty()) {
+                // PreparedStatement extend Statement
+                Statement st = (Statement)statements.remove(i);
+                try {
+                    if (st != null) {
+                        st.close();
+                        st = null;
+                    }
+                } catch (SQLException sqle) {
+                    System.out.println(sqle);
+                }
+            }
+
+            //Connection
+            try {
+                if (conn != null) {
+                    conn.close();
+                    conn = null;
+                }
+            } catch (SQLException sqle) {
+                System.out.println(sqle);
+            }
+        } 
+        return retval;
+    }
+    
 }
