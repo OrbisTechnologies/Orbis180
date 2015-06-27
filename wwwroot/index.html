@@ -110,6 +110,10 @@
                         <div class="col-md-4">
                             <input class="form-control input-md" type="text" id="date-from" placeholder="From" data-date-format="yyyy-mm-dd">
                             <input class="form-control input-md" type="text" id="date-to" placeholder="To" data-date-format="yyyy-mm-dd">
+							
+                            <input  type="hidden" id="date-from-internal" >
+                            <input  type="hidden" id="date-to-internal">
+							
                             <p><i>(yyyy-mm-dd)</i></p>
                         </div>
                     </div>
@@ -245,28 +249,43 @@
                     </script>
 
 
-
+					
                     <!-- Text input-->
                     <script>
                         $(document).ready(function() {
+						
                             var checkin = $('#date-from').datepicker().on('changeDate', function(ev) {
-                                if (ev.date.valueOf() > checkout.date.valueOf()) {
+								  
+								  var dateVal1 = "/Date(" + ev.date.valueOf() + ")/";
+								  var date = new Date( parseFloat( dateVal1.substr(6 )));
+								  var begindate = date.getFullYear() + "-" +(date.getMonth() + 1) + "-" + date.getDate();
+								  
+								  
+								 $('#date-from-internal').val(begindate);
+								/*
+								if (ev.date.valueOf() > checkout.date.valueOf()) {
                                     var newDate = new Date(ev.date)
                                     newDate.setDate(newDate.getDate() + 1);
                                     checkout.setValue(newDate);
                                 }
-                                checkin.hide();
+                                checkin.hide();*/
                                 $('#date-to')[0].focus();
                             }).data('datepicker');
-                            var checkout = $('#date-to').datepicker({
+                           var checkout = $('#date-to').datepicker({
                                 onRender: function(date) {
                                     return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
                                 }
                             }).on('changeDate', function(ev) {
-                                checkout.hide();
+								  var dateVal1 = "/Date(" + ev.date.valueOf() + ")/";
+								  var date = new Date( parseFloat( dateVal1.substr(6 )));
+								  var enddate = date.getFullYear() + "-" +(date.getMonth() + 1) + "-" + date.getDate();
+								  $('#date-to-internal').val(enddate);
+					
+								
+                                //checkout.hide();
                             }).data('datepicker');
-                            $('#date-from').datepicker();
-                            $('#date-to').datepicker();
+                           // $('#date-from').datepicker();
+                            /*$('#date-to').datepicker();*/
                         });
                     </script>
 
@@ -305,16 +324,18 @@
          *@param the json response received from the JQuery AJAX request
          */
 
-		var formData = {
-			"date": "2015",
-			"location": "selectlocation",
-			"searchField": "keyword",
-			"responseTime": 879
-		};
-		
-        $("#btnSubmit").click(function() {
+ $("#btnSubmit").click(function() {
+					/*
+					var dateVal1 = "/Date(" + document.getElementById('date-to-internal').value + ")/";
+					var dateVal2 ="/Date(" + document.getElementById('date-to-external').value + ")/";
+					var date = new Date( parseFloat( dateVal1.substr(6 )));
+					var date2 = new Date( parseFloat( dateVal2.substr(6 )));
+					var begindate = date.getFullYear() + "-" +(date.getMonth() + 1) + "-" + date.getDate();
+					var enddate = date2.getFullYear() + "-" +(date2.getMonth() + 1) + "-" + date2.getDate();
                     var preTime = new Date().getTime();
+					*/
                     foodgroup = document.getElementById('foodgroup').value;
+					console.log(date);
                    // begindate = document.getElementById('date-from').value;
                    // enddate = document.getElementById('date-to').value;
                     selectlocation = document.getElementById('selectlocation').value;
@@ -322,16 +343,10 @@
 					console.log("Something happens");
                     $.ajax({
                         'async': false,
-                        url: 'https://api.fda.gov/food/enforcement.json?api_key=LEsaCnFqu5NnXynoyvcNjtaSTEde5r7inxEfcTIH&search=country:"US"',
-                        success: function(result) {
-                            //$("#div1").html(result.meta.results.total);
-							console.log("Was able to hit that endpoint");
-							
-                        }
-                    }).done(function() {
-                        var responseTime = new Date().getTime() - preTime;
-						console.log("Response Time: " + responseTime);
-                        
+                        url: 'http://localhost:8080/dataIngestion/rest/data/searchQuery?bngDateRng=2004-05-20&endDateRng=2014-05-20&loc=MD&advSearch=Pizza&foodGroup=Meat',
+                    
+                    }).done(function(result) {
+                        returnSearch(result);
                     });
 					
                     function returnSearch(json_test) {
