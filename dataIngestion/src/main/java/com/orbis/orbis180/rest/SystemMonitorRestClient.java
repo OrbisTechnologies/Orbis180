@@ -99,7 +99,7 @@ public class SystemMonitorRestClient {
         
         
       this.dbStore.uninit();
-   return null;
+   return retVal;
   }
   
     @GET
@@ -112,7 +112,7 @@ public class SystemMonitorRestClient {
         dbStore.init(false);
         List<WileyQuery> retVal = dbStore.getTopTen();
         this.dbStore.uninit();
-   return null;
+   return retVal;
   }
   
 }

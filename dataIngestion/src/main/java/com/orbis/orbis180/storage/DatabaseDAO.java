@@ -128,6 +128,7 @@ public class DatabaseDAO {
      
         ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
         Statement s;
+        Statement drops;
         ResultSet rs = null;
         try{
      
@@ -137,14 +138,18 @@ public class DatabaseDAO {
             if(createDB){
             s = conn.createStatement();
             statements.add(s);
+            drops =  conn.createStatement();
+            statements.add(drops);
             rs = dbmd.getTables(null, "APP", "queries", null);
             //if the table doesn't exist
             
             if(!rs.next())
-            {// We create a table...
-              s.execute("create table  queries(keyword varchar(100), location varchar(100), responseTime int, queryDate date)");
+            {// We (re)create a table...
+                drops.execute("drop table queries");
+              s.execute("create table queries(keyword varchar(100), location varchar(100), responseTime int, queryDate date)");
             }
             System.out.println("Created table queries");
+         rs.close();
             s.close();
             }
         }
@@ -194,16 +199,22 @@ public class DatabaseDAO {
         try{
             /* Creating a statement object that we can use for running various
              * SQL statements commands against the database.*/
-            s = conn.createStatement();
-            statements.add(s);
             DatabaseMetaData dbmd = conn.getMetaData();
             //if the table doesn't exist
             
             java.util.Date date = new java.util.Date();
             java.sql.Date sqlDate = new java.sql.Date( date.getTime() );
-
-            s.executeUpdate("insert into queries (keyword, location, responseTime, queryDate) values (\'" + keyword + "\', \'" + location + "\', " + responseTime+ "\', " + sqlDate + ")");
-            s.close();
+            //protection from sql injection
+            PreparedStatement insertQuery = conn.prepareStatement("insert into queries (keyword, location, responseTime, queryDate) values ( ? , ? , ? , ? )");
+            statements.add(insertQuery);
+            
+            insertQuery.setString(1, keyword);
+            insertQuery.setString(2, location);
+            insertQuery.setInt(3, responseTime);
+            insertQuery.setDate(4, sqlDate);
+            
+            insertQuery.executeUpdate();
+            insertQuery.close();
         }
         catch (SQLException sqle)
         {
@@ -361,12 +372,13 @@ public Integer getQueryCount(){
             statements.add(s);
             DatabaseMetaData dbmd = conn.getMetaData();
             //if the table doesn't exist
-            rs = s.executeQuery("SELECT TOP(5) keyword as searchterm, count(*) as total FROM queries " + "GROUP BY keyword ORDER BY Count(*) DESC");
+            //rs = s.executeQuery("SELECT keyword, count(*)FROM queries " + "GROUP BY keyword ORDER BY Count(*) DESC");
+            rs = s.executeQuery("SELECT keyword, count(keyword) FROM queries " + "GROUP BY keyword ORDER BY Count(keyword) DESC");
             for(int i=1; i<11; i++){
                 if (rs.next()) {
                     WileyQuery  outval = new WileyQuery();
-                    outval.count = rs.getInt("total");
-                    outval.searchField = rs.getString("searchterm");
+                    outval.count = rs.getInt("2");
+                    outval.searchField = rs.getString("keyword");
                     retval.add(outval);
                 }
               System.out.println("Count is: " + i);
