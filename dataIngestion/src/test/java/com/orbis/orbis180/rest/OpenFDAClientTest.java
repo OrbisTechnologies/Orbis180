@@ -18,11 +18,15 @@ public class OpenFDAClientTest {
     public OpenFDAClientTest() {
     }
     
-    @Ignore
-    protected String testGetOpenFDADataLink()
+    @Test
+    public void testValidateDateFormat()
     { 
+        OpenFDAClient testDateFormat = new OpenFDAClient();
         
-        return "";
+        String resultOne = testDateFormat.validateDateFormat("2014-01-27");
+        String expResultOne = "20140127";
+        
+        assertEquals(expResultOne,resultOne);
     }
 
     

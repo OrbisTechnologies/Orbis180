@@ -8,7 +8,10 @@ package com.orbis.orbis180.storage;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.Properties;
+import java.util.logging.Level;
 import org.openrdf.repository.manager.RemoteRepositoryManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,42 +39,27 @@ public class DatabaseQuery {
     private String baseURI;
     
     final static protected Logger logger = LoggerFactory.getLogger(DatabaseQuery.class);
-    
-    private String sparqlQuery =    "PREFIX openFDA: <http://www.orbistechnologies.com/ontologies/openFDA#>\n" +
-                                    "PREFIX : <http://www.w3.org/2002/07/owl#>\n" +
-                                    "Select ?id ?recallNumber ?reportDate ?eventId ?recallingFirm ?status (CONCAT(?city, \",\",?state) AS ?location) ?classification ?recallInitiationDate ?productQty ?codeInfo ?distPattern ?recallReason ?voluntaryMandated ?notification\n" +
-                                    "Where {\n" +
-                                    "	?id a openFDA:EnforcementReport ;\n" +
-                                    "    	openFDA:codeInfo ?codeInfo ;\n" +
-                                    "    	openFDA:distributionPattern ?distPattern ;\n" +
-                                    "    	openFDA:hasClassification ?classification ;\n" +
-                                    "    	openFDA:hasInitialFirmNotification ?notification ;\n" +
-                                    "    	openFDA:hasRecallInitiationDate ?recallDateId ;\n" +
-                                    "    	openFDA:hasRecallingFirm ?firmId ;\n" +
-                                    "    	openFDA:recallNumber ?recallNumber ;\n" +
-                                    "    	openFDA:hasStatus ?status ;\n" +
-                                    "    	openFDA:productQuantity ?productQty ;\n" +
-                                    "    	openFDA:reasonForRecall ?recallReason;\n" +
-                                    "    	openFDA:voluntaryMandated ?voluntaryMandated ;\n" +
-                                    "    	openFDA:eventId ?eventId ;\n" +
-                                    "    	openFDA:hasLocation ?locationId ;\n" +
-                                    "    	openFDA:hasReportDate ?reportDateId .\n" +
-                                    "  ?firmId openFDA:organizationName ?recallingFirm .\n" +
-                                    "  ?recallDateId openFDA:timestamp ?recallInitiationDate .\n" +
-                                    "  ?reportDateId openFDA:timestamp ?reportDate .\n" +
-                                    "  ?locationId openFDA:city ?city ;\n" +
-                                    "    	openFDA:state ?state ;\n" +
-                                    "    	openFDA:country ?country .\n" +
-                                    "  FILTER( ?reportDate > \"$begnningDate$\"^^xsd:dateTime) .\n" +
-                                    "  FILTER( ?reportDate < \"$endDate$\"^^xsd:dateTime) .\n" +
-                                    "  FILTER( ?state = \"$location$\") .\n" +
-                                    "}";
-    
-    String endpoint = "http://54.208.5.141/openrdf-sesame/repositories/openFDA-test?query=";
+    private String endpoint;
+    private String sparqlQuery;
     
     
     public DatabaseQuery(String bngDateRang, String endDateRang, String location, String advancedSearch, String foodGroup)
     {
+        Properties config = new Properties();
+        try {
+            config.load(getClass().getResourceAsStream("/conf/config.properties"));
+            
+            endpoint = config.getProperty("com.orbis.orbis180.storage.databaseQuery.endpoint");
+            sparqlQuery = config.getProperty("com.orbis.orbis180.storage.databaseQuery.sparqlQuery");
+            
+            logger.info("Endpoint: " + endpoint);
+            logger.info("SPARQL: "+ sparqlQuery);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+	
         this.bngDateRang = bngDateRang;
         this.endDateRang = endDateRang;         
         this.location = location;
@@ -132,7 +120,7 @@ public class DatabaseQuery {
     
     //format date to datatime format
     //@date: date that needs to be
-    public String dateTimeFormat(String date)
+    protected String dateTimeFormat(String date)
     {
         return (date + "T00:00:00Z");
     }

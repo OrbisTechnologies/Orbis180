@@ -92,8 +92,11 @@ public class OpenFDAClient {
                         
                         JSON_DIR_PATH = config.getProperty("com.orbis.orbis180.rest.openFDAClient.jsonDirPath");
                         
-                        minDateVal= Integer.parseInt(config.getProperty("com.orbis.orbis180.rest.openFDAClient.minDateVal"));
-                        maxDateVal= Integer.parseInt(config.getProperty("com.orbis.orbis180.rest.openFDAClient.maxDateVal"));
+                        
+                        validateDateFormat(config.getProperty("com.orbis.orbis180.rest.openFDAClient.maxDateVal"));
+                        
+                        minDateVal= Integer.parseInt(validateDateFormat(config.getProperty("com.orbis.orbis180.rest.openFDAClient.minDateVal")));
+                        maxDateVal= Integer.parseInt(validateDateFormat(config.getProperty("com.orbis.orbis180.rest.openFDAClient.maxDateVal")));
                         
                         setSearchParameter(minDateVal,maxDateVal);                        
                         setRecordLimitParameter(MAX_RECORD_LIMIT);
@@ -179,7 +182,7 @@ public class OpenFDAClient {
                     setNextRecordsLimitParameter(nextFileCounter);
 
 
-                    logger.info("openFDADataLink 3: " + getOpenFDADataLink());
+                    logger.info("openFDADataLink addDataToFile 1: " + getOpenFDADataLink());
 
                     getRawData(getOpenFDADataLink());
 
@@ -195,7 +198,7 @@ public class OpenFDAClient {
                     setNextRecordsLimitParameter(nextFileCounter);                    
                     setJsonFileName(minDate,maxDate,nextFileCounter);                
 
-                    logger.info("openFDADataLink 1: " + getOpenFDADataLink());                    
+                    logger.info("openFDADataLink addDataToFile 2: " + getOpenFDADataLink());                    
 
                     getRawData(getOpenFDADataLink());
 
@@ -291,7 +294,7 @@ public class OpenFDAClient {
 
             if (response.getStatus() != 200) 
             {
-               logger.debug("Failed : HTTP error code : " + response.getStatus());
+               logger.error("Failed : HTTP error code : " + response.getStatus());
             }
 
             dataOutput = response.getEntity(String.class);
@@ -362,14 +365,14 @@ public class OpenFDAClient {
     }
     
     //setup openFDA URL
-    protected String getOpenFDADataLink()
+    private String getOpenFDADataLink()
     {
         String openFDADataLink;
                           
         //Eg:- https://api.fda.gov/food/enforcement.json?api_key=<Key_Goes_Here>&search=report_date:[20040101+TO+20151231]&limit=100&skip=100"
         openFDADataLink = OPEN_FDA_FOOD_URL + "api_key=" + URL_API_KEY + searchParameter + recordLimitParameter + nextRecordsLimitParameter;
         
-        logger.info("openFDADataLink 2: " + openFDADataLink);
+        logger.info("openFDADataLink getOpenFDADataLink Func: " + openFDADataLink);
         
         return openFDADataLink;
     }
@@ -450,4 +453,28 @@ public class OpenFDAClient {
         }
         
     }
+    
+    
+    protected String validateDateFormat(String dateValue)
+    {
+       String val = "";
+       
+       String datePattern = "\\d{4}-\\d{2}-\\d{2}";
+       boolean isDate = dateValue.matches(datePattern);
+       
+       logger.debug("isdate: " + isDate);
+       
+       if(isDate)
+       {
+           logger.debug("dateVal: " + dateValue); 
+           val = dateValue.replaceAll("-", "").trim();
+           logger.debug("dateVal: " + val);
+       
+           
+       }else{
+           logger.error("The date format must be YYYY-MM-DD");
+       }
+        return val;
+    }
+    
 }
