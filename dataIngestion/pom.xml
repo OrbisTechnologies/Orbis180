@@ -21,6 +21,12 @@
             <version>1.19</version>
             <type>jar</type>
         </dependency>
+        
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.11.1.1</version>
+        </dependency>
         <dependency>
             <groupId>com.sun.jersey</groupId>
             <artifactId>jersey-server</artifactId>
@@ -117,6 +123,7 @@
     </dependencies>
 
     <build>
+        <finalName>dataIngestion</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -162,6 +169,17 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                        <url>http://localhost:8080/manager/text</url>
+                        <path>/${project.build.finalName}</path>
+                        <server>LocalTomcat</server>
+                        <update>true</update>
+                </configuration>
             </plugin>
         </plugins>
     </build>
