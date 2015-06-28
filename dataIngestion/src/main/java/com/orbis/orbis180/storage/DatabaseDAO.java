@@ -448,14 +448,14 @@ public Integer getQueryCount(){
             statements.add(s);
             DatabaseMetaData dbmd = conn.getMetaData();
             
-            //if the table doesn't exist
-            //rs = s.executeQuery("select  datepart(month, queryDate) as Month, count(*) as queryCount from queries group by datepart(month, queryDate) ");
-           //rs = s.executeQuery("select avg (queryCount) as averagepermonth from ( select count(*) as queryCount from queries group by datepart(day, queryDate) )");
-            rs = s.executeQuery("select avg ( count( distinct queryDate) from queries) ");
-            
-            if (rs.next()) {
-                returnVal = rs.getInt("averagepermonth");
+            rs = s.executeQuery("select count( * ) as averagepermonth from queries group by queryDate");
+            returnVal=0;
+            int dayCount=0;
+            while (rs.next()) {
+                returnVal += rs.getInt("averagepermonth");
+                dayCount++;
             }
+            returnVal= returnVal/ dayCount;
             s.close();
             rs.close();
         }
