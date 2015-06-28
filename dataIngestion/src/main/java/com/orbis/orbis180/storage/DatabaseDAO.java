@@ -134,6 +134,17 @@ public class DatabaseDAO {
      
             /* Creating a statement object that we can use for running various
              * SQL statements commands against the database.*/
+            if(conn==null){
+            String dbName = "derbyDB"; // the name of the database
+            conn = DriverManager.getConnection(protocol + dbName + dbLocation + ";create=true");
+             System.out.println("Connected to and created database " + dbName);
+
+            // We want to control transactions manually. Autocommit is on by
+            // default in JDBC.
+            conn.setAutoCommit(true);
+            }
+            
+            
             DatabaseMetaData dbmd = conn.getMetaData();
             if(createDB){
             s = conn.createStatement();
@@ -197,6 +208,23 @@ public class DatabaseDAO {
         ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
         Statement s;
         try{
+            
+            if(conn==null){
+                String dbName = "derbyDB"; // the name of the database
+
+            /*
+             * This connection specifies create=true in the connection URL to
+             * cause the database to be created when connecting for the first
+             * time. To remove the database, remove the directory derbyDB (the
+             * same as the database name) and its contents.
+             *
+             * The directory derbyDB will be created under the directory that
+             * the system property derby.system.home points to, or the current
+             * directory (user.dir) if derby.system.home is not set.
+             */
+                conn = DriverManager.getConnection(protocol + dbName + dbLocation
+                    + ";create=true");
+            }
             /* Creating a statement object that we can use for running various
              * SQL statements commands against the database.*/
             DatabaseMetaData dbmd = conn.getMetaData();
@@ -256,6 +284,23 @@ public Integer getQueryCount(){
         ResultSet rs = null;
         int returnVal=0;
         try{
+            
+            if(conn==null){
+                String dbName = "derbyDB"; // the name of the database
+
+            /*
+             * This connection specifies create=true in the connection URL to
+             * cause the database to be created when connecting for the first
+             * time. To remove the database, remove the directory derbyDB (the
+             * same as the database name) and its contents.
+             *
+             * The directory derbyDB will be created under the directory that
+             * the system property derby.system.home points to, or the current
+             * directory (user.dir) if derby.system.home is not set.
+             */
+                conn = DriverManager.getConnection(protocol + dbName + dbLocation
+                    + ";create=true");
+            }
             /* Creating a statement object that we can use for running various
              * SQL statements commands against the database.*/
             s = conn.createStatement();
@@ -310,6 +355,23 @@ public Integer getQueryCount(){
         ResultSet rs = null;
         int returnVal=0;
         try{
+            
+            if(conn==null){
+                String dbName = "derbyDB"; // the name of the database
+
+            /*
+             * This connection specifies create=true in the connection URL to
+             * cause the database to be created when connecting for the first
+             * time. To remove the database, remove the directory derbyDB (the
+             * same as the database name) and its contents.
+             *
+             * The directory derbyDB will be created under the directory that
+             * the system property derby.system.home points to, or the current
+             * directory (user.dir) if derby.system.home is not set.
+             */
+                conn = DriverManager.getConnection(protocol + dbName + dbLocation
+                    + ";create=true");
+            }
             /* Creating a statement object that we can use for running various
              * SQL statements commands against the database.*/
             s = conn.createStatement();
@@ -359,6 +421,78 @@ public Integer getQueryCount(){
     }
     
     
+    public Integer getQueriesPerDay(){
+        ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
+        Statement s;
+        ResultSet rs = null;
+        int returnVal=0;
+        try{
+            String dbName = "derbyDB"; // the name of the database
+
+            /*
+             * This connection specifies create=true in the connection URL to
+             * cause the database to be created when connecting for the first
+             * time. To remove the database, remove the directory derbyDB (the
+             * same as the database name) and its contents.
+             *
+             * The directory derbyDB will be created under the directory that
+             * the system property derby.system.home points to, or the current
+             * directory (user.dir) if derby.system.home is not set.
+             */
+            conn = DriverManager.getConnection(protocol + dbName + dbLocation
+                    + ";create=true");
+
+            /* Creating a statement object that we can use for running various
+             * SQL statements commands against the database.*/
+            s = conn.createStatement();
+            statements.add(s);
+            DatabaseMetaData dbmd = conn.getMetaData();
+            
+            //if the table doesn't exist
+            //rs = s.executeQuery("select  datepart(month, queryDate) as Month, count(*) as queryCount from queries group by datepart(month, queryDate) ");
+           //rs = s.executeQuery("select avg (queryCount) as averagepermonth from ( select count(*) as queryCount from queries group by datepart(day, queryDate) )");
+            rs = s.executeQuery("select avg ( count( distinct queryDate) from queries) ");
+            
+            if (rs.next()) {
+                returnVal = rs.getInt("averagepermonth");
+            }
+            s.close();
+            rs.close();
+        }
+        
+        catch (SQLException sqle)
+        {
+            System.out.println(sqle);
+        } finally {
+            // release all open resources to avoid unnecessary memory usage
+
+            // Statements and PreparedStatements
+            int i = 0;
+            while (!statements.isEmpty()) {
+                // PreparedStatement extend Statement
+                Statement st = (Statement)statements.remove(i);
+                try {
+                    if (st != null) {
+                        st.close();
+                        st = null;
+                    }
+                } catch (SQLException sqle) {
+                    System.out.println(sqle);
+                }
+            }
+
+            //Connection
+            try {
+                if (conn != null) {
+                    conn.close();
+                    conn = null;
+                }
+            } catch (SQLException sqle) {
+                System.out.println(sqle);
+            }
+        } 
+        return returnVal;
+    }
     public List<WileyQuery> getTopTen(){
         ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
         Statement s;
@@ -366,6 +500,23 @@ public Integer getQueryCount(){
         int returnVal=0;
         List<WileyQuery> retval= new ArrayList<WileyQuery>();
         try{
+            
+            if(conn==null){
+                String dbName = "derbyDB"; // the name of the database
+
+            /*
+             * This connection specifies create=true in the connection URL to
+             * cause the database to be created when connecting for the first
+             * time. To remove the database, remove the directory derbyDB (the
+             * same as the database name) and its contents.
+             *
+             * The directory derbyDB will be created under the directory that
+             * the system property derby.system.home points to, or the current
+             * directory (user.dir) if derby.system.home is not set.
+             */
+                conn = DriverManager.getConnection(protocol + dbName + dbLocation
+                    + ";create=true");
+            }
             /* Creating a statement object that we can use for running various
              * SQL statements commands against the database.*/
             s = conn.createStatement();

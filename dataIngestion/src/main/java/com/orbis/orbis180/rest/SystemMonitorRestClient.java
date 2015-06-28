@@ -89,17 +89,18 @@ public class SystemMonitorRestClient {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   @Path("/summary")
-  public SummaryData sendSummary( ) {
+  public String sendSummary( ) {
       
       //TODO: Implement Caching and Connection pooling
         dbStore = new DatabaseDAO();
         dbStore.init(false);
         SummaryData retVal = new SummaryData();
         retVal.A_V_G_QueryTime = this.dbStore.getAvgQueryTime().toString();
-        
-        
+        dbStore = new DatabaseDAO();
+        dbStore.init(false);//TODO: Implrment Connection pooling
+        retVal.QueriesPerDay = this.dbStore.getQueriesPerDay();
       this.dbStore.uninit();
-   return retVal;
+   return retVal.toJSONString();
   }
   
     @GET
