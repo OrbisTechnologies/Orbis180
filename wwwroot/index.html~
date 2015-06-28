@@ -63,11 +63,11 @@
             <br>
             <br>
             <br>
-            <li>
-                <a href="#"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri">Search</font></a>
+            <li style="margin:1.0em;">
+                <a href="#"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Search</font></a>
             </li>
-            <li>
-                <a href="#"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri">Monitor</font></a>
+            <li style="margin:1.0em;">
+                <a href="#"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Monitor</font></a>
             </li>
         </ul>
     </div>
@@ -201,6 +201,7 @@
                         <label class="col-md-4 control-label" for="foodgroup">Food Group</label>
                         <div class="col-md-4">
                             <select multiple id="foodgroup" name="foodgroup" class="form-control">
+				<option value="">None</option>
                                 <option value="fruits">Fruits</option>
                                 <option value="vegetables">Vegetables</option>
                                 <option value="grains">Grains</option>
@@ -208,6 +209,7 @@
                                 <option value="dairy">Dairy</option>
 				<option value="meat">Meat</option>
                             </select>
+			    <p><i>does not include beverages, cake mix, sugary snacks, or animal food</i></p>
                         </div>
                     </div>
                     <button id="btnSubmit" type="button" class="btn btn-default">Submit Search</button>
@@ -248,7 +250,7 @@
                         });
                     </script>
 
-                    <div id="detailed-table" class="list-group">
+                    <div id="detailed-table" class="list-group" style="overflow:auto; height:300px;">
                     </div>
         </div>
 
