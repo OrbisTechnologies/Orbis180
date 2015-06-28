@@ -36,6 +36,6 @@ public class SummaryData {
     public Integer YearlyChangeInQueries;
     
     public String toJSONString(){
-    return "{\"QueriesSince\": "+QueriesSince+", \"A_V_G_QueryTime\": "+A_V_G_QueryTime+", \"Y_T_D_Queries\": "+Y_T_D_Queries+", \"QueriesPerDay\": "+QueriesPerDay+", \"YearlyChangeInQueries\": "+YearlyChangeInQueries+", }";
+      return "{\"QueriesSince\": "+QueriesSince+", \"A_V_G_QueryTime\": "+A_V_G_QueryTime+", \"Y_T_D_Queries\": "+Y_T_D_Queries+", \"QueriesPerDay\": "+QueriesPerDay+", \"YearlyChangeInQueries\": "+YearlyChangeInQueries+" }";
     }
 }
