@@ -19,9 +19,6 @@
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.css" type="text/css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.js"></script>
-
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
@@ -376,20 +373,17 @@
                                 '</div>';
                             $(elm).appendTo('#detailed-table');
 						
-							/*
-							var map = L.map('map')
-							var bounds = [];
+							//var map = L.map('map')
 								//console.log(val);
 								bounds.push([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value]);
 								L.marker([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value], {
 									icon: window.pizzaIcon
 								}).addTo(map)
-								.bindPopup(val.geoname.name);
+								.bindPopup('Recall Number: ' + json_test.results.bindings[i].recallNumber.value  );
 							
 							// zoom to bounds of markers
 
 							map.fitBounds(bounds);
-							*/
                         }
                     }
 				});
@@ -416,7 +410,8 @@
     <script>
         var map = L.map('map').setView([31.0, -98.0], 10);
 
-
+		
+		var bounds = [];
 
         window.pizzaIcon = L.icon({
             iconUrl: 'celery.png',
@@ -463,6 +458,7 @@
 
 
         //Query Claven for lat/longs ...
+	/*	
         function getVector() {
             //alert($("#id_textarea").val());
             //console.log($("#id_textarea").val());
@@ -495,7 +491,7 @@
         }
 
 
-
+*/
 
         map.on('click', onMapClick);
     </script>
