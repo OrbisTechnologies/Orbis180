@@ -27,7 +27,7 @@ var query_stats = {"QueriesSince": 345, "A_V_G_QueryTime": 68, "Y_T_D_Queries": 
 function dsLineChartBasics() {
 
 	var margin = {top: 20, right: 0, bottom: 0, left: 0},
-	    width = 1150 - margin.left - margin.right,
+	    width = 875 - margin.left - margin.right,
 	    height = 125 - margin.top - margin.bottom
 		
 	    ;
@@ -132,6 +132,7 @@ function dsLineChart() {
 	/*
 	 * Percent Recall Change per Calendar Year
 	 */
+	 /*
 	plot.append("text")
 		.text("+" + query_stats.YearlyChangeInQueries+ "%")
 		.attr("id","Title2")
@@ -144,7 +145,7 @@ function dsLineChart() {
 		.attr("x",1000)
 		.attr("y", height-15)
 		;
-		
+	*/	
 		
 
 }
