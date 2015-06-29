@@ -1,6 +1,5 @@
 package com.orbis.orbis180.rest;
 
-<<<<<<< HEAD
 import com.orbis.orbis180.data.Location;
 import com.orbis.orbis180.storage.SesameInterface;
 import com.sun.jersey.api.client.Client;
@@ -17,16 +16,13 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-=======
 import com.orbis.orbis180.storage.DatabaseQuery;
 import java.io.IOException;
->>>>>>> 7b1b306dbec00c1997ea1ae939f013677ff42cc7
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-<<<<<<< HEAD
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.openrdf.OpenRDFException;
@@ -41,9 +37,7 @@ import org.openrdf.query.TupleQuery;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.RepositoryConnection;
 import org.slf4j.LoggerFactory;
-=======
 import javax.ws.rs.core.UriInfo;
->>>>>>> 7b1b306dbec00c1997ea1ae939f013677ff42cc7
 
 
 /**
@@ -79,7 +73,6 @@ public class RestClient {
       return "{\"sucess\": true}";
   }
   
-<<<<<<< HEAD
   /**
    * Obtains the locations available in the Sesame store and looks up their 
    * coordinates in Clavin.  Once coordinates have been obtained, they are 
@@ -324,7 +317,6 @@ public class RestClient {
 	}
   
     }
-=======
   @GET()
   @Path("/searchQuery")
   @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
@@ -371,5 +363,4 @@ public class RestClient {
 
   }
       
->>>>>>> 7b1b306dbec00c1997ea1ae939f013677ff42cc7
 }
