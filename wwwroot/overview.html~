@@ -10,7 +10,8 @@
 
     <style>
     .content {
-      margin-left:248px !important;CR28_SearchResults
+      margin-left:248px !important;
+    }
     .navbar-inverse {
       background-color: #000 !important;
     }
@@ -51,12 +52,12 @@
 				<br>
 				<br>
 				<br>
-                <li style="margin:1.0em;">
-                <a href="index.html"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Search</font></a>
-            </li>
-            <li style="margin:1.0em;">
-                <a href="monitor.html"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Monitor</font></a>
-            </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri">Search</font></a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri">Monitor</font></a>
+                </li>
             </ul>
         </div>
         <div class="content">

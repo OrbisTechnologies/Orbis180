@@ -1,5 +1,6 @@
 package com.orbis.orbis180.rest;
 
+<<<<<<< HEAD
 import com.orbis.orbis180.data.Location;
 import com.orbis.orbis180.storage.SesameInterface;
 import com.sun.jersey.api.client.Client;
@@ -16,10 +17,16 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+=======
+import com.orbis.orbis180.storage.DatabaseQuery;
+import java.io.IOException;
+>>>>>>> 7b1b306dbec00c1997ea1ae939f013677ff42cc7
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+<<<<<<< HEAD
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.openrdf.OpenRDFException;
@@ -34,11 +41,16 @@ import org.openrdf.query.TupleQuery;
 import org.openrdf.query.TupleQueryResult;
 import org.openrdf.repository.RepositoryConnection;
 import org.slf4j.LoggerFactory;
+=======
+import javax.ws.rs.core.UriInfo;
+>>>>>>> 7b1b306dbec00c1997ea1ae939f013677ff42cc7
 
 
 /**
  *
- * @author aparmar
+ * @author Ankit Parmar
+ * Created REST endpoints for write to file, parse json data &
+ * Search Query
  */
 @Path("/data")
 public class RestClient {
@@ -67,6 +79,7 @@ public class RestClient {
       return "{\"sucess\": true}";
   }
   
+<<<<<<< HEAD
   /**
    * Obtains the locations available in the Sesame store and looks up their 
    * coordinates in Clavin.  Once coordinates have been obtained, they are 
@@ -311,4 +324,52 @@ public class RestClient {
 	}
   
     }
+=======
+  @GET()
+  @Path("/searchQuery")
+  @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
+  public String queryDatabase(@Context UriInfo info) throws IOException{
+
+          String bngDateRng =  info.getQueryParameters().getFirst("bngDateRng");
+          String endDateRng = info.getQueryParameters().getFirst("endDateRng");
+          String loc = info.getQueryParameters().getFirst("loc");
+          String advSearch = info.getQueryParameters().getFirst("advSearch");
+          String foodGroup = info.getQueryParameters().getFirst("foodGroup");
+
+          if(bngDateRng.isEmpty() || endDateRng.isEmpty() || loc.isEmpty())
+          {
+              return "Begnning Date or End Date or Location cannot be empty";
+          }else{
+          
+              if(advSearch.isEmpty() && foodGroup.isEmpty())
+              {   
+                    DatabaseQuery dbQuery = new DatabaseQuery(bngDateRng,endDateRng,loc,"","");
+                    String dbOutput = dbQuery.databaseQuery();
+
+                  return dbOutput;
+              }
+              else if(advSearch.isEmpty())
+              {
+                    DatabaseQuery dbQuery = new DatabaseQuery(bngDateRng,endDateRng,loc,advSearch,foodGroup);
+                     String dbOutput = dbQuery.databaseQuery();
+                  return dbOutput;
+              }
+              else if(foodGroup.isEmpty())
+              {
+                    DatabaseQuery dbQuery = new DatabaseQuery(bngDateRng,endDateRng,loc,advSearch,"");
+                     String dbOutput = dbQuery.databaseQuery();
+                  return dbOutput;
+              }
+              else
+              {
+                        DatabaseQuery dbQuery = new DatabaseQuery(bngDateRng,endDateRng,loc,advSearch,foodGroup);
+                        String dbOutput = dbQuery.databaseQuery();
+                  return dbOutput;
+              }
+          
+          }
+
+  }
+      
+>>>>>>> 7b1b306dbec00c1997ea1ae939f013677ff42cc7
 }

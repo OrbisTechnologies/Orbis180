@@ -64,10 +64,10 @@
             <br>
             <br>
             <li style="margin:1.0em;">
-                <a href="index.html"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Search</font></a>
+                <a href="#"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Search</font></a>
             </li>
             <li style="margin:1.0em;">
-                <a href="monitor.html"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Monitor</font></a>
+                <a href="#"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Monitor</font></a>
             </li>
         </ul>
     </div>
@@ -99,20 +99,18 @@
                 <fieldset>
 
                     <!-- Form Name -->
-                    <legend>Search</legend>
+                    <legend>Advanced Search</legend>
 
                     <!-- Search input-->
                     <div class="form-group">
-                        <label class="col-md-5 control-label" for="searchinput"><font size=4>Keyword Search</font></label>
+                        <label class="col-md-4 control-label" for="searchinput">Keyword Search</label>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="daterange">Date Range</label>
                         <div class="col-md-4">
                             <input class="form-control input-md" type="text" id="date-from" placeholder="From" data-date-format="yyyy-mm-dd">
-
-							<p><i>*Required</i></p>
                             <input class="form-control input-md" type="text" id="date-to" placeholder="To" data-date-format="yyyy-mm-dd">
-							<p><i>*Required</i></p>
+							
                             <input  type="hidden" id="date-from-internal" >
                             <input  type="hidden" id="date-to-internal">
 							
@@ -184,15 +182,12 @@
                                 <option value="WY">Wyoming</option>
                             </select>
                         </div>
-						<p><i>*Required</i></p>
                     </div>
 
 
 
                     <!-- Text input-->
-					<div class="form-group">
-                        <label class="col-md-5 control-label" for="searchinput"><font size=4>Advanced Search</font></label>
-                    </div>
+
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="keyword">Keyword</label>
                         <div class="col-md-4">
@@ -206,7 +201,7 @@
                         <label class="col-md-4 control-label" for="foodgroup">Food Group</label>
                         <div class="col-md-4">
                             <select multiple id="foodgroup" name="foodgroup" class="form-control">
-				<option value="" selected="selected">None</option>
+				<option value="">None</option>
                                 <option value="fruits">Fruits</option>
                                 <option value="vegetables">Vegetables</option>
                                 <option value="grains">Grains</option>
@@ -232,7 +227,6 @@
 						
                             var checkin = $('#date-from').datepicker().on('changeDate', function(ev) {
 								  
-
 			    var dateVal1 = "/Date(" + ev.date.valueOf() + ")/";
 			    var date = new Date( parseFloat( dateVal1.substr(6 )));
 			    var begindate = date.getFullYear() + "-" + pad((date.getMonth() + 1)) + "-" + pad(date.getDate());
@@ -290,7 +284,6 @@
          *table
          *@param the json response received from the JQuery AJAX request
          */
-
 //•	http://localhost:<Port#>/dataIngestion/rest/data/searchQuery?bngDateRng=2004-05-20&endDateRng=2014-05-20&loc=MD&advSearch=Pizza&foodGroup=Meat
  $("#btnSubmit").click(function() {
                     foodgroup = document.getElementById('foodgroup').value;
@@ -298,7 +291,7 @@
                     keyword = document.getElementById('keyword').value;
 					begindate = document.getElementById('date-from-internal').value;
 					enddate = document.getElementById('date-to-internal').value;
-					var endpoint = 'http://localhost:8080/dataIngestion/rest/data/searchQuery?';
+					var endpoint = 'http://localhost:8080/dataIngestion-1.0-SNAPSHOT/rest/data/searchQuery?';
 					var form_parameter = 'bngDateRng=' + begindate + '&endDateRng=' + enddate + '&loc=' + selectlocation + '&advSearch=' + keyword + '&foodGroup=' + foodgroup;
 					var full_search = endpoint + form_parameter;
 					foodgroup = "";
@@ -342,11 +335,11 @@
 			    recall_date = recall_date.substr(0, recall_date.indexOf('T')); 
                             var elm = '<div class="list-group-item">' +
                                 '<div data-toggle="collapse" data-parent="#detailed-table" href="#collapse' + i + '">' +
-                                '<h4 class="list-group-item-heading">Recall Number: ' + json_test.results.bindings[i].recallNumber.value + '</h4>' +
+                                '<h4 class="list-group-item-heading">Product Description</h4>' +
                                 '<p class="list-group-item-text">' +
                                 '<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: ' + report_date + '</span>' +
                                 '<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: ' + json_test.results.bindings[i].location.value + '</span>' +
-                                '<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Recalling Firm: ' + json_test.results.bindings[i].recallingFirm.value + '</span>' +
+                                '<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Ranch Dressing</span>' +
                                 '</p>' +
                                 '</div>' +
                                 '<div id="collapse' + i + '" class="panel-collapse collapse">' +
@@ -356,12 +349,10 @@
                                 '<li>Distribution Pattern: ' + json_test.results.bindings[i].distPattern.value + '</li>' +
                                 '<li>Product Quantity: ' + json_test.results.bindings[i].productQty.value + '</li>' +
                                 '<li>Recall Initiation Date: ' + recall_date + '</li>' +
-								
                                 '<li>City/State: ' + json_test.results.bindings[i].location.value + '</li>' +
                                 '<li>Event ID: ' + json_test.results.bindings[i].eventId.value + '</li>' +
                                 '<li>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).</li>' +
                                 '<li>Country: US</li>' +
-
 				'<li>Code Info: ' + json_test.results.bindings[i].codeInfo.value + '</li>' +
                                 '<li>Recalling Firm: ' + json_test.results.bindings[i].recallingFirm.value + '</li>' +
                                 '<li>Recall Reason: ' + json_test.results.bindings[i].recallReason.value + '</li>' +
@@ -369,29 +360,37 @@
                                 '<li>Voluntary Mandated: Voluntary: Firm Initiated</li>' +
                                 '<li>Classification: Class ' + classification[1] + '</li>' +
                                 '<li>Initial Firm Notification: ' + notification_type[1] + '</li>' +
-								
                                 '</ul>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>';
                             $(elm).appendTo('#detailed-table');
-						
-							/*
-							var map = L.map('map')
-							var bounds = [];
-								//console.log(val);
-								bounds.push([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value]);
-								L.marker([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value], {
-									icon: window.pizzaIcon
-								}).addTo(map)
-								.bindPopup(val.geoname.name);
-							
-							// zoom to bounds of markers
-
-							map.fitBounds(bounds);
-							*/
                         }
                     }
+					/*
+                    $(document).ready(function btnClick() {
+                        //    button click
+                        $("#btnSubmit").button().click(function() {
+                            alert("button");
+                        });
+                        var data = ["foo", "bar"];
+                        $.get('https://api.fda.gov/drug/event.json?search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&count=patient.reaction.reactionmeddrapt.exact', function(result) {
+                            $.each(result.results, function(i, item) {
+                                $('#my-table > tbody:last').append('<tr><td>' + item.term + '</td></tr>');
+                            });
+                        });
+                        $.each(data, function(i, item) {
+                            $('#my-table > tbody:last').append('<tr><td>' + item + '</td></tr>');
+                        });
+                    });
+
+                    $(function() {
+                        $("[data-toggle='popover']").popover({
+                            trigger: 'hover',
+                            'placement': 'right',
+                            html: true,
+                        });
+                    });*/
 				});
 		/*		
 		$.ajax({
@@ -449,6 +448,7 @@
             [51.51, -0.047]
         ]).addTo(map).bindPopup("I am a polygon man.");
 
+
         var popup = L.popup();
 
         function onMapClick(e) {
@@ -467,7 +467,7 @@
             //alert($("#id_textarea").val());
             //console.log($("#id_textarea").val());
             $.ajax({
-                    url: "http://localhost:8080/api/v0/geotag",
+                    url: "http://localhost:9090/api/v0/geotag",
                     type: "POST",
                     contentType: "text/plain",
                     data: "Texas, US"
@@ -513,7 +513,32 @@
 
 </body>
 
+
+
+
+
+<!-----Test of D3 Integration
+
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  width: 960px;
+}
+
+button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
+
+</style>------>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+
 
 
 </html>

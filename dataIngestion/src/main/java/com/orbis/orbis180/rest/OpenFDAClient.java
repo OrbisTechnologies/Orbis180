@@ -24,7 +24,10 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 /**
  *
- * @author aparmar
+ * @author Ankit Parmar
+ * Created two REST endpoint:
+ *  - Get data from the openFDA and add data to Sesame or write data to file
+ *  - Get data from the openFDA and write data to file
  */
 public class OpenFDAClient {
     
@@ -73,6 +76,7 @@ public class OpenFDAClient {
         initialize();
     }
     
+    //initialze variables
     private void initialize() {
 		Properties config = new Properties();
 		try {
@@ -88,8 +92,11 @@ public class OpenFDAClient {
                         
                         JSON_DIR_PATH = config.getProperty("com.orbis.orbis180.rest.openFDAClient.jsonDirPath");
                         
-                        minDateVal= Integer.parseInt(config.getProperty("com.orbis.orbis180.rest.openFDAClient.minDateVal"));
-                        maxDateVal= Integer.parseInt(config.getProperty("com.orbis.orbis180.rest.openFDAClient.maxDateVal"));
+                        
+                        validateDateFormat(config.getProperty("com.orbis.orbis180.rest.openFDAClient.maxDateVal"));
+                        
+                        minDateVal= Integer.parseInt(validateDateFormat(config.getProperty("com.orbis.orbis180.rest.openFDAClient.minDateVal")));
+                        maxDateVal= Integer.parseInt(validateDateFormat(config.getProperty("com.orbis.orbis180.rest.openFDAClient.maxDateVal")));
                         
                         setSearchParameter(minDateVal,maxDateVal);                        
                         setRecordLimitParameter(MAX_RECORD_LIMIT);
@@ -101,7 +108,50 @@ public class OpenFDAClient {
 		} 
 	}
     
-    protected void addDataToFile() throws IOException
+    //get data from openFDA API and send it Sesame
+    private void getOpenFDAData() {
+                
+        mapperObj = new ObjectMapper();
+        
+        try {
+            
+            getRawData(getOpenFDADataLink());
+            
+            if(totalRecords == 0)
+            {
+                getNumOfRecords();
+            }
+            
+            int nextFileCounter = MAX_RECORD_LIMIT;
+            IStore dataStorage = StoreFactory.getFoodAPIStore();
+            
+            while((currNumOfRecords < totalRecords) && ((totalRecords - currNumOfRecords) > MAX_RECORD_LIMIT))
+            {
+                
+                setRecordLimitParameter(MAX_RECORD_LIMIT);
+                setNextRecordsLimitParameter(nextFileCounter);
+                
+                getRawData(getOpenFDADataLink());
+
+                JsonNode rootNode = mapperObj.readTree(dataOutput);            
+                resultsNode = rootNode.path("results");
+                
+                dataStorage.storeFromJson(dataOutput);
+                                
+                nextFileCounter = nextFileCounter + resultsNode.size();
+                currNumOfRecords = currNumOfRecords + resultsNode.size();
+
+            }
+        } catch (Exception e) {
+
+                e.printStackTrace();
+
+        }
+    }
+    
+    
+    //get data from openFDA and write it to file
+    private void addDataToFile() throws IOException
     {    
         int nextFileCounter = MAX_RECORD_LIMIT;
         boolean isFirstLimitedPull = true;
@@ -132,7 +182,7 @@ public class OpenFDAClient {
                     setNextRecordsLimitParameter(nextFileCounter);
 
 
-                    logger.debug("openFDADataLink 3: " + getOpenFDADataLink());
+                    logger.info("openFDADataLink addDataToFile 1: " + getOpenFDADataLink());
 
                     getRawData(getOpenFDADataLink());
 
@@ -148,7 +198,7 @@ public class OpenFDAClient {
                     setNextRecordsLimitParameter(nextFileCounter);                    
                     setJsonFileName(minDate,maxDate,nextFileCounter);                
 
-                    logger.debug("openFDADataLink 1: " + getOpenFDADataLink());                    
+                    logger.info("openFDADataLink addDataToFile 2: " + getOpenFDADataLink());                    
 
                     getRawData(getOpenFDADataLink());
 
@@ -165,7 +215,7 @@ public class OpenFDAClient {
     
     
     
-    
+    //pull out records between date range that are less that 5000
     protected void getNumOfRecordsBtwYears() throws IOException
     {
 
@@ -198,28 +248,43 @@ public class OpenFDAClient {
         }
         
     }
-
-    public void setCurrentNumOfRecords(int currentNumOfRecords) {
+    
+    //set current number of records variable
+    //@currentNumOfRecords: current number of records
+    private void setCurrentNumOfRecords(int currentNumOfRecords) {
         this.currNumOfRecords = currentNumOfRecords;
     }    
     
-    public void setSearchParameter(int minDateLimit, int maxDateLimit) {
+    //set date range
+    //@minDateLimit: minimum date
+    //@maxDateLimit: maximum date
+    private void setSearchParameter(int minDateLimit, int maxDateLimit) {
         this.searchParameter = "&search=report_date:[" + minDateLimit +"+TO+"+ maxDateLimit +"]";;
     }
-
-    public void setRecordLimitParameter(int recordNumber) {
+    
+    //set record limit 
+    //@recordNumber number of records
+    private void setRecordLimitParameter(int recordNumber) {
         this.recordLimitParameter = "&limit=" + recordNumber;
     }
     
-    public void setJsonFileName(int min_Date, int max_Date, int nextRecordCount) {
+    //set json file name
+    //@min_Date: minimum date range
+    //@max_Date maximum date range
+    //@nextRecordCount: next set of records
+    private void setJsonFileName(int min_Date, int max_Date, int nextRecordCount) {
         this.jsonFileName = JSON_DIR_PATH + "/openFDAData_"+ min_Date + "_To_" + max_Date + "_" + nextRecordCount + ".json";
     }
     
-    public void setNextRecordsLimitParameter(int nextRecords) {
+    //set skip limit
+    //@nextRecordCount: next set of records
+    private void setNextRecordsLimitParameter(int nextRecords) {
         this.nextRecordsLimitParameter = "&skip=" + nextRecords;
     }
-       
-    protected void getRawData(String openFDADataLink)
+    
+    //set connection and get output from API
+    //@openFDADataLink: openFDA URL
+    private void getRawData(String openFDADataLink)
     {
             Client client = Client.create();
 
@@ -229,14 +294,15 @@ public class OpenFDAClient {
 
             if (response.getStatus() != 200) 
             {
-               logger.debug("Failed : HTTP error code : " + response.getStatus());
+               logger.error("Failed : HTTP error code : " + response.getStatus());
             }
 
             dataOutput = response.getEntity(String.class);
         
     }
     
-    protected void getNumOfRecords() throws IOException
+    //get number of records
+    private void getNumOfRecords() throws IOException
     {        
              
         ObjectMapper tempMapper = new ObjectMapper();
@@ -249,7 +315,10 @@ public class OpenFDAClient {
         
     }
     
-    protected void getDateLimit(int lowDateLimit, int highestDateLimit) throws IOException
+    //get data range for records less than 5000
+    //@lowDateLimit: Minimum date range
+    //@highestDateLimit: Maximum date range
+    private void getDateLimit(int lowDateLimit, int highestDateLimit) throws IOException
     {        
         minDate = lowDateLimit;
         maxDate = highestDateLimit;
@@ -295,14 +364,15 @@ public class OpenFDAClient {
         }    
     }
     
-    protected String getOpenFDADataLink()
+    //setup openFDA URL
+    private String getOpenFDADataLink()
     {
         String openFDADataLink;
                           
         //Eg:- https://api.fda.gov/food/enforcement.json?api_key=<Key_Goes_Here>&search=report_date:[20040101+TO+20151231]&limit=100&skip=100"
         openFDADataLink = OPEN_FDA_FOOD_URL + "api_key=" + URL_API_KEY + searchParameter + recordLimitParameter + nextRecordsLimitParameter;
         
-        logger.debug("openFDADataLink 2: " + openFDADataLink);
+        logger.info("openFDADataLink getOpenFDADataLink Func: " + openFDADataLink);
         
         return openFDADataLink;
     }
@@ -342,7 +412,9 @@ public class OpenFDAClient {
         
     }
     
-    protected void writeDataToFile(boolean isAppend) throws IOException
+    //create new folder and file, write data to that file
+    //@isAppend: is data need to added to end of file
+    private void writeDataToFile(boolean isAppend) throws IOException
     {
         JsonNode rootNode = mapperObj.readTree(dataOutput);            
         resultsNode = rootNode.path("results");
@@ -354,15 +426,15 @@ public class OpenFDAClient {
         if (!dirPathObj.exists()) 
         {
             isDirCreated = dirPathObj.mkdirs();
-            logger.debug("Directory successfully created");
+            logger.info("Directory successfully created");
             
             isFileCreated = filePathObj.createNewFile();
-            logger.debug("File successfully created: " + jsonFileName);
+            logger.info("File successfully created: " + jsonFileName);
 
         }
 
         if (isDirCreated && isFileCreated){
-            logger.debug("Writng to File: " + jsonFileName);
+            logger.info("Writng to File: " + jsonFileName);
             FileWriter writer;
             
             if(isAppend)
@@ -382,49 +454,27 @@ public class OpenFDAClient {
         
     }
     
-    protected void getOpenFDAData() {
-        
-        JsonNode recall_number, reason_for_recall, status, distribution_pattern, product_quantity,
-                         recall_initiation_date,state, event_id, product_type, product_description,
-                         country, city, recalling_firm, report_date, epoch, 
-                         voluntary_mandated, classification, code_info, id, openfda,initial_firm_notification;
-        
-        mapperObj = new ObjectMapper();
-        
-        try {
-            
-            getRawData(getOpenFDADataLink());
-            
-            if(totalRecords == 0)
-            {
-                getNumOfRecords();
-            }
-            
-            int nextFileCounter = MAX_RECORD_LIMIT;
-            IStore dataStorage = StoreFactory.getFoodAPIStore();
-            
-            while((currNumOfRecords < totalRecords) && ((totalRecords - currNumOfRecords) > MAX_RECORD_LIMIT))
-            {
-                
-                setRecordLimitParameter(MAX_RECORD_LIMIT);
-                setNextRecordsLimitParameter(nextFileCounter);
-                
-                getRawData(getOpenFDADataLink());
-
-                JsonNode rootNode = mapperObj.readTree(dataOutput);            
-                resultsNode = rootNode.path("results");
-                
-                dataStorage.storeFromJson(dataOutput);
-                                
-                nextFileCounter = nextFileCounter + resultsNode.size();
-                currNumOfRecords = currNumOfRecords + resultsNode.size();
-
-            }
-        } catch (Exception e) {
-
-                e.printStackTrace();
-
-        }
+    
+    protected String validateDateFormat(String dateValue)
+    {
+       String val = "";
+       
+       String datePattern = "\\d{4}-\\d{2}-\\d{2}";
+       boolean isDate = dateValue.matches(datePattern);
+       
+       logger.debug("isdate: " + isDate);
+       
+       if(isDate)
+       {
+           logger.debug("dateVal: " + dateValue); 
+           val = dateValue.replaceAll("-", "").trim();
+           logger.debug("dateVal: " + val);
+       
+           
+       }else{
+           logger.error("The date format must be YYYY-MM-DD");
+       }
+        return val;
     }
     
 }
