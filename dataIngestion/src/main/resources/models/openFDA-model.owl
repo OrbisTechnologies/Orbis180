@@ -39,6 +39,15 @@
     
 
 
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#hasFoodGroup -->
+
+    <ObjectProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#hasFoodGroup">
+        <rdfs:domain rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#EnforcementReport"/>
+        <rdfs:range rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#FoodGroup"/>
+    </ObjectProperty>
+    
+
+
     <!-- http://www.orbistechnologies.com/ontologies/openFDA#hasInitialFirmNotification -->
 
     <ObjectProperty rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#hasInitialFirmNotification">
@@ -331,6 +340,15 @@
     
 
 
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Dairy -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Dairy">
+        <rdfs:label>Dairy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#FoodGroup"/>
+    </Class>
+    
+
+
     <!-- http://www.orbistechnologies.com/ontologies/openFDA#E-mail -->
 
     <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#E-mail">
@@ -354,6 +372,32 @@
     <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Food">
         <rdfs:label>Food</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#Product"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#FoodGroup -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#FoodGroup">
+        <rdfs:label>Food Group</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Fruits -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Fruits">
+        <rdfs:label>Fruits</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#FoodGroup"/>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Grains -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Grains">
+        <rdfs:label>Grains</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#FoodGroup"/>
     </Class>
     
 
@@ -426,6 +470,15 @@
     
 
 
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Proteins -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Proteins">
+        <rdfs:label>Proteins</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#FoodGroup"/>
+    </Class>
+    
+
+
     <!-- http://www.orbistechnologies.com/ontologies/openFDA#Report -->
 
     <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Report">
@@ -464,6 +517,15 @@
 
     <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Time">
         <rdfs:label>Time</rdfs:label>
+    </Class>
+    
+
+
+    <!-- http://www.orbistechnologies.com/ontologies/openFDA#Vegetables -->
+
+    <Class rdf:about="http://www.orbistechnologies.com/ontologies/openFDA#Vegetables">
+        <rdfs:label>Vegetables</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://www.orbistechnologies.com/ontologies/openFDA#FoodGroup"/>
     </Class>
     
 
