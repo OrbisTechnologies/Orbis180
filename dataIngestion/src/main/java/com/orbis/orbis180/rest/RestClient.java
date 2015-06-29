@@ -6,6 +6,9 @@ import com.orbis.orbis180.storage.SesameInterface;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +17,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import com.orbis.orbis180.storage.DatabaseQuery;
+import java.io.IOException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -143,11 +148,12 @@ public class RestClient {
    * @return The success or failure of the request.
    */
   @GET()
-  @Path("/getcoordinates")
+  @Path("/update/coordinates")
     @Produces(MediaType.APPLICATION_JSON)
     public String updateGeoCoordinates() {
 
         sesame = new SesameInterface();
+        //TODO: Add a main config loader to pull from System properties instead
         Properties config = new Properties();
         try {
             config.load(getClass().getResourceAsStream("/conf/config.properties"));
@@ -234,7 +240,7 @@ public class RestClient {
         ObjectMapper mapper = new ObjectMapper();
         for (Map.Entry<String, Location> entry : locations.entrySet()) {
             Location location = entry.getValue();
-                    //It is safe to presume that all fields have value, if not, 
+            //It is safe to presume that all fields have value, if not, 
             //they would not return from the Sesame query.
             String searchLocation = location.getCity() + ", " + location.getState();
             String latLong = getCoordinates(searchLocation);
@@ -269,5 +275,113 @@ public class RestClient {
         }
         sesame.storeTriplesInBatch(triples);
     }
-      
+    
+   /**
+   * Loads the product description of each report loaded into Sesame and add a 
+   * relationship with appropriate Food Group based on string matching with the 
+   * food groups list.
+   * 
+   * @return The success or failure of the request.
+   */
+  @GET()
+  @Path("/update/foodgroups")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String addFoodGroups() {
+        
+        sesame = new SesameInterface();
+        
+        Properties config = new Properties();
+        List<Statement> triples = new ArrayList<>();
+        Map<String, String> foodGroups = new HashMap<>();
+        loadFoodGroups(foodGroups);
+        try {
+            //TODO: Add a main config loader to pull from System properties instead
+            config.load(getClass().getResourceAsStream("/conf/config.properties"));
+            String repositoryName = config.getProperty("com.orbis.orbis180.sesame.repository");
+            
+            sesame.openRepository(repositoryName);
+            ValueFactory valueFactory = sesame.getValueFactory();
+            URI foodGroupRelUri = valueFactory.createURI(sesame.getBaseUri() + "#hasFoodGroup");
+        
+            RepositoryConnection connection = sesame.getRepository().getConnection();
+            try {
+                //Query Sesame for all the available locations
+                String queryStr = "PREFIX openFDA: <http://www.orbistechnologies.com/ontologies/openFDA#>\n" +
+                    "PREFIX : <http://www.w3.org/2002/07/owl#>\n" +
+                    "SELECT ?reportId ?productDescription\n" +
+                    "WHERE {\n" +
+                    "	?reportId a openFDA:EnforcementReport ;\n" +
+                    "  		openFDA:productDescription ?productDescription .\n" +
+                    "}";
+                TupleQuery tupleQuery = connection.prepareTupleQuery(QueryLanguage.SPARQL, queryStr);
+                TupleQueryResult result = tupleQuery.evaluate();
+
+                try {
+                    while (result.hasNext()) {  // iterate over the result
+                        BindingSet bindingSet = result.next();
+                        Value reportId = bindingSet.getValue("reportId");
+                        String prodDescription = bindingSet.getValue("productDescription").stringValue();
+                        URI report = valueFactory.createURI(reportId.stringValue());
+                        for (Map.Entry<String,String> entry : foodGroups.entrySet()) {
+                            if (prodDescription.toLowerCase().contains(entry.getKey().toLowerCase())) {
+                                URI prodGroup = valueFactory.createURI(sesame.getBaseUri() + "#" + entry.getValue());
+                                triples.add(new StatementImpl(report,foodGroupRelUri, prodGroup));
+                            }
+                            
+                        }
+                    }
+                } finally {
+                    result.close();
+                }
+                logger.debug("Loaded {} triples to add food groups to the data set.", triples.size());                
+                sesame.storeTriplesInBatch(triples);
+                
+            } finally {
+                connection.close();
+            }
+        } catch (OpenRDFException ex) {
+            logger.error("Could not open the Sesame repository.\n{}", ex);
+            return "{\"sucess\": false}";
+        } catch (IOException ex) {
+          logger.error("Could not configure the client.  Properties file was not found.\n{}", ex);
+          return "{\"sucess\": false}";
+        }
+        
+        return "{\"sucess\": true}";
+    }
+    
+    private void loadFoodGroups(Map<String,String> foodGroups){
+        
+        BufferedReader br = null;
+	String line = "";
+	String cvsSplitBy = ",";
+ 
+	try {
+ 
+            br = new BufferedReader(new FileReader(getClass().getClassLoader().getResource("data/food_groups.csv").getPath()));
+            while ((line = br.readLine()) != null) {
+                
+                // use comma as separator
+                String[] item = line.split(cvsSplitBy);
+                String itemId = item[0];
+                String group = item[1];
+                foodGroups.put(itemId, group);
+
+            }
+ 
+	} catch (FileNotFoundException e) {
+            logger.error("Could not load food goup file.\n{}", e.getLocalizedMessage());
+	} catch (IOException e) {
+            logger.error("Could not load food goup file.\n{}", e.getLocalizedMessage());
+	} finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+	}
+  
+    }
 }

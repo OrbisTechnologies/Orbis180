@@ -8,6 +8,7 @@ package com.orbis.orbis180.rest;
 import com.orbis.orbis180.dataStructures.SummaryData;
 import com.orbis.orbis180.dataStructures.WileyQuery;
 import com.orbis.orbis180.storage.DatabaseDAO;
+import java.util.Calendar;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.GET;
@@ -89,17 +90,27 @@ public class SystemMonitorRestClient {
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   @Path("/summary")
-  public SummaryData sendSummary( ) {
+  public String sendSummary( ) {
       
       //TODO: Implement Caching and Connection pooling
         dbStore = new DatabaseDAO();
         dbStore.init(false);
         SummaryData retVal = new SummaryData();
         retVal.A_V_G_QueryTime = this.dbStore.getAvgQueryTime().toString();
+        dbStore = new DatabaseDAO();
+        dbStore.init(false);//TODO: Implrment Connection pooling
+        retVal.QueriesPerDay = this.dbStore.getQueriesPerDay();
         
-        
+        Calendar cal = Calendar.getInstance();
+        cal.clear();
+
+        cal.set(Calendar.YEAR, 2015);
+        cal.set(Calendar.MONTH, 1);
+        cal.set(Calendar.DATE, 1);
+        java.util.Date utilDate = cal.getTime();
+        retVal.QueriesSince=this.dbStore.getQueryCountSince(utilDate).toString();
       this.dbStore.uninit();
-   return null;
+   return retVal.toJSONString();
   }
   
     @GET
@@ -112,7 +123,7 @@ public class SystemMonitorRestClient {
         dbStore.init(false);
         List<WileyQuery> retVal = dbStore.getTopTen();
         this.dbStore.uninit();
-   return null;
+   return retVal;
   }
   
 }
