@@ -25,8 +25,8 @@ import org.codehaus.jackson.map.ObjectMapper;
 /**
  *
  * @author Ankit Parmar
- * Created two REST endpoint:
- *  - Get data from the openFDA and add data to Sesame or write data to file
+ * This class:
+ *  - Get data from the openFDA and add data to Sesame
  *  - Get data from the openFDA and write data to file
  */
 public class OpenFDAClient {
@@ -51,6 +51,9 @@ public class OpenFDAClient {
     private int minDate;
     private int maxDate;  
     
+    /**
+     *create logger object
+     */
     final static protected Logger logger = LoggerFactory.getLogger(OpenFDAClient.class);
 
     private String searchParameter= "&search=report_date:[" + minDateVal +"+TO+"+ maxDateVal +"]";
@@ -71,12 +74,18 @@ public class OpenFDAClient {
     private static boolean initialDateCheck = false;
     private static boolean isThereRecords = true;
     
-    
+    /**
+     *constructor calls initialize function 
+     */
     public OpenFDAClient() {
         initialize();
     }
     
-    //initialze variables
+    /**
+     * 
+     * Initialize Variables
+     * 
+     * */
     private void initialize() {
 		Properties config = new Properties();
 		try {
@@ -108,7 +117,11 @@ public class OpenFDAClient {
 		} 
 	}
     
-    //get data from openFDA API and send it Sesame
+    /**
+     * 
+     * get data from openFDA API and send it Sesame
+     * 
+     * */
     private void getOpenFDAData() {
                 
         mapperObj = new ObjectMapper();
@@ -149,8 +162,11 @@ public class OpenFDAClient {
         }
     }
     
-    
-    //get data from openFDA and write it to file
+    /**
+     * 
+     * get data from openFDA and write it to file
+     * 
+     * */
     private void addDataToFile() throws IOException
     {    
         int nextFileCounter = MAX_RECORD_LIMIT;
@@ -214,8 +230,13 @@ public class OpenFDAClient {
     }
     
     
-    
-    //pull out records between date range that are less that 5000
+    /**
+     * 
+     * Check if total number of records between date range. If total number of 
+     * records between date range are less than 5000, then set the max date.
+     * @throws java.io.IOException
+     *
+     *  */
     protected void getNumOfRecordsBtwYears() throws IOException
     {
 
@@ -249,41 +270,66 @@ public class OpenFDAClient {
         
     }
     
-    //set current number of records variable
-    //@currentNumOfRecords: current number of records
+    /**
+     * 
+     * set current number of records variable
+     * @param currentNumOfRecords current number of records
+     * 
+     * */
     private void setCurrentNumOfRecords(int currentNumOfRecords) {
         this.currNumOfRecords = currentNumOfRecords;
     }    
     
-    //set date range
-    //@minDateLimit: minimum date
-    //@maxDateLimit: maximum date
+    /**
+     * 
+     * set date range for openFDA URL
+     * @param minDateLimit lower date limit
+     * @param maxDateLimit higher date limit
+     * 
+     * */
+    
     private void setSearchParameter(int minDateLimit, int maxDateLimit) {
         this.searchParameter = "&search=report_date:[" + minDateLimit +"+TO+"+ maxDateLimit +"]";;
     }
     
-    //set record limit 
-    //@recordNumber number of records
+    /**
+     * 
+     * set record limit for openFDA URL
+     * @param recordNumber number of records to read
+     * 
+     * */
     private void setRecordLimitParameter(int recordNumber) {
         this.recordLimitParameter = "&limit=" + recordNumber;
     }
     
-    //set json file name
-    //@min_Date: minimum date range
-    //@max_Date maximum date range
-    //@nextRecordCount: next set of records
+    /**
+     * 
+     * set json file name for openFDA URL
+     * @param min_Date lower date limit
+     * @param max_Date higher date limit
+     * @param nextRecordCount next set of records
+     * 
+     * */
     private void setJsonFileName(int min_Date, int max_Date, int nextRecordCount) {
         this.jsonFileName = JSON_DIR_PATH + "/openFDAData_"+ min_Date + "_To_" + max_Date + "_" + nextRecordCount + ".json";
     }
     
-    //set skip limit
-    //@nextRecordCount: next set of records
+    /**
+     * 
+     * set skip limit
+     * @param nextRecordCount: next set of records
+     * 
+     * */
     private void setNextRecordsLimitParameter(int nextRecords) {
         this.nextRecordsLimitParameter = "&skip=" + nextRecords;
     }
     
-    //set connection and get output from API
-    //@openFDADataLink: openFDA URL
+    /**
+     * 
+     * set connection and get data from openFDA API
+     * @param openFDADataLink openFDA URL
+     * 
+     * */
     private void getRawData(String openFDADataLink)
     {
             Client client = Client.create();
@@ -301,7 +347,11 @@ public class OpenFDAClient {
         
     }
     
-    //get number of records
+    /**
+     * 
+     * get number of records
+     * 
+     * */
     private void getNumOfRecords() throws IOException
     {        
              
@@ -315,9 +365,13 @@ public class OpenFDAClient {
         
     }
     
-    //get data range for records less than 5000
-    //@lowDateLimit: Minimum date range
-    //@highestDateLimit: Maximum date range
+    /**
+     * 
+     * get data range for records less than 5000
+     * @param lowDateLimit Minimum date limit
+     * @param highestDateLimit Maximum date limit
+     * 
+     * */
     private void getDateLimit(int lowDateLimit, int highestDateLimit) throws IOException
     {        
         minDate = lowDateLimit;
@@ -364,7 +418,11 @@ public class OpenFDAClient {
         }    
     }
     
-    //setup openFDA URL
+    /**
+     * 
+     *setup openFDA URL
+     * 
+     * */
     private String getOpenFDADataLink()
     {
         String openFDADataLink;
@@ -378,7 +436,12 @@ public class OpenFDAClient {
     }
     
     
-    
+    /**
+     * 
+     * 
+     * Check the number of records between date range
+     * @throws IOException 
+     **/
     protected void checkRecordLimit() throws IOException
     {
 
@@ -412,8 +475,12 @@ public class OpenFDAClient {
         
     }
     
-    //create new folder and file, write data to that file
-    //@isAppend: is data need to added to end of file
+    /**
+     * 
+     * create new folder and file, write data to that file
+     * @param isAppend is data need to be append to the end of file
+     * 
+     * */
     private void writeDataToFile(boolean isAppend) throws IOException
     {
         JsonNode rootNode = mapperObj.readTree(dataOutput);            
@@ -454,7 +521,15 @@ public class OpenFDAClient {
         
     }
     
-    
+    /**
+     * 
+     * Verify if the date format is correct
+     * @param dateValue date that need be to validated
+     * @return if date format is correct then return date
+     * else thrown error
+     *
+     *   
+     **/
     protected String validateDateFormat(String dateValue)
     {
        String val = "";
