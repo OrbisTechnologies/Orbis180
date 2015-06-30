@@ -67,6 +67,7 @@ public class SystemMonitorRestClient {
     String output = newquery.toString();
     ObjectMapper mapper = new ObjectMapper();
     try{
+        //(manual deserialization is a workaround for an issue in Tomcat)
     JsonNode actualObj = mapper.readTree(newquery);
     this.dbStore.addQuery(actualObj.get("location").asText(),actualObj.get("searchField").asText(),actualObj.get("responseTime").asInt());
     }
@@ -159,6 +160,7 @@ public class SystemMonitorRestClient {
         String returnString = "{}";
         this.dbStore.uninit();
         try{
+            //(manual serialization is a workaround for an issue in Tomcat)
             returnString = mapper.writeValueAsString(retVal);
         }    
         catch(IOException ex){
