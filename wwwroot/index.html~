@@ -19,6 +19,9 @@
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.js"></script>
+
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
@@ -61,10 +64,10 @@
             <br>
             <br>
             <li style="margin:1.0em;">
-                <a href="index.html"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Search</font></a>
+                <a href="#"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Search</font></a>
             </li>
             <li style="margin:1.0em;">
-                <a href="monitor.html"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Monitor</font></a>
+                <a href="#"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Monitor</font></a>
             </li>
         </ul>
     </div>
@@ -96,20 +99,18 @@
                 <fieldset>
 
                     <!-- Form Name -->
-                    <legend>Search</legend>
+                    <legend>Advanced Search</legend>
 
                     <!-- Search input-->
                     <div class="form-group">
-                        <label class="col-md-5 control-label" for="searchinput"><font size=4>Keyword Search</font></label>
+                        <label class="col-md-4 control-label" for="searchinput">Keyword Search</label>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="daterange">Date Range</label>
                         <div class="col-md-4">
                             <input class="form-control input-md" type="text" id="date-from" placeholder="From" data-date-format="yyyy-mm-dd">
-
-							<p><i>*Required</i></p>
                             <input class="form-control input-md" type="text" id="date-to" placeholder="To" data-date-format="yyyy-mm-dd">
-							<p><i>*Required</i></p>
+							
                             <input  type="hidden" id="date-from-internal" >
                             <input  type="hidden" id="date-to-internal">
 							
@@ -181,15 +182,12 @@
                                 <option value="WY">Wyoming</option>
                             </select>
                         </div>
-						<p><i>*Required</i></p>
                     </div>
 
 
 
                     <!-- Text input-->
-					<div class="form-group">
-                        <label class="col-md-5 control-label" for="searchinput"><font size=4>Advanced Search</font></label>
-                    </div>
+
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="keyword">Keyword</label>
                         <div class="col-md-4">
@@ -203,7 +201,7 @@
                         <label class="col-md-4 control-label" for="foodgroup">Food Group</label>
                         <div class="col-md-4">
                             <select multiple id="foodgroup" name="foodgroup" class="form-control">
-				<option value="" selected="selected">None</option>
+				<option value="">None</option>
                                 <option value="fruits">Fruits</option>
                                 <option value="vegetables">Vegetables</option>
                                 <option value="grains">Grains</option>
@@ -229,7 +227,6 @@
 						
                             var checkin = $('#date-from').datepicker().on('changeDate', function(ev) {
 								  
-
 			    var dateVal1 = "/Date(" + ev.date.valueOf() + ")/";
 			    var date = new Date( parseFloat( dateVal1.substr(6 )));
 			    var begindate = date.getFullYear() + "-" + pad((date.getMonth() + 1)) + "-" + pad(date.getDate());
@@ -287,7 +284,6 @@
          *table
          *@param the json response received from the JQuery AJAX request
          */
-var start = new Date().getTime();
 //•	http://localhost:<Port#>/dataIngestion/rest/data/searchQuery?bngDateRng=2004-05-20&endDateRng=2014-05-20&loc=MD&advSearch=Pizza&foodGroup=Meat
  $("#btnSubmit").click(function() {
                     foodgroup = document.getElementById('foodgroup').value;
@@ -295,13 +291,11 @@ var start = new Date().getTime();
                     keyword = document.getElementById('keyword').value;
 					begindate = document.getElementById('date-from-internal').value;
 					enddate = document.getElementById('date-to-internal').value;
-					var endpoint = 'http://localhost:8080/dataIngestion/rest/data/searchQuery?';
+					var endpoint = 'http://localhost:8080/dataIngestion-1.0-SNAPSHOT/rest/data/searchQuery?';
 					var form_parameter = 'bngDateRng=' + begindate + '&endDateRng=' + enddate + '&loc=' + selectlocation + '&advSearch=' + keyword + '&foodGroup=' + foodgroup;
 					var full_search = endpoint + form_parameter;
 					foodgroup = "";
-					locationtarget = selectlocation;
 					selectionlocation = "";
-					searchword = keyword;
 					keyword = "";
 					begindate = "";
 					enddate = "";
@@ -312,16 +306,12 @@ var start = new Date().getTime();
                         //url: 'https://api.fda.gov/food/enforcement.json?api_key=LEsaCnFqu5NnXynoyvcNjtaSTEde5r7inxEfcTIH',
                     
                     }).done(function(result) {
-						
-						var end = new Date().getTime();
-						var responseTime = end - start;
-					
                         //Return the search results
 			returnSearch(result);
 			//post the statistics such as query count to monitor service
 			$.ajax({
 			type: 'POST',
-			data: JSON.stringify({"searchField":searchword,"responseTime":responseTime, "location":locationtarget}),
+			data: JSON.stringify(formData),
 			contentType: "application/json",
 			dataType: "json",
 			url: 'http://localhost:8080/dataIngestion/rest/monitor/query',
@@ -332,12 +322,6 @@ var start = new Date().getTime();
 					    $( '#detailed-table' ).empty();
 					    var num_results = '<h2><font face="calibri">' + json_test.results.bindings.length + ' Total Results</font></h2>';
 					    $(num_results).appendTo('#detailed-table');
-						for(i=0;i<markers.length;i++) {
-							map.removeLayer(markers[i]);
-						}  
-						
-						
-						
                         for (var i = 0; i < json_test.results.bindings.length; i++) {
 			    var classification = json_test.results.bindings[i].classification.value;
 		            var recall_status = json_test.results.bindings[i].status.value;
@@ -351,11 +335,11 @@ var start = new Date().getTime();
 			    recall_date = recall_date.substr(0, recall_date.indexOf('T')); 
                             var elm = '<div class="list-group-item">' +
                                 '<div data-toggle="collapse" data-parent="#detailed-table" href="#collapse' + i + '">' +
-                                '<h4 class="list-group-item-heading">Recall Number: ' + json_test.results.bindings[i].recallNumber.value + '</h4>' +
+                                '<h4 class="list-group-item-heading">Product Description</h4>' +
                                 '<p class="list-group-item-text">' +
                                 '<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: ' + report_date + '</span>' +
                                 '<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: ' + json_test.results.bindings[i].location.value + '</span>' +
-                                '<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Recalling Firm: ' + json_test.results.bindings[i].recallingFirm.value + '</span>' +
+                                '<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Food Description: Ranch Dressing</span>' +
                                 '</p>' +
                                 '</div>' +
                                 '<div id="collapse' + i + '" class="panel-collapse collapse">' +
@@ -365,12 +349,10 @@ var start = new Date().getTime();
                                 '<li>Distribution Pattern: ' + json_test.results.bindings[i].distPattern.value + '</li>' +
                                 '<li>Product Quantity: ' + json_test.results.bindings[i].productQty.value + '</li>' +
                                 '<li>Recall Initiation Date: ' + recall_date + '</li>' +
-								
                                 '<li>City/State: ' + json_test.results.bindings[i].location.value + '</li>' +
                                 '<li>Event ID: ' + json_test.results.bindings[i].eventId.value + '</li>' +
                                 '<li>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).</li>' +
                                 '<li>Country: US</li>' +
-
 				'<li>Code Info: ' + json_test.results.bindings[i].codeInfo.value + '</li>' +
                                 '<li>Recalling Firm: ' + json_test.results.bindings[i].recallingFirm.value + '</li>' +
                                 '<li>Recall Reason: ' + json_test.results.bindings[i].recallReason.value + '</li>' +
@@ -378,29 +360,37 @@ var start = new Date().getTime();
                                 '<li>Voluntary Mandated: Voluntary: Firm Initiated</li>' +
                                 '<li>Classification: Class ' + classification[1] + '</li>' +
                                 '<li>Initial Firm Notification: ' + notification_type[1] + '</li>' +
-								
                                 '</ul>' +
                                 '</div>' +
                                 '</div>' +
                                 '</div>';
                             $(elm).appendTo('#detailed-table');
-						
-							//var map = L.map('map')
-								//console.log(val);
-								bounds.push([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value]);
-							var newMarker =  L.marker([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value], {
-								icon: window.pizzaIcon
-							}).addTo(map);
-							newMarker.bindPopup('Recall Number: ' + json_test.results.bindings[i].recallNumber.value  );
-								markers.push(newMarker);
-								//L.marker().addTo(map)
-								console.log("adding @"+[json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value])
-							    
-							// zoom to bounds of markers
-
-							map.fitBounds(bounds);
                         }
                     }
+					/*
+                    $(document).ready(function btnClick() {
+                        //    button click
+                        $("#btnSubmit").button().click(function() {
+                            alert("button");
+                        });
+                        var data = ["foo", "bar"];
+                        $.get('https://api.fda.gov/drug/event.json?search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&count=patient.reaction.reactionmeddrapt.exact', function(result) {
+                            $.each(result.results, function(i, item) {
+                                $('#my-table > tbody:last').append('<tr><td>' + item.term + '</td></tr>');
+                            });
+                        });
+                        $.each(data, function(i, item) {
+                            $('#my-table > tbody:last').append('<tr><td>' + item + '</td></tr>');
+                        });
+                    });
+
+                    $(function() {
+                        $("[data-toggle='popover']").popover({
+                            trigger: 'hover',
+                            'placement': 'right',
+                            html: true,
+                        });
+                    });*/
 				});
 		/*		
 		$.ajax({
@@ -423,11 +413,9 @@ var start = new Date().getTime();
     </script>
 
     <script>
-        var map = L.map('map').setView([37.097816, -99.330963], 3);
+        var map = L.map('map').setView([31.0, -98.0], 10);
 
-		
-		var markers = new Array();
-		var bounds = [];
+
 
         window.pizzaIcon = L.icon({
             iconUrl: 'celery.png',
@@ -446,6 +434,8 @@ var start = new Date().getTime();
         }).addTo(map);
 
 
+        L.marker([51.5, -0.09]).addTo(map)
+
         L.circle([51.508, -0.11], 500, {
             color: 'red',
             fillColor: '#f03',
@@ -457,6 +447,7 @@ var start = new Date().getTime();
             [51.503, -0.06],
             [51.51, -0.047]
         ]).addTo(map).bindPopup("I am a polygon man.");
+
 
         var popup = L.popup();
 
@@ -472,12 +463,11 @@ var start = new Date().getTime();
 
 
         //Query Claven for lat/longs ...
-	/*	
         function getVector() {
             //alert($("#id_textarea").val());
             //console.log($("#id_textarea").val());
             $.ajax({
-                    url: "http://localhost:8080/api/v0/geotag",
+                    url: "http://localhost:9090/api/v0/geotag",
                     type: "POST",
                     contentType: "text/plain",
                     data: "Texas, US"
@@ -505,7 +495,7 @@ var start = new Date().getTime();
         }
 
 
-*/
+
 
         map.on('click', onMapClick);
     </script>
@@ -523,7 +513,32 @@ var start = new Date().getTime();
 
 </body>
 
+
+
+
+
+<!-----Test of D3 Integration
+
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  width: 960px;
+}
+
+button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
+
+</style>------>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+
 
 
 </html>

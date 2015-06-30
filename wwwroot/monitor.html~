@@ -55,12 +55,12 @@
 				<br>
 				<br>
 				<br>
-                <li style="margin:1.0em;">
-                <a href="index.html"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Search</font></a>
-            </li>
-            <li style="margin:1.0em;">
-                <a href="monitor.html"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Monitor</font></a>
-            </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri">Search</font></a>
+                </li>
+                <li>
+                    <a href="#"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri">Monitor</font></a>
+                </li>
             </ul>
         </div>
 
@@ -109,7 +109,7 @@
         </div>
 		
 <script type="text/javascript">
-  
+//The structure of the json for top ten queries 
 var testTopTen = [
     {
         "date": "2015-03-04",
@@ -130,34 +130,29 @@ function returnTopQueries(json_test){
 var elem = '<thead>' +
                     + '<tr>'
                     +  '<th>#</th>'
+                    +  '<th>Date</th>'
+                    +  '<th>Location</th>'
                     +  '<th>Search Field</th>'
                     + '<th>Count</th>'
+		    + '<th>Response Time</th>'
                     + '</tr>'
                   + '</thead>'
 				  + '<tbody>';
 for(var i = 0; i < json_test.length; i++){
 elem +=               '<tr>'
 		      + '<td>' + (i+1) + '</td>'
-                      + '<td>' + json_test[i].SearchField+ '</td>'
-                      + '<td>' + json_test[i].Count + '</td>'
+                      + '<td>'+ json_test[i].date + '</td>'
+                      + '<td>' + json_test[i].location + '</td>'
+                      + '<td>' + json_test[i].searchField+ '</td>'
+                      + '<td>' + json_test[i].count + '</td>'
+                      + '<td>' + json_test[i].responseTime + '</td>'
                       + '</tr>';
 
 }
 elem += '</tbody>';
 $(elem).appendTo('#my-table');
 }
-	
-	$.ajax({
-		'async': false,
-		url:   'http://localhost:8080/dataIngestion/rest/monitor/topten'
-		//url: 'https://api.fda.gov/food/enforcement.json?api_key=LEsaCnFqu5NnXynoyvcNjtaSTEde5r7inxEfcTIH',
-		
-		}).done(function(TopTen) {
-		//Return the search results
-		returnTopQueries(TopTen);
-		});
-	
-
+returnTopQueries(testTopTen);
 </script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="c3/c3.min.js"></script>
