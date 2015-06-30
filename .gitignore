@@ -8,6 +8,9 @@
 *.war
 *.ear
 
+# Log Files #
+*.log
+
 # IDE Files #
 /dataIngestion/nb-configuration.xml
 
