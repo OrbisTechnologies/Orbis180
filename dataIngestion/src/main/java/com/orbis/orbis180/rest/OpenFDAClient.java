@@ -532,7 +532,7 @@ public class OpenFDAClient {
      **/
     protected String validateDateFormat(String dateValue)
     {
-       String val = "";
+       String val = "The date format must be YYYY-MM-DD";
        
        String datePattern = "\\d{4}-\\d{2}-\\d{2}";
        boolean isDate = dateValue.matches(datePattern);

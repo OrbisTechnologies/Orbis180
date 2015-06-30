@@ -41,46 +41,46 @@ public class DatabaseQuery {
     final static protected Logger logger = LoggerFactory.getLogger(DatabaseQuery.class);
     private String endpoint;
     private String sparqlQuery = "PREFIX openFDA: <http://www.orbistechnologies.com/ontologies/openFDA#>\n" +
-"PREFIX : <http://www.w3.org/2002/07/owl#>\n" +
-"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-"Select ?recallNumber ?reportDate ?eventId ?recallingFirm ?status (CONCAT(?city, \",\",?state) AS ?location) ?latitude ?longitude ?foodGroup ?classification ?recallInitiationDate ?productDescription ?productQty ?codeInfo ?distPattern ?recallReason ?voluntaryMandated ?notification\n" +
-"Where {\n" +
-"	?id a openFDA:EnforcementReport ;\n" +
-"    	openFDA:codeInfo ?codeInfo ;\n" +
-"    	openFDA:distributionPattern ?distPattern ;\n" +
-"    	openFDA:hasClassification ?classificationId ;\n" +
-"    	openFDA:hasInitialFirmNotification ?notificationId ;\n" +
-"    	openFDA:hasRecallInitiationDate ?recallDateId ;\n" +
-"    	openFDA:hasRecallingFirm ?firmId ;\n" +
-"    	openFDA:recallNumber ?recallNumber ;\n" +
-"    	openFDA:hasStatus ?statusId ;\n" +
-"    	openFDA:productDescription ?productDescription ;\n" +
-"    	openFDA:productQuantity ?productQty ;\n" +
-"    	openFDA:reasonForRecall ?recallReason;\n" +
-"    	openFDA:voluntaryMandated ?voluntaryMandated ;\n" +
-"    	openFDA:eventId ?eventId ;\n" +
-"    	openFDA:hasLocation ?locationId ;\n" +
-"    	openFDA:hasReportDate ?reportDateId .\n" +
-"  ?firmId openFDA:organizationName ?recallingFirm .\n" +
-"  ?recallDateId openFDA:timestamp ?recallInitiationDate .\n" +
-"  ?reportDateId openFDA:timestamp ?reportDate .\n" +
-"  ?classificationId rdfs:label ?classification .\n" +
-"  ?notificationId rdfs:label ?notification .\n" +
-"  ?statusId rdfs:label ?status .\n" +
-"  ?locationId openFDA:city ?city ;\n" +
-"    	openFDA:state ?state ;\n" +
-"    	openFDA:country ?country ;\n" +
-"    	openFDA:latitude ?latitude ;\n" +
-"    	openFDA:longitude ?longitude .\n" +
-"   FILTER( ?reportDate > \"$begnningDate$\"^^xsd:dateTime)" +
-"   FILTER( ?reportDate < \"$endDate$\"^^xsd:dateTime) .\n" +
-"   FILTER( ?state = \"$location$\") .\n" +
-"  OPTIONAL {\n" +
-"  	?id openFDA:hasFoodGroup ?foodGroupId .\n" +
-"    ?foodGroupId rdfs:label ?foodGroup .\n" +
-"    FILTER (?foodGroup = \"$foodGroup$\") .\n" +
-"  }\n" +
-"}";
+                                    "PREFIX : <http://www.w3.org/2002/07/owl#>\n" +
+                                    "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
+                                    "Select ?recallNumber ?reportDate ?eventId ?recallingFirm ?status (CONCAT(?city, \",\",?state) AS ?location) ?latitude ?longitude ?foodGroup ?classification ?recallInitiationDate ?productDescription ?productQty ?codeInfo ?distPattern ?recallReason ?voluntaryMandated ?notification\n" +
+                                    "Where {\n" +
+                                    "	?id a openFDA:EnforcementReport ;\n" +
+                                    "    	openFDA:codeInfo ?codeInfo ;\n" +
+                                    "    	openFDA:distributionPattern ?distPattern ;\n" +
+                                    "    	openFDA:hasClassification ?classificationId ;\n" +
+                                    "    	openFDA:hasInitialFirmNotification ?notificationId ;\n" +
+                                    "    	openFDA:hasRecallInitiationDate ?recallDateId ;\n" +
+                                    "    	openFDA:hasRecallingFirm ?firmId ;\n" +
+                                    "    	openFDA:recallNumber ?recallNumber ;\n" +
+                                    "    	openFDA:hasStatus ?statusId ;\n" +
+                                    "    	openFDA:productDescription ?productDescription ;\n" +
+                                    "    	openFDA:productQuantity ?productQty ;\n" +
+                                    "    	openFDA:reasonForRecall ?recallReason;\n" +
+                                    "    	openFDA:voluntaryMandated ?voluntaryMandated ;\n" +
+                                    "    	openFDA:eventId ?eventId ;\n" +
+                                    "    	openFDA:hasLocation ?locationId ;\n" +
+                                    "    	openFDA:hasReportDate ?reportDateId .\n" +
+                                    "  ?firmId openFDA:organizationName ?recallingFirm .\n" +
+                                    "  ?recallDateId openFDA:timestamp ?recallInitiationDate .\n" +
+                                    "  ?reportDateId openFDA:timestamp ?reportDate .\n" +
+                                    "  ?classificationId rdfs:label ?classification .\n" +
+                                    "  ?notificationId rdfs:label ?notification .\n" +
+                                    "  ?statusId rdfs:label ?status .\n" +
+                                    "  ?locationId openFDA:city ?city ;\n" +
+                                    "    	openFDA:state ?state ;\n" +
+                                    "    	openFDA:country ?country ;\n" +
+                                    "    	openFDA:latitude ?latitude ;\n" +
+                                    "    	openFDA:longitude ?longitude .\n" +
+                                    "   FILTER( ?reportDate > \"$begnningDate$\"^^xsd:dateTime)" +
+                                    "   FILTER( ?reportDate < \"$endDate$\"^^xsd:dateTime) .\n" +
+                                    "   FILTER( ?state = \"$location$\") .\n" +
+                                    "  OPTIONAL {\n" +
+                                    "  	?id openFDA:hasFoodGroup ?foodGroupId .\n" +
+                                    "    ?foodGroupId rdfs:label ?foodGroup .\n" +
+                                    "    FILTER (?foodGroup = \"$foodGroup$\") .\n" +
+                                    "  }\n" +
+                                    "}";
     
 //    upperLim =  "FILTER( ?reportDate > \""+ varName + "T00:00:00Z\"^^xsd:dateTime) .";
     public DatabaseQuery(String bngDateRang, String endDateRang, String location, String advancedSearch, String foodGroup)
@@ -90,7 +90,6 @@ public class DatabaseQuery {
             config.load(getClass().getResourceAsStream("/conf/config.properties"));
             
             endpoint = config.getProperty("com.orbis.orbis180.storage.databaseQuery.endpoint");
- //           sparqlQuery = config.getProperty("com.orbis.orbis180.storage.databaseQuery.sparqlQuery");
             
             logger.info("Endpoint: " + endpoint);
             logger.info("SPARQL: "+ sparqlQuery);
@@ -108,8 +107,11 @@ public class DatabaseQuery {
         
     }
     
-    // This method setup connection with sesame database, query database and 
-    //return data to the rest end points call
+    /**
+     * This method setup connection with sesame database, query database and 
+     * return data to the rest end points call
+     * @return 
+     */ 
     public String databaseQuery(){
         
         String dbOutput = "";
@@ -157,12 +159,31 @@ public class DatabaseQuery {
        return dbOutput;
     }
     
-    
-    //format date to datatime format
-    //@date: date that needs to be
-    protected String dateTimeFormat(String date)
+   /**
+    * format date into data time format
+    * @param date date that needs to be
+    * @return  return date into date time format
+    */ 
+    protected String dateTimeFormat(String dateValue)
     {
-        return (date + "T00:00:00Z");
+        String val = "The date format must be YYYY-MM-DD";
+       
+       String datePattern = "\\d{4}-\\d{2}-\\d{2}";
+       boolean isDate = dateValue.matches(datePattern);
+       
+       logger.debug("isdate: " + isDate);
+       
+       if(isDate)
+       {
+           logger.debug("dateVal: " + dateValue); 
+           val = dateValue + "T00:00:00Z";
+           logger.debug("dateVal: " + val);
+       
+           
+       }else{
+           logger.error("The date format must be YYYY-MM-DD");
+       }
+        return val;
     }
 
     
