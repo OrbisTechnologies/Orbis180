@@ -93,47 +93,36 @@
         <!--<div class = "row">-->
         <div class="col-md-4">
             <form class="form-horizontal">
-                <fieldset style="height:450px;width:100%;">
+                <fieldset>
 
                     <!-- Form Name -->
                     <legend>Search</legend>
 
                     <!-- Search input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="daterange">Date Range (*Required)</label>
-                        <div class="col-md-8">
-			<table>
-			<td>
-				<span title="(yyyy-mm-dd)">
-                            <input class="form-control input-md" type="text" id="date-from" placeholder="From" data-date-format="yyyy-mm-dd"> 
-				</span> 
-			</td>
-			<td>
-				<span title="(yyyy-mm-dd)">
-			    <input class="form-control input-md" type="text" id="date-to" placeholder="To" data-date-format="yyyy-mm-dd">
-				</span> 
-			</td>
-                        </table>   
-							
+                        <label class="col-md-5 control-label" for="searchinput"><font size=4>Keyword Search</font></label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="daterange">Date Range</label>
+                        <div class="col-md-4">
+                            <input class="form-control input-md" type="text" id="date-from" placeholder="From" data-date-format="yyyy-mm-dd">
+
+							<p><i>*Required</i></p>
+                            <input class="form-control input-md" type="text" id="date-to" placeholder="To" data-date-format="yyyy-mm-dd">
+							<p><i>*Required</i></p>
                             <input  type="hidden" id="date-from-internal" >
                             <input  type="hidden" id="date-to-internal">
 							
+                            <p><i>(yyyy-mm-dd)</i></p>
                         </div>
                     </div>
 
                     <!-- Select Basic -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="selectlocation">Location (*Required)</label>
-                        <div class="col-md-8">
-			<div class="input-group input-group-md">
+                        <label class="col-md-4 control-label" for="selectlocation">Location</label>
+                        <div class="col-md-4">
+
                             <select multiple id="selectlocation" name="selectlocation" class="form-control">
-								<optgroup label="Country">
-									
-									<option value="Canada">Canada</option>
-									<option value="France">France</option>
-								</optgroup>
-								
-								<optgroup label="States">
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AS">American Samoa</option>
@@ -189,23 +178,21 @@
                                 <option value="WA">Washington</option>
                                 <option value="WV">West Virginia</option>
                                 <option value="WI">Wisconsin</option>
-								<option value="WY">Wyoming</option>
-								</optgroup>
+                                <option value="WY">Wyoming</option>
                             </select>
-				</div>
                         </div>
+						<p><i>*Required</i></p>
                     </div>
 
 
 
                     <!-- Text input-->
-				<!--	<div class="form-group" > -->
-                        <!--<label class="col-md-6 control-label" for="searchinput"><font size=3>Advanced Search</font></label>-->
-<!--			<h4 style="margin-left: 0.5cm;">Advanced Search</h4> -->
-<!--                    </div> -->
+					<div class="form-group">
+                        <label class="col-md-5 control-label" for="searchinput"><font size=4>Advanced Search</font></label>
+                    </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="keyword">Keyword</label>
-                        <div class="col-md-8">
+                        <div class="col-md-4">
 
                             <input id="keyword" name="keyword" type="text" class="form-control input-md">
                             <!--<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>-->
@@ -215,21 +202,21 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="foodgroup">Food Group</label>
                         <div class="col-md-4">
-			<span title="Does not include beverages, cake mix, sugary snacks, or animal food">
-                            <select id="foodgroup" name="foodgroup" class="form-control">
+                            <select multiple id="foodgroup" name="foodgroup" class="form-control">
 				<option value="" selected="selected">None</option>
-                                <option value="Fruits">Fruits</option>
-                                <option value="Vegetables">Vegetables</option>
-                                <option value="Grains">Grains</option>
-                                <option value="Proteins">Proteins</option>
-                                <option value="Dairy">Dairy</option>
-			    </span>
+                                <option value="fruits">Fruits</option>
+                                <option value="vegetables">Vegetables</option>
+                                <option value="grains">Grains</option>
+                                <option value="proteins">Proteins</option>
+                                <option value="dairy">Dairy</option>
+				<option value="meat">Meat</option>
                             </select>
-			    
+			    <p><i>does not include beverages, cake mix, sugary snacks, or animal food</i></p>
                         </div>
-			<button id="btnSubmit" type="button" class="btn btn-default" style="width:130px">Submit Search</button>
                     </div>
-                   
+                    <button id="btnSubmit" type="button" class="btn btn-default">Submit Search</button>
+
+
 					
                     <!-- Text input-->
                     <script>
@@ -266,18 +253,16 @@
                         });
                     </script>
 
-                    <div id="detailed-table" class="list-group col-md-8" style="overflow:auto; height:275px; width:425px;">
-
+                    <div id="detailed-table" class="list-group" style="overflow:auto; height:300px;">
                     </div>
         </div>
 
 
         <div class="col-md-8">
-            <div class="col-xs-6 col-sm-3 img-responsive" style="height:575px;width:100%" id="map">
+            <div class="col-xs-6 col-sm-3 img-responsive" style="height:600px;width:100%" id="map">
 
             </div>
         </div>
-
     </div>
 
 
@@ -302,7 +287,7 @@
          *table
          *@param the json response received from the JQuery AJAX request
          */
-
+var start = new Date().getTime();
 //•	http://localhost:<Port#>/dataIngestion/rest/data/searchQuery?bngDateRng=2004-05-20&endDateRng=2014-05-20&loc=MD&advSearch=Pizza&foodGroup=Meat
  $("#btnSubmit").click(function() {
                     foodgroup = document.getElementById('foodgroup').value;
@@ -314,7 +299,9 @@
 					var form_parameter = 'bngDateRng=' + begindate + '&endDateRng=' + enddate + '&loc=' + selectlocation + '&advSearch=' + keyword + '&foodGroup=' + foodgroup;
 					var full_search = endpoint + form_parameter;
 					foodgroup = "";
+					locationtarget = selectlocation;
 					selectionlocation = "";
+					searchword = keyword;
 					keyword = "";
 					begindate = "";
 					enddate = "";
@@ -325,12 +312,16 @@
                         //url: 'https://api.fda.gov/food/enforcement.json?api_key=LEsaCnFqu5NnXynoyvcNjtaSTEde5r7inxEfcTIH',
                     
                     }).done(function(result) {
+						
+						var end = new Date().getTime();
+						var responseTime = end - start;
+					
                         //Return the search results
 			returnSearch(result);
 			//post the statistics such as query count to monitor service
 			$.ajax({
 			type: 'POST',
-			data: JSON.stringify(formData),
+			data: JSON.stringify({"searchField":searchword,"responseTime":responseTime, "location":locationtarget}),
 			contentType: "application/json",
 			dataType: "json",
 			url: 'http://localhost:8080/dataIngestion/rest/monitor/query',
@@ -339,7 +330,7 @@
 					
                     function returnSearch(json_test) {
 					    $( '#detailed-table' ).empty();
-					    var num_results = '<h4><font face="calibri">' + json_test.results.bindings.length + ' Total Results</font></h4>';
+					    var num_results = '<h2><font face="calibri">' + json_test.results.bindings.length + ' Total Results</font></h2>';
 					    $(num_results).appendTo('#detailed-table');
 						for(i=0;i<markers.length;i++) {
 							map.removeLayer(markers[i]);

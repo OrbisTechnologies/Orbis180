@@ -54,10 +54,9 @@ public class SystemMonitorRestClient {
   
     /**
      * records the query history record
-     * @param newquery
+     * @param new query
      * @return 
      */
-    
   @POST
   @Path("/query")
   @Consumes(MediaType.APPLICATION_JSON)
@@ -74,7 +73,6 @@ public class SystemMonitorRestClient {
     catch(IOException ex){
         System.out.println (ex.toString());
     }
-  //  this.dbStore.addQuery(newquery.location, newquery.searchField, newquery.responseTime);
     return Response.status(200).entity(output).build();
   }
 
@@ -92,10 +90,6 @@ public class SystemMonitorRestClient {
       //TODO: Implement Caching and Connection pooling
         dbStore = new DatabaseDAO();
         dbStore.init(false);
-        
-     mHitCounter=mHitCounter+187;
-   //return "<html> " + "<title>" + "Webservice Status" + "</title>"        + "<body><h1>" + "Orbis180 Data Ingestion Webservice is Alive" + "</body></h1>" + "</html> ";  
-      
      String retval = this.dbStore.getQueryCount().toString();
      this.dbStore.uninit();
      return retval;

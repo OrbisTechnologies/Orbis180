@@ -106,7 +106,9 @@ public class DatabaseDAO {
             }
         }
   }
-  
+  /**
+   * Clears the connection to the internal storage
+   */
   public void uninit(){
             //Connection
             try {
@@ -118,6 +120,84 @@ public class DatabaseDAO {
                 System.out.println(sqle);
             }
   }
+  
+    /**
+     * Clears information from the Internal storage
+     */
+  public void clear(){
+        ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
+        Statement s;
+        Statement drops;
+        ResultSet rs = null;
+        try{
+     
+            /* Creating a statement object that we can use for running various
+             * SQL statements commands against the database.*/
+            if(conn==null){
+            String dbName = "derbyDB"; // the name of the database
+            
+            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");  
+            conn = DriverManager.getConnection(protocol + dbName + dbLocation + ";create=true");
+             System.out.println("Connected to database " + dbName);
+
+            // We want to control transactions manually. Autocommit is on by
+            // default in JDBC.
+            conn.setAutoCommit(true);
+            }
+            
+            
+            DatabaseMetaData dbmd = conn.getMetaData();
+            s = conn.createStatement();
+            statements.add(s);
+            drops =  conn.createStatement();
+            statements.add(drops);
+            rs = dbmd.getTables(null, "APP", "queries", null);
+            //if the table doesn't exist
+            
+            if(!rs.next())
+            {// We (re)create a table...
+                drops.execute("drop table queries");
+              s.execute("create table queries(keyword varchar(100), location varchar(100), responseTime int, queryDate date)");
+            }
+            System.out.println("Dropped and Created table queries");
+         rs.close();
+            s.close();
+            
+        }
+        catch (Exception sqle)
+        {
+            System.out.println(sqle);
+        } finally {
+            // release all open resources to avoid unnecessary memory usage
+
+            // ResultSet
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException sqle) {
+                System.out.println(sqle);
+            }
+
+            // Statements and PreparedStatements
+            int i = 0;
+            while (!statements.isEmpty()) {
+                // PreparedStatement extend Statement
+                Statement st = (Statement)statements.remove(i);
+                try {
+                    if (st != null) {
+                        st.close();
+                        st = null;
+                    }
+                } catch (SQLException sqle) {
+                    System.out.println(sqle);
+                }
+            }
+
+        } 
+  }  
+  
   /**
    * 
    * This Creates the query Table if it doesn't exist

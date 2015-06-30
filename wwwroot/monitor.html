@@ -130,22 +130,16 @@ function returnTopQueries(json_test){
 var elem = '<thead>' +
                     + '<tr>'
                     +  '<th>#</th>'
-                    +  '<th>Date</th>'
-                    +  '<th>Location</th>'
                     +  '<th>Search Field</th>'
                     + '<th>Count</th>'
-		    + '<th>Response Time</th>'
                     + '</tr>'
                   + '</thead>'
 				  + '<tbody>';
 for(var i = 0; i < json_test.length; i++){
 elem +=               '<tr>'
 		      + '<td>' + (i+1) + '</td>'
-                      + '<td>'+ json_test[i].date + '</td>'
-                      + '<td>' + json_test[i].location + '</td>'
                       + '<td>' + json_test[i].SearchField+ '</td>'
                       + '<td>' + json_test[i].Count + '</td>'
-                      + '<td>' + json_test[i].responseTime + '</td>'
                       + '</tr>';
 
 }
