@@ -333,6 +333,12 @@
 					    $( '#detailed-table' ).empty();
 					    var num_results = '<h4><font face="calibri">' + json_test.results.bindings.length + ' Total Results</font></h4>';
 					    $(num_results).appendTo('#detailed-table');
+						for(i=0;i<markers.length;i++) {
+							map.removeLayer(markers[i]);
+						}  
+						
+						
+						
                         for (var i = 0; i < json_test.results.bindings.length; i++) {
 			    var classification = json_test.results.bindings[i].classification.value;
 		            var recall_status = json_test.results.bindings[i].status.value;
@@ -383,11 +389,14 @@
 							//var map = L.map('map')
 								//console.log(val);
 								bounds.push([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value]);
-								L.marker([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value], {
-									icon: window.pizzaIcon
-								}).addTo(map)
-								.bindPopup('Recall Number: ' + json_test.results.bindings[i].recallNumber.value  );
-							
+							var newMarker =  L.marker([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value], {
+								icon: window.pizzaIcon
+							}).addTo(map);
+							newMarker.bindPopup('Recall Number: ' + json_test.results.bindings[i].recallNumber.value  );
+								markers.push(newMarker);
+								//L.marker().addTo(map)
+								console.log("adding @"+[json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value])
+							    
 							// zoom to bounds of markers
 
 							map.fitBounds(bounds);
@@ -415,9 +424,10 @@
     </script>
 
     <script>
-        var map = L.map('map').setView([31.0, -98.0], 10);
+        var map = L.map('map').setView([37.097816, -99.330963], 3);
 
 		
+		var markers = new Array();
 		var bounds = [];
 
         window.pizzaIcon = L.icon({
@@ -436,8 +446,6 @@
             id: 'examples.map-i875mjb7'
         }).addTo(map);
 
-
-        L.marker([51.5, -0.09]).addTo(map)
 
         L.circle([51.508, -0.11], 500, {
             color: 'red',
