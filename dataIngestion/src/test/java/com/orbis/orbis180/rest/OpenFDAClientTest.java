@@ -7,19 +7,19 @@ package com.orbis.orbis180.rest;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 
 /**
  *
- * @author clouddev
+ * @author Ankit Parmar
  */
 public class OpenFDAClientTest {
     
     public OpenFDAClientTest() {
     }
     
+    
     @Test
-    public void testValidateDateFormat()
+    public void testValidateDateFormatOne()
     { 
         OpenFDAClient testDateFormat = new OpenFDAClient();
         
@@ -28,6 +28,16 @@ public class OpenFDAClientTest {
         
         assertEquals(expResultOne,resultOne);
     }
-
     
+    @Test
+    public void testValidateDateFormatTwo()
+    { 
+        OpenFDAClient testDateFormat = new OpenFDAClient();
+        
+        String resultOne = testDateFormat.validateDateFormat("01-27-2014");
+        String expResultOne = "The date format must be YYYY-MM-DD";
+        
+        assertEquals(expResultOne,resultOne);
+    }
+   
 }
