@@ -1,0 +1,167 @@
+[2015-06-30 06:58:12,220] INFO : Endpoint: http://54.208.5.141/openrdf-sesame/repositories/openFDA-test?query=
+[2015-06-30 06:58:12,221] INFO : SPARQL: PREFIX openFDA: <http://www.orbistechnologies.com/ontologies/openFDA#>
+PREFIX : <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Select ?recallNumber ?reportDate ?eventId ?recallingFirm ?status (CONCAT(?city, ",",?state) AS ?location) ?latitude ?longitude ?foodGroup ?classification ?recallInitiationDate ?productDescription ?productQty ?codeInfo ?distPattern ?recallReason ?voluntaryMandated ?notification
+Where {
+	?id a openFDA:EnforcementReport ;
+    	openFDA:codeInfo ?codeInfo ;
+    	openFDA:distributionPattern ?distPattern ;
+    	openFDA:hasClassification ?classificationId ;
+    	openFDA:hasInitialFirmNotification ?notificationId ;
+    	openFDA:hasRecallInitiationDate ?recallDateId ;
+    	openFDA:hasRecallingFirm ?firmId ;
+    	openFDA:recallNumber ?recallNumber ;
+    	openFDA:hasStatus ?statusId ;
+    	openFDA:productDescription ?productDescription ;
+    	openFDA:productQuantity ?productQty ;
+    	openFDA:reasonForRecall ?recallReason;
+    	openFDA:voluntaryMandated ?voluntaryMandated ;
+    	openFDA:eventId ?eventId ;
+    	openFDA:hasLocation ?locationId ;
+    	openFDA:hasReportDate ?reportDateId .
+  ?firmId openFDA:organizationName ?recallingFirm .
+  ?recallDateId openFDA:timestamp ?recallInitiationDate .
+  ?reportDateId openFDA:timestamp ?reportDate .
+  ?classificationId rdfs:label ?classification .
+  ?notificationId rdfs:label ?notification .
+  ?statusId rdfs:label ?status .
+  ?locationId openFDA:city ?city ;
+    	openFDA:state ?state ;
+    	openFDA:country ?country ;
+    	openFDA:latitude ?latitude ;
+    	openFDA:longitude ?longitude .
+   FILTER( ?reportDate > "$begnningDate$"^^xsd:dateTime)   FILTER( ?reportDate < "$endDate$"^^xsd:dateTime) .
+   FILTER( ?state = "$location$") .
+  OPTIONAL {
+  	?id openFDA:hasFoodGroup ?foodGroupId .
+    ?foodGroupId rdfs:label ?foodGroup .
+    FILTER (?foodGroup = "$foodGroup$") .
+  }
+}
+[2015-06-30 08:50:55,099] INFO : Endpoint: http://54.208.5.141/openrdf-sesame/repositories/openFDA-test?query=
+[2015-06-30 08:50:55,100] INFO : SPARQL: PREFIX openFDA: <http://www.orbistechnologies.com/ontologies/openFDA#>
+PREFIX : <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Select ?recallNumber ?reportDate ?eventId ?recallingFirm ?status (CONCAT(?city, ",",?state) AS ?location) ?latitude ?longitude ?foodGroup ?classification ?recallInitiationDate ?productDescription ?productQty ?codeInfo ?distPattern ?recallReason ?voluntaryMandated ?notification
+Where {
+	?id a openFDA:EnforcementReport ;
+    	openFDA:codeInfo ?codeInfo ;
+    	openFDA:distributionPattern ?distPattern ;
+    	openFDA:hasClassification ?classificationId ;
+    	openFDA:hasInitialFirmNotification ?notificationId ;
+    	openFDA:hasRecallInitiationDate ?recallDateId ;
+    	openFDA:hasRecallingFirm ?firmId ;
+    	openFDA:recallNumber ?recallNumber ;
+    	openFDA:hasStatus ?statusId ;
+    	openFDA:productDescription ?productDescription ;
+    	openFDA:productQuantity ?productQty ;
+    	openFDA:reasonForRecall ?recallReason;
+    	openFDA:voluntaryMandated ?voluntaryMandated ;
+    	openFDA:eventId ?eventId ;
+    	openFDA:hasLocation ?locationId ;
+    	openFDA:hasReportDate ?reportDateId .
+  ?firmId openFDA:organizationName ?recallingFirm .
+  ?recallDateId openFDA:timestamp ?recallInitiationDate .
+  ?reportDateId openFDA:timestamp ?reportDate .
+  ?classificationId rdfs:label ?classification .
+  ?notificationId rdfs:label ?notification .
+  ?statusId rdfs:label ?status .
+  ?locationId openFDA:city ?city ;
+    	openFDA:state ?state ;
+    	openFDA:country ?country ;
+    	openFDA:latitude ?latitude ;
+    	openFDA:longitude ?longitude .
+   FILTER( ?reportDate > "$begnningDate$"^^xsd:dateTime)   FILTER( ?reportDate < "$endDate$"^^xsd:dateTime) .
+   FILTER( ?state = "$location$") .
+  OPTIONAL {
+  	?id openFDA:hasFoodGroup ?foodGroupId .
+    ?foodGroupId rdfs:label ?foodGroup .
+    FILTER (?foodGroup = "$foodGroup$") .
+  }
+}
+[2015-06-30 10:32:06,843] INFO : Endpoint: http://54.208.5.141/openrdf-sesame/repositories/openFDA-test?query=
+[2015-06-30 10:32:06,844] INFO : SPARQL: PREFIX openFDA: <http://www.orbistechnologies.com/ontologies/openFDA#>
+PREFIX : <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Select ?recallNumber ?reportDate ?eventId ?recallingFirm ?status (CONCAT(?city, ",",?state) AS ?location) ?latitude ?longitude ?foodGroup ?classification ?recallInitiationDate ?productDescription ?productQty ?codeInfo ?distPattern ?recallReason ?voluntaryMandated ?notification
+Where {
+	?id a openFDA:EnforcementReport ;
+    	openFDA:codeInfo ?codeInfo ;
+    	openFDA:distributionPattern ?distPattern ;
+    	openFDA:hasClassification ?classificationId ;
+    	openFDA:hasInitialFirmNotification ?notificationId ;
+    	openFDA:hasRecallInitiationDate ?recallDateId ;
+    	openFDA:hasRecallingFirm ?firmId ;
+    	openFDA:recallNumber ?recallNumber ;
+    	openFDA:hasStatus ?statusId ;
+    	openFDA:productDescription ?productDescription ;
+    	openFDA:productQuantity ?productQty ;
+    	openFDA:reasonForRecall ?recallReason;
+    	openFDA:voluntaryMandated ?voluntaryMandated ;
+    	openFDA:eventId ?eventId ;
+    	openFDA:hasLocation ?locationId ;
+    	openFDA:hasReportDate ?reportDateId .
+  ?firmId openFDA:organizationName ?recallingFirm .
+  ?recallDateId openFDA:timestamp ?recallInitiationDate .
+  ?reportDateId openFDA:timestamp ?reportDate .
+  ?classificationId rdfs:label ?classification .
+  ?notificationId rdfs:label ?notification .
+  ?statusId rdfs:label ?status .
+  ?locationId openFDA:city ?city ;
+    	openFDA:state ?state ;
+    	openFDA:country ?country ;
+    	openFDA:latitude ?latitude ;
+    	openFDA:longitude ?longitude .
+   FILTER( ?reportDate > "$begnningDate$"^^xsd:dateTime)   FILTER( ?reportDate < "$endDate$"^^xsd:dateTime) .
+   FILTER( ?state = "$location$") .
+  OPTIONAL {
+  	?id openFDA:hasFoodGroup ?foodGroupId .
+    ?foodGroupId rdfs:label ?foodGroup .
+    FILTER (?foodGroup = "$foodGroup$") .
+  }
+}
+[2015-06-30 10:42:09,050] INFO : Endpoint: http://54.208.5.141/openrdf-sesame/repositories/openFDA-test?query=
+[2015-06-30 10:42:09,051] INFO : SPARQL: PREFIX openFDA: <http://www.orbistechnologies.com/ontologies/openFDA#>
+PREFIX : <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Select ?recallNumber ?reportDate ?eventId ?recallingFirm ?status (CONCAT(?city, ",",?state) AS ?location) ?latitude ?longitude ?foodGroup ?classification ?recallInitiationDate ?productDescription ?productQty ?codeInfo ?distPattern ?recallReason ?voluntaryMandated ?notification
+Where {
+	?id a openFDA:EnforcementReport ;
+    	?predicate ?object ;
+    	openFDA:codeInfo ?codeInfo ;
+    	openFDA:distributionPattern ?distPattern ;
+    	openFDA:hasClassification ?classificationId ;
+    	openFDA:hasInitialFirmNotification ?notificationId ;
+    	openFDA:hasRecallInitiationDate ?recallDateId ;
+    	openFDA:hasRecallingFirm ?firmId ;
+    	openFDA:recallNumber ?recallNumber ;
+    	openFDA:hasStatus ?statusId ;
+    	openFDA:productDescription ?productDescription ;
+    	openFDA:productQuantity ?productQty ;
+    	openFDA:reasonForRecall ?recallReason;
+    	openFDA:voluntaryMandated ?voluntaryMandated ;
+    	openFDA:eventId ?eventId ;
+    	openFDA:hasLocation ?locationId ;
+    	openFDA:hasReportDate ?reportDateId .
+  ?firmId openFDA:organizationName ?recallingFirm .
+  ?recallDateId openFDA:timestamp ?recallInitiationDate .
+  ?reportDateId openFDA:timestamp ?reportDate .
+  ?classificationId rdfs:label ?classification .
+  ?notificationId rdfs:label ?notification .
+  ?statusId rdfs:label ?status .
+  ?locationId openFDA:city ?city ;
+    	openFDA:state ?state ;
+    	openFDA:country ?country ;
+    	openFDA:latitude ?latitude ;
+    	openFDA:longitude ?longitude .
+   OPTIONAL {
+  	?id openFDA:hasFoodGroup ?foodGroupId .
+    ?foodGroupId rdfs:label ?foodGroup .
+  }
+  FILTER( ?reportDate > "$begnningDate$"^^xsd:dateTime) .
+  FILTER( ?reportDate < "$endDate$"^^xsd:dateTime) .
+  VALUES ?state { "$location$" } .
+  VALUES ?foodGroup { "$foodGroup$" } .
+  FILTER(regex(str(?object), "$keywordSearch$", "i")) .
+}
