@@ -100,8 +100,11 @@ public class DatabaseQuery {
         this.foodGroup = foodGroup;       
     }
     
-    // This method setup connection with sesame database, query database and 
-    //return data to the rest end points call
+    /**
+     * This method setup connection with sesame database, query database and 
+     * return data to the rest end points call
+     * @return 
+     */ 
     public String databaseQuery(){
         
         String dbOutput = "";
@@ -194,12 +197,31 @@ public class DatabaseQuery {
        return dbOutput;
     }
     
-    
-    //format date to datatime format
-    //@date: date that needs to be
-    protected String dateTimeFormat(String date)
+   /**
+    * format date into data time format
+    * @param date date that needs to be
+    * @return  return date into date time format
+    */ 
+    protected String dateTimeFormat(String dateValue)
     {
-        return (date + "T00:00:00Z");
+        String val = "The date format must be YYYY-MM-DD";
+       
+       String datePattern = "\\d{4}-\\d{2}-\\d{2}";
+       boolean isDate = dateValue.matches(datePattern);
+       
+       logger.debug("isdate: " + isDate);
+       
+       if(isDate)
+       {
+           logger.debug("dateVal: " + dateValue); 
+           val = dateValue + "T00:00:00Z";
+           logger.debug("dateVal: " + val);
+       
+           
+       }else{
+           logger.error("The date format must be YYYY-MM-DD");
+       }
+        return val;
     }
 
     

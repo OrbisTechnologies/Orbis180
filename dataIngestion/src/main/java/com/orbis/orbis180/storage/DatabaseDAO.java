@@ -106,7 +106,9 @@ public class DatabaseDAO {
             }
         }
   }
-  
+  /**
+   * Clears the connection to the internal storage
+   */
   public void uninit(){
             //Connection
             try {
@@ -118,6 +120,84 @@ public class DatabaseDAO {
                 System.out.println(sqle);
             }
   }
+  
+    /**
+     * Clears information from the Internal storage
+     */
+  public void clear(){
+        ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
+        Statement s;
+        Statement drops;
+        ResultSet rs = null;
+        try{
+     
+            /* Creating a statement object that we can use for running various
+             * SQL statements commands against the database.*/
+            if(conn==null){
+            String dbName = "derbyDB"; // the name of the database
+            
+            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");  
+            conn = DriverManager.getConnection(protocol + dbName + dbLocation + ";create=true");
+             System.out.println("Connected to database " + dbName);
+
+            // We want to control transactions manually. Autocommit is on by
+            // default in JDBC.
+            conn.setAutoCommit(true);
+            }
+            
+            
+            DatabaseMetaData dbmd = conn.getMetaData();
+            s = conn.createStatement();
+            statements.add(s);
+            drops =  conn.createStatement();
+            statements.add(drops);
+            rs = dbmd.getTables(null, "APP", "queries", null);
+            //if the table doesn't exist
+            
+            if(!rs.next())
+            {// We (re)create a table...
+                drops.execute("drop table queries");
+              s.execute("create table queries(keyword varchar(100), location varchar(100), responseTime int, queryDate date)");
+            }
+            System.out.println("Dropped and Created table queries");
+         rs.close();
+            s.close();
+            
+        }
+        catch (Exception sqle)
+        {
+            System.out.println(sqle);
+        } finally {
+            // release all open resources to avoid unnecessary memory usage
+
+            // ResultSet
+            try {
+                if (rs != null) {
+                    rs.close();
+                    rs = null;
+                }
+            } catch (SQLException sqle) {
+                System.out.println(sqle);
+            }
+
+            // Statements and PreparedStatements
+            int i = 0;
+            while (!statements.isEmpty()) {
+                // PreparedStatement extend Statement
+                Statement st = (Statement)statements.remove(i);
+                try {
+                    if (st != null) {
+                        st.close();
+                        st = null;
+                    }
+                } catch (SQLException sqle) {
+                    System.out.println(sqle);
+                }
+            }
+
+        } 
+  }  
+  
   /**
    * 
    * This Creates the query Table if it doesn't exist
@@ -135,6 +215,8 @@ public class DatabaseDAO {
              * SQL statements commands against the database.*/
             if(conn==null){
             String dbName = "derbyDB"; // the name of the database
+            
+            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");  
             conn = DriverManager.getConnection(protocol + dbName + dbLocation + ";create=true");
              System.out.println("Connected to and created database " + dbName);
 
@@ -155,7 +237,7 @@ public class DatabaseDAO {
             
             if(!rs.next())
             {// We (re)create a table...
-                drops.execute("drop table queries");
+               // drops.execute("drop table queries");
               s.execute("create table queries(keyword varchar(100), location varchar(100), responseTime int, queryDate date)");
             }
             System.out.println("Created table queries");
@@ -163,7 +245,7 @@ public class DatabaseDAO {
             s.close();
             }
         }
-        catch (SQLException sqle)
+        catch (Exception sqle)
         {
             System.out.println(sqle);
         } finally {
@@ -221,6 +303,8 @@ public class DatabaseDAO {
              * the system property derby.system.home points to, or the current
              * directory (user.dir) if derby.system.home is not set.
              */
+                
+                Class.forName("org.apache.derby.jdbc.EmbeddedDriver");  
                 conn = DriverManager.getConnection(protocol + dbName + dbLocation
                     + ";create=true");
             }
@@ -243,7 +327,7 @@ public class DatabaseDAO {
             insertQuery.executeUpdate();
             insertQuery.close();
         }
-        catch (SQLException sqle)
+        catch (Exception sqle)
         {
             System.out.println(sqle);
         } finally {
@@ -572,8 +656,8 @@ public Integer getQueryCountSince( java.util.Date date){
         ResultSet rs = null;
         int returnVal=0;
         List<WileyQuery> retval= new ArrayList<WileyQuery>();
+        
         try{
-            
             if(conn==null){
                 String dbName = "derbyDB"; // the name of the database
 
@@ -587,11 +671,15 @@ public Integer getQueryCountSince( java.util.Date date){
              * the system property derby.system.home points to, or the current
              * directory (user.dir) if derby.system.home is not set.
              */
+              
+                Class.forName("org.apache.derby.jdbc.EmbeddedDriver");  
                 conn = DriverManager.getConnection(protocol + dbName + dbLocation
                     + ";create=true");
+                
             }
             /* Creating a statement object that we can use for running various
              * SQL statements commands against the database.*/
+            
             s = conn.createStatement();
             statements.add(s);
             DatabaseMetaData dbmd = conn.getMetaData();
@@ -605,15 +693,98 @@ public Integer getQueryCountSince( java.util.Date date){
                     outval.searchField = rs.getString("keyword");
                     retval.add(outval);
                 }
-              System.out.println("Count is: " + i);
             }
             s.close();
             rs.close();
         }
         
-        catch (SQLException sqle)
+        catch (Exception ex)
         {
-            System.out.println(sqle);
+            System.out.println(ex);
+        } finally {
+            // release all open resources to avoid unnecessary memory usage
+
+            // Statements and PreparedStatements
+            int i = 0;
+            while (!statements.isEmpty()) {
+                // PreparedStatement extend Statement
+                Statement st = (Statement)statements.remove(i);
+                try {
+                    if (st != null) {
+                        st.close();
+                        st = null;
+                    }
+                } catch (SQLException sqle) {
+                    System.out.println(sqle);
+                }
+            }
+
+            //Connection
+            try {
+                if (conn != null) {
+                    conn.close();
+                    conn = null;
+                }
+            } catch (SQLException sqle) {
+                System.out.println(sqle);
+            }
+        } 
+        return retval;
+    }
+    
+
+            
+    public List<WileyQuery> getQueryFreq(){
+        ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
+        Statement s;
+        ResultSet rs = null;
+        int returnVal=0;
+        List<WileyQuery> retval= new ArrayList<WileyQuery>();
+        
+        try{
+            if(conn==null){
+                String dbName = "derbyDB"; // the name of the database
+
+            /*
+             * This connection specifies create=true in the connection URL to
+             * cause the database to be created when connecting for the first
+             * time. To remove the database, remove the directory derbyDB (the
+             * same as the database name) and its contents.
+             *
+             * The directory derbyDB will be created under the directory that
+             * the system property derby.system.home points to, or the current
+             * directory (user.dir) if derby.system.home is not set.
+             */
+              
+                Class.forName("org.apache.derby.jdbc.EmbeddedDriver");  
+                conn = DriverManager.getConnection(protocol + dbName + dbLocation
+                    + ";create=true");
+                
+            }
+            /* Creating a statement object that we can use for running various
+             * SQL statements commands against the database.*/
+            
+            s = conn.createStatement();
+            statements.add(s);
+            DatabaseMetaData dbmd = conn.getMetaData();
+            //if the table doesn't exist
+            //rs = s.executeQuery("SELECT keyword, count(*)FROM queries " + "GROUP BY keyword ORDER BY Count(*) DESC");
+            rs = s.executeQuery("SELECT queryDate as date, count(keyword) as freq FROM queries " + "GROUP BY queryDate ORDER BY queryDate");
+            
+                while (rs.next()) {
+                    WileyQuery  outval = new WileyQuery();
+                    outval.count = rs.getInt("freq");
+                    outval.date = rs.getDate("date").toString();
+                    retval.add(outval);
+                }
+            
+            s.close();
+            rs.close();
+        }
+        
+        catch (Exception ex)
+        {
+            System.out.println(ex);
         } finally {
             // release all open resources to avoid unnecessary memory usage
 

@@ -15,26 +15,42 @@ import org.codehaus.jackson.annotate.JsonProperty;
 @JsonAutoDetect
 public class SummaryData {
      
-    //date
+    
+    /**
+     * Count of queries since a specified date
+     */
     @JsonProperty("QueriesSince")
     public String QueriesSince;
     
-    //location
+    
+    /**
+     * Average server response time across all queries
+     */
     @JsonProperty("A_V_G_QueryTime")
     public String A_V_G_QueryTime;
 
-    //searchField
+    /**
+     * count of queries so fat this year
+     */
     @JsonProperty("Y_T_D_Queries")
     public String Y_T_D_Queries;
     
-    //used for outgoing messages about 
+    /**
+     * average number of queries per day
+     */
     @JsonProperty("QueriesPerDay")
     public Integer QueriesPerDay;
     
-    //time it took the server to respond
+    /**
+    * Year over year change in queries
+    */ 
     @JsonProperty("YearlyChangeInQueries")
     public Integer YearlyChangeInQueries;
     
+    /**
+     * Produces a json string (manual serialization is a workaround for an issue in Tomcat)
+     * @return 
+     */
     public String toJSONString(){
       return "{\"QueriesSince\": "+QueriesSince+", \"A_V_G_QueryTime\": "+A_V_G_QueryTime+", \"Y_T_D_Queries\": "+Y_T_D_Queries+", \"QueriesPerDay\": "+QueriesPerDay+", \"YearlyChangeInQueries\": "+YearlyChangeInQueries+" }";
     }
