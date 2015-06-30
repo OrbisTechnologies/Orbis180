@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <style>
+    .content {
+      margin-left:248px !important;CR28_SearchResults
+    .navbar-inverse {
+      background-color: #000 !important;
+    }
+    </style>
+
+    <!--remote libraries e.g. cdn -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.css" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.6.0/ol.js"></script>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+    <link href="../../favicon.ico" rel="icon">
+
+    <title class=".visible-md-* .visible-lg-*">Wiley: Navigating the data jungle</title>
+</head>
+
+<body>
+<!-- top navbar -->
+<!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="overview.html">
+                        <img src="wiley.png" width="150" height="150">
+                    </a>
+                </li>
+				<br>
+				<br>
+				<br>
+				<br>
+                <li style="margin:1.0em;">
+                <a href="index.html"><span class="glyphicon glyphicon-search" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Search</font></a>
+            </li>
+            <li style="margin:1.0em;">
+                <a href="monitor.html"><span class="glyphicon glyphicon-signal" style="font-size:2.5em;"></span><font size="6" face="calibri" style="padding-left:1.0em;">Monitor</font></a>
+            </li>
+            </ul>
+        </div>
+        <div class="content">
+
+
+	<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Install Notes</a></li>
+          <li><a href="#">Release Notes</a></li>
+          <li><a href="#">Help Files</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+      <!--Body content-->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="img-responsive"  style="width:1300px;margin: 0 auto;" id="overviewStatistics"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <font face="calibri" size="10" color="gray" style="width:700px;margin: 0 auto; display:block;">Total Food Recalls since 1/1/2015</font>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="img-responsive"  style="height:420px;width:1300px; margin: 0 auto;" id="timeseries"></div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+
+  		  <div class="col-md-6">
+          <h4 style="width:630px;margin: 0 auto;">Notification Type Frequency</h4>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3" >
+          <div id="classification" style="width:300px;margin: 0 auto;"></div>
+        </div>
+        <div class="col-md-3 " >
+          <div id="recall_status" style="width:300px;margin: 0 auto;"></div>
+        </div>
+        <div class="col-md-6" >
+          <div id="horizontal_barchart" style="width:630px;margin: 0 auto;"></div>
+        </div>
+      </div>
+		  <p "border-style:solid; border-color:#FFFFF;"><font size="1">*Recalls are classified into three categories: Class I, a dangerous or defective product that predictably could cause serious health problems or death, Class II, meaning that the product might cause a temporary health problem, or pose only a slight threat of a serious nature, and Class III, a product that is unlikely to cause any adverse health reaction, but that violates FDA labeling or manufacturing laws.</font></p>
+<p "border-style:solid; border-color:#FFFFF;"><font size="1">*On-Going = A recall which is currently in progress.
+Completed = The company in violation has retrieved all outstanding products or has completed all product corrections.
+Terminated = FDA has determined that all reasonable efforts have been made to remove or correct the violation product
+Pending = Actions that have been determined to be recalls, but remain in the process of being classified.</font></p>
+		  </div>
+</div>
+</body>
+
+
+
+
+
+<!-----Test of D3 Integration
+
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  width: 960px;
+}
+
+button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
+
+</style>------>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script src="c3/c3.min.js"></script>
+<link href="c3/c3.css" rel="stylesheet" type="text/css">
+<link href="overview_statistics.css" rel="stylesheet" type="text/css">
+<script src="classification_chart.js"></script>
+<script src="recall_status_chart.js"></script>
+<script src="horizontal_barchart.js"></script>
+<script src="overview_statistics.js"></script>
+<script src="timeseries.js"></script>
+
+
+
+</html>
