@@ -19,8 +19,23 @@
   });
   return query_stats;
   })(); 
-*/
-var query_stats = {"QueriesSince": 345, "A_V_G_QueryTime": 68, "Y_T_D_Queries": 79, "QueriesPerDay": 3, "YearlyChangeInQueries": 23 };
+  */
+
+  
+var query_stats = (function(){
+			  var query_stats = null;
+			  $.ajax({
+			  'async': false,
+	          url: 'http://localhost:8080/dataIngestion/rest/monitor/summary',
+			  }
+				).done(function(data) {
+				query_stats = data; 
+  });
+  return query_stats;
+  })();
+  
+  
+//var query_stats = {"QueriesSince": 345, "A_V_G_QueryTime": 68, "Y_T_D_Queries": 79, "QueriesPerDay": 3, "YearlyChangeInQueries": 23 };
 
 //{"QueriesSince": null, "A_V_G_QueryTime": 68, "Y_T_D_Queries": null, "QueriesPerDay": 3, "YearlyChangeInQueries": null }
 function dsLineChartBasics() {
@@ -66,7 +81,7 @@ function dsLineChart() {
 	 *Total recalls since 2004
 	 */
 	plot.append("text")
-		.text(query_stats.QueriesSince)
+		.text(query_stats.Y_T_D_Queries)
 		.attr("id","Title2")
 		.attr("x",100)
 		.attr("y",45)	

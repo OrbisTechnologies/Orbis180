@@ -577,10 +577,7 @@ public Integer getQueryCountSince( java.util.Date date){
         int returnVal=0;
         List<WileyQuery> retval= new ArrayList<WileyQuery>();
         
-              System.out.println("what");
         try{
-            
-              System.out.println("is");
             if(conn==null){
                 String dbName = "derbyDB"; // the name of the database
 
@@ -594,21 +591,16 @@ public Integer getQueryCountSince( java.util.Date date){
              * the system property derby.system.home points to, or the current
              * directory (user.dir) if derby.system.home is not set.
              */
-              System.out.println("going");
               
                 Class.forName("org.apache.derby.jdbc.EmbeddedDriver");  
                 conn = DriverManager.getConnection(protocol + dbName + dbLocation
                     + ";create=true");
-              System.out.println("on");
                 
             }
             /* Creating a statement object that we can use for running various
              * SQL statements commands against the database.*/
             
-              System.out.println("dude");
             s = conn.createStatement();
-            
-              System.out.println(">?");
             statements.add(s);
             DatabaseMetaData dbmd = conn.getMetaData();
             //if the table doesn't exist
@@ -621,7 +613,6 @@ public Integer getQueryCountSince( java.util.Date date){
                     outval.searchField = rs.getString("keyword");
                     retval.add(outval);
                 }
-              System.out.println("Count is: " + i);
             }
             s.close();
             rs.close();

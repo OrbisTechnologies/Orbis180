@@ -29,7 +29,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 
 /**
- *
+ * monitors the queries and responses to Wiley
  * @author cblount
  */
 @Path("/monitor")
@@ -37,6 +37,10 @@ public class SystemMonitorRestClient {
     private DatabaseDAO dbStore;
   
     
+    /***
+     * Initializes the Record of queries in the DB
+     * @return a 200 Response
+     */
   @GET
   @Produces(MediaType.TEXT_PLAIN)
   @Path("/init")
@@ -74,18 +78,12 @@ public class SystemMonitorRestClient {
     return Response.status(200).entity(output).build();
   }
 
-  int mHitCounter = 666;
+  int mHitCounter = 0;
  
-  @GET
-  @Path("/access")
-  @Produces(MediaType.TEXT_PLAIN)
-  public Response consumeJSON( @Context HttpServletRequest requestContext,@Context SecurityContext context ) {
-   String yourIP = requestContext.getRemoteAddr().toString() + " " + mHitCounter++;
-   mHitCounter=mHitCounter+187;
-   //return "<html> " + "<title>" + "Webservice Status" + "</title>"        + "<body><h1>" + "Orbis180 Data Ingestion Webservice is Alive" + "</body></h1>" + "</html> ";  
-    return Response.status(200).entity(yourIP).build();
-  }
-  
+  /***
+   * queryCount
+   * @return A count of queries recorded
+   */
   
   @GET
   @Produces(MediaType.TEXT_PLAIN)
@@ -103,7 +101,10 @@ public class SystemMonitorRestClient {
      return retval;
    }
   
-  
+  /***
+   * Summary
+   * @return A Summary of aggregate statistics of usage 
+   */
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   @Path("/summary")
@@ -115,21 +116,37 @@ public class SystemMonitorRestClient {
         SummaryData retVal = new SummaryData();
         retVal.A_V_G_QueryTime = this.dbStore.getAvgQueryTime().toString();
         dbStore = new DatabaseDAO();
-        dbStore.init(false);//TODO: Implrment Connection pooling
+        dbStore.init(false);//TODO: Implement Connection pooling
         retVal.QueriesPerDay = this.dbStore.getQueriesPerDay();
         
         Calendar cal = Calendar.getInstance();
         cal.clear();
 
         cal.set(Calendar.YEAR, 2015);
-        cal.set(Calendar.MONTH, 1);
+        cal.set(Calendar.MONTH, 6);
         cal.set(Calendar.DATE, 1);
         java.util.Date utilDate = cal.getTime();
+        
+        dbStore.init(false);//TODO: Implement Connection pooling
         retVal.QueriesSince=this.dbStore.getQueryCountSince(utilDate).toString();
+        
+        cal.clear();
+
+        cal.set(Calendar.YEAR, 2015);
+        cal.set(Calendar.MONTH, 1);
+        cal.set(Calendar.DATE, 1);
+        utilDate = cal.getTime();
+        retVal.Y_T_D_Queries=this.dbStore.getQueryCountSince(utilDate).toString();
+        
       this.dbStore.uninit();
    return retVal.toJSONString();
   }
   
+  
+  /**
+   * 
+   * @return The top ten queries to the server
+   */
     @GET
   @Produces(MediaType.APPLICATION_JSON)
   @Path("/topten")
@@ -145,18 +162,10 @@ public class SystemMonitorRestClient {
     final ObjectMapper mapper = new ObjectMapper();
         
         
-        System.out.println ("a");
         String returnString = "{}";
         this.dbStore.uninit();
         try{
-            
-        System.out.println ("b");
-        
-        System.out.println (retVal.toString());
             returnString = mapper.writeValueAsString(retVal);
-            
-        System.out.println ("c");
-        System.out.println (returnString);
         }    
         catch(IOException ex){
             System.out.println (ex.toString());
