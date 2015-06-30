@@ -169,5 +169,35 @@ public class SystemMonitorRestClient {
         return returnString;
     }
   
+    /**
+   * 
+   * @return The list of dates and quantities of all queries
+   */
+    @GET
+  @Produces(MediaType.APPLICATION_JSON)
+  @Path("/querytimes")
+  public String sendQueryTimes( ) {
+      
+      //TODO: Implement Caching and Connection pooling
+        dbStore = new DatabaseDAO();
+        dbStore.init(false);
+        final List<WileyQuery> retVal = dbStore.getQueryFreq();
+        
+        
+    final OutputStream out = new ByteArrayOutputStream();
+    final ObjectMapper mapper = new ObjectMapper();
+        
+        
+        String returnString = "{}";
+        this.dbStore.uninit();
+        try{
+            //(manual serialization is a workaround for an issue in Tomcat)
+            returnString = mapper.writeValueAsString(retVal);
+        }    
+        catch(IOException ex){
+            System.out.println (ex.toString());
+        }
+        return returnString;
+    }
   
 }
