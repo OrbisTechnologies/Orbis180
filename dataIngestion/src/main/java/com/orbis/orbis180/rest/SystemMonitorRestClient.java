@@ -8,6 +8,9 @@ package com.orbis.orbis180.rest;
 import com.orbis.orbis180.dataStructures.SummaryData;
 import com.orbis.orbis180.dataStructures.WileyQuery;
 import com.orbis.orbis180.storage.DatabaseDAO;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +23,10 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import org.codehaus.jackson.JsonNode;
+
+import org.codehaus.jackson.map.ObjectMapper;
+
 
 /**
  *
@@ -29,12 +36,6 @@ import javax.ws.rs.core.SecurityContext;
 public class SystemMonitorRestClient {
     private DatabaseDAO dbStore;
   
-    /**
-     * records the query history record
-     * @param newquery
-     * @return 
-     */
-    
     
   @GET
   @Produces(MediaType.TEXT_PLAIN)
@@ -45,15 +46,31 @@ public class SystemMonitorRestClient {
         dbStore.init(true);
     return "init complete.";
   }
+  
+  
+    /**
+     * records the query history record
+     * @param newquery
+     * @return 
+     */
+    
   @POST
   @Path("/query")
   @Consumes(MediaType.APPLICATION_JSON)
-  public Response consumeJSON( WileyQuery newquery) {
+  public Response consumeJSON( String newquery) {
       //TODO: Implement Caching and Connection pooling
         dbStore = new DatabaseDAO();
         dbStore.init(false);
     String output = newquery.toString();
-    this.dbStore.addQuery(newquery.location, newquery.searchField, newquery.responseTime);
+    ObjectMapper mapper = new ObjectMapper();
+    try{
+    JsonNode actualObj = mapper.readTree(newquery);
+    this.dbStore.addQuery(actualObj.get("location").asText(),actualObj.get("searchField").asText(),actualObj.get("responseTime").asInt());
+    }
+    catch(IOException ex){
+        System.out.println (ex.toString());
+    }
+  //  this.dbStore.addQuery(newquery.location, newquery.searchField, newquery.responseTime);
     return Response.status(200).entity(output).build();
   }
 
@@ -116,14 +133,36 @@ public class SystemMonitorRestClient {
     @GET
   @Produces(MediaType.APPLICATION_JSON)
   @Path("/topten")
-  public List<WileyQuery> sendTopTen( ) {
+  public String sendTopTen( ) {
       
       //TODO: Implement Caching and Connection pooling
         dbStore = new DatabaseDAO();
         dbStore.init(false);
-        List<WileyQuery> retVal = dbStore.getTopTen();
+        final List<WileyQuery> retVal = dbStore.getTopTen();
+        
+        
+    final OutputStream out = new ByteArrayOutputStream();
+    final ObjectMapper mapper = new ObjectMapper();
+        
+        
+        System.out.println ("a");
+        String returnString = "{}";
         this.dbStore.uninit();
-   return retVal;
-  }
+        try{
+            
+        System.out.println ("b");
+        
+        System.out.println (retVal.toString());
+            returnString = mapper.writeValueAsString(retVal);
+            
+        System.out.println ("c");
+        System.out.println (returnString);
+        }    
+        catch(IOException ex){
+            System.out.println (ex.toString());
+        }
+        return returnString;
+    }
+  
   
 }
