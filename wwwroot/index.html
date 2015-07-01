@@ -295,7 +295,7 @@
          *@param the json response received from the JQuery AJAX request
          */
 function GetMultipleSelections(parameter) { 
-  document.getElementById(parameter).size = 1;                // reduce screen size 
+  //document.getElementById(parameter).size = 1;                // reduce screen size 
   var picked = ''; 
   for (i=0; i<document.getElementById(parameter).options.length; i++) { 
     if (document.getElementById(parameter).options[i].selected == true) { picked += document.getElementById(parameter)[i].value+','; } 
