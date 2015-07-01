@@ -1,0 +1,4094 @@
+{
+  "head" : {
+    "vars" : [
+      "recallNumber",
+      "reportDate",
+      "eventId",
+      "recallingFirm",
+      "status",
+      "location",
+      "latitude",
+      "longitude",
+      "foodGroup",
+      "classification",
+      "recallInitiationDate",
+      "productDescription",
+      "productQty",
+      "codeInfo",
+      "distPattern",
+      "recallReason",
+      "voluntaryMandated",
+      "notification"
+    ]
+  },
+  "results" : {
+    "bindings" : [
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0761-2015"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Reno,NV"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "1228.50 lbs."
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "lot # 13254"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "High Quality Organics, Inc."
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69912"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-11-26T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "0.0"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0756-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "4576 cases (24,456 1.5 qt. individual cartons)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Pleasanton,CA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "Safeway Select French Salted Caramel (Fleur De Sel) Premium Ice Cream; 1.5 quart round paper carton with lid."
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Dairy"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "UPC 21130 08970;\nBest Before Nov 03, 2015  PLT 53/38"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "Safeway Inc"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "Distributors in CO, AZ, OR, CA, MD, WA, TX and then to Safeway owned stores nationwide."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69955"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-12-05T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class I"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Press Release"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "The recipe's caramel cups ingredient was replaced with peanut butter cups due to a supply error.  Peanut butter is not listed on the ingredient list or allergen statement."
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "-121.87468"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "37.66243"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      },
+      {
+        "recallNumber" : {
+          "type" : "literal",
+          "value" : "F-0762-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "518 cases (6/2.5 lb boxes per case)"
+        },
+        "location" : {
+          "type" : "literal",
+          "value" : "Brunswick,GA"
+        },
+        "status" : {
+          "type" : "literal",
+          "value" : "Ongoing"
+        },
+        "productDescription" : {
+          "type" : "literal",
+          "value" : "MRS FRIDAY'S GOURMET BREADED MEDIUM OYSTERS 18/25 CT/LB, Net Wt. 2.5 lbs (1.13 kg), Ready to Fry, Distributed by: King and Prince Seafood Corporation, Brunswick, GA 31621"
+        },
+        "foodGroup" : {
+          "type" : "literal",
+          "value" : "Proteins"
+        },
+        "codeInfo" : {
+          "type" : "literal",
+          "value" : "Lot #4134ZY"
+        },
+        "recallingFirm" : {
+          "type" : "literal",
+          "value" : "King & Prince Seafood"
+        },
+        "distPattern" : {
+          "type" : "literal",
+          "value" : "CA, ID, IL, MD and WA."
+        },
+        "voluntaryMandated" : {
+          "type" : "literal",
+          "value" : "Voluntary: Firm Initiated"
+        },
+        "eventId" : {
+          "type" : "literal",
+          "value" : "69878"
+        },
+        "recallInitiationDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2014-10-30T00:00:00.000Z"
+        },
+        "classification" : {
+          "type" : "literal",
+          "value" : "Class II"
+        },
+        "notification" : {
+          "type" : "literal",
+          "value" : "Letter"
+        },
+        "recallReason" : {
+          "type" : "literal",
+          "value" : "Product tested positive for Norovirus GI GII"
+        },
+        "longitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "10.52673"
+        },
+        "reportDate" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
+          "type" : "literal",
+          "value" : "2015-01-07T00:00:00.000Z"
+        },
+        "latitude" : {
+          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
+          "type" : "literal",
+          "value" : "52.26594"
+        }
+      }
+    ]
+  }
+}

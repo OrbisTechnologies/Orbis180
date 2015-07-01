@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.orbis.orbis180.storage;
 
 import java.io.File;
@@ -12,14 +8,37 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
+import org.junit.Ignore; 
+import org.json.JSONObject;
 /**
- *
+ *This class contains Junit test for DatabaseQuery class
  * @author Ankit Parmar
  */
 public class DatabaseQueryTest {
     
     public DatabaseQueryTest() {
+    }
+    
+    @Test
+    public void testdatabaseQueryOne() throws IOException {
+        
+        DatabaseQuery db = new DatabaseQuery("2015-01-01","2015-01-08",null,null,null);
+        File sampleData = new File(getClass().getClassLoader().getResource("data/DBQueryTestOne.json").getFile());
+        String expResult = readFile(sampleData.getAbsolutePath(), Charset.forName("UTF-8"));
+        String result = db.databaseQuery();
+        assertEquals(expResult,result);
+        
+    }
+    
+     @Test
+    public void testdatabaseQueryTwo() throws IOException {
+        
+        DatabaseQuery db = new DatabaseQuery("2015-01-01","2015-01-08","NV",null,null);
+        File sampleData = new File(getClass().getClassLoader().getResource("data/DBQueryTestTwo.json").getFile());
+        String expResult = readFile(sampleData.getAbsolutePath(), Charset.forName("UTF-8"));
+        String result = db.databaseQuery();
+        assertEquals(expResult,result);
+        
     }
     
     @Test
@@ -48,14 +67,6 @@ public class DatabaseQueryTest {
     }
     
     
-    @Ignore
-    public void testdatabaseQuery() throws IOException {
-        DatabaseQuery db = new DatabaseQuery("2004-01-01","2015-05-20","MD","","");
-        File sampleData = new File(getClass().getClassLoader().getResource("com.orbis.orbis180.jsonTestFiles/DBQueryTest.json").getFile());
-        String expResult = readFile(sampleData.getAbsolutePath(), Charset.forName("UTF-8"));
-        String result = db.databaseQuery();
-        assertEquals(expResult,result,false);
-        
-    }
+    
     
 }
