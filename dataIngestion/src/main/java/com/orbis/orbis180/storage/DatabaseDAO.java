@@ -577,7 +577,10 @@ public Integer getQueryCountSince( java.util.Date date){
         return returnVal;
     }
     
-    
+/**
+ * 
+ * @return 
+ */    
     public Integer getQueriesPerDay(){
         ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
         Statement s;
@@ -650,6 +653,12 @@ public Integer getQueryCountSince( java.util.Date date){
         } 
         return returnVal;
     }
+    
+    
+    /**
+     * Retrieves top 10 values query keywords in descending order
+     * @return List of queries, with the counts representing the number of times the query has been done.
+     */
     public List<WileyQuery> getTopTen(){
         ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
         Statement s;
