@@ -188,13 +188,6 @@
                         </div>
                     </div>
 
-
-
-                    <!-- Text input-->
-				<!--	<div class="form-group" > -->
-                        <!--<label class="col-md-6 control-label" for="searchinput"><font size=3>Advanced Search</font></label>-->
-<!--			<h4 style="margin-left: 0.5cm;">Advanced Search</h4> -->
-<!--                    </div> -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="keyword">Keyword</label>
                         <div class="col-md-8">
@@ -225,11 +218,18 @@
 					
                     <!-- Text input-->
                     <script>
+					/*
+					 *Function pad appends '0' to the beginning of number in date-month and date-day to meet the yyyy-mm-dd format 
+					 */
 					function pad(n) {
 					if (n < 10)
 					return "0" + n;
 					return n;
 					}
+						/*
+						 *Date picker with calendar view for date selection of both begin and end dates for the query
+						 *
+						 */
                         $(document).ready(function() {
 						
                             var checkin = $('#date-from').datepicker().on('changeDate', function(ev) {
@@ -305,6 +305,9 @@ function GetMultipleSelections(parameter) {
 }
 var start = new Date().getTime();
 //•	http://localhost:<Port#>/dataIngestion/rest/data/searchQuery?bngDateRng=2004-05-20&endDateRng=2014-05-20&loc=MD&advSearch=Pizza&foodGroup=Meat
+/*
+ *Button click action that gathers the information from the form and queries the results from the rest endpoint to deliver the data to the user
+ */
  $("#btnSubmit").click(function() {
 					selectlocation = GetMultipleSelections('selectlocation');
                     selectlocation = selectlocation.substring(0, selectlocation.length-1);
@@ -345,49 +348,49 @@ var start = new Date().getTime();
 		})
                     });
 					
-                    function returnSearch(json_test) {
+                    function returnSearch(query_data) {
 					    $( '#detailed-table' ).empty();
-					    var num_results = '<h4><font face="calibri">' + json_test.results.bindings.length + ' Total Results</font></h4>';
+					    var num_results = '<h4><font face="calibri">' + query_data.results.bindings.length + ' Total Results</font></h4>';
 					    $(num_results).appendTo('#detailed-table');
-                        for (var i = 0; i < json_test.results.bindings.length; i++) {
-			    var classification = json_test.results.bindings[i].classification.value;
-		            var recall_status = json_test.results.bindings[i].status.value;
-			    var notification_type = json_test.results.bindings[i].notification.value;
+                        for (var i = 0; i < query_data.results.bindings.length; i++) {
+			    var classification = query_data.results.bindings[i].classification.value;
+		            var recall_status = query_data.results.bindings[i].status.value;
+			    var notification_type = query_data.results.bindings[i].notification.value;
 			    classification = classification.split('#Class');
 			    recall_status = recall_status.split('#');
 			    notification_type = notification_type.split('#');
-			    var report_date = json_test.results.bindings[i].reportDate.value;
+			    var report_date = query_data.results.bindings[i].reportDate.value;
 			    report_date = report_date.substr(0, report_date.indexOf('T'));
-			    var recall_date = json_test.results.bindings[i].recallInitiationDate.value;
+			    var recall_date = query_data.results.bindings[i].recallInitiationDate.value;
 			    recall_date = recall_date.substr(0, recall_date.indexOf('T')); 
                             var elm = '<div class="list-group-item">' +
                                 '<div data-toggle="collapse" data-parent="#detailed-table" href="#collapse' + i + '">' +
-                                '<h4 class="list-group-item-heading"><b>Recall Number:</b> ' + json_test.results.bindings[i].recallNumber.value + '</h4>' +
+                                '<h4 class="list-group-item-heading"><b>Recall Number:</b> ' + query_data.results.bindings[i].recallNumber.value + '</h4>' +
                                 '<p class="list-group-item-text">' +
                                 '<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span><b>Report Date</b>: ' + report_date + '</span>' +
-                                '<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span><b>Location:</b>' + json_test.results.bindings[i].location.value + '</span>' +
-                                '<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span><b>Recalling Firm:</b>' + json_test.results.bindings[i].recallingFirm.value + '</span>' +
+                                '<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span><b>Location:</b>' + query_data.results.bindings[i].location.value + '</span>' +
+                                '<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span><b>Recalling Firm:</b>' + query_data.results.bindings[i].recallingFirm.value + '</span>' +
                                 '</p>' +
                                 '</div>' +
                                 '<div id="collapse' + i + '" class="panel-collapse collapse">' +
                                 '<div class="panel-body">' +
                                 '<ul class="list-unstyled">' +
-                                '<li><b>Status:</b>' + json_test.results.bindings[i].status.value + '</li>' +
-                                '<li><b>Distribution Pattern:</b>' + json_test.results.bindings[i].distPattern.value + '</li>' +
-                                '<li><b>Product Quantity:</b>' + json_test.results.bindings[i].productQty.value + '</li>' +
+                                '<li><b>Status:</b>' + query_data.results.bindings[i].status.value + '</li>' +
+                                '<li><b>Distribution Pattern:</b>' + query_data.results.bindings[i].distPattern.value + '</li>' +
+                                '<li><b>Product Quantity:</b>' + query_data.results.bindings[i].productQty.value + '</li>' +
                                 '<li><b>Recall Initiation Date:</b>' + recall_date + '</li>' +
-								
-                                '<li><b>City/State:</b>' + json_test.results.bindings[i].location.value + '</li>' +
-                                '<li><b>Event ID:</b>' + json_test.results.bindings[i].eventId.value + '</li>' +
-                                '<li><b>Product Description:</b>' + json_test.results.bindings[i].productDescription.value + '</font></li>' +
+								'<li><b>Notification Type:</b>' + query_data.results.bindings[i].notification.value + '</li>' +
+                                '<li><b>City/State:</b>' + query_data.results.bindings[i].location.value + '</li>' +
+                                '<li><b>Event ID:</b>' + query_data.results.bindings[i].eventId.value + '</li>' +
+                                '<li><b>Product Description:</b>' + query_data.results.bindings[i].productDescription.value + '</font></li>' +
                                 '<li><b>Country:</b> US</li>' +
 
-				'<li>Code Info: ' + json_test.results.bindings[i].codeInfo.value + '</li>' +
-                                '<li><b>Recalling Firm:</b> ' + json_test.results.bindings[i].recallingFirm.value + '</li>' +
-                                '<li><b>Recall Reason:</b> ' + json_test.results.bindings[i].recallReason.value + '</li>' +
+				'<li>Code Info: ' + query_data.results.bindings[i].codeInfo.value + '</li>' +
+                                '<li><b>Recalling Firm:</b> ' + query_data.results.bindings[i].recallingFirm.value + '</li>' +
+                                '<li><b>Recall Reason:</b> ' + query_data.results.bindings[i].recallReason.value + '</li>' +
                                 '<li><b>Report Date:</b> ' + report_date + '</li>' +
                                 '<li><b>Voluntary Mandated:</b> Voluntary: Firm Initiated</li>' +
-                                '<li><b>Classification:</b>' + json_test.results.bindings[i].classification.value + '</li>' +
+                                '<li><b>Classification:</b>' + query_data.results.bindings[i].classification.value + '</li>' +
 								
                                 '</ul>' +
                                 '</div>' +
@@ -397,11 +400,11 @@ var start = new Date().getTime();
 						
 							//var map = L.map('map')
 								//console.log(val);
-								bounds.push([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value]);
-								L.marker([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value], {
+								bounds.push([query_data.results.bindings[i].latitude.value, query_data.results.bindings[i].longitude.value]);
+								L.marker([query_data.results.bindings[i].latitude.value, query_data.results.bindings[i].longitude.value], {
 									icon: window.pizzaIcon
 								}).addTo(map)
-								.bindPopup('Recall Number: ' + json_test.results.bindings[i].recallNumber.value  );
+								.bindPopup('Recall Number: ' + query_data.results.bindings[i].recallNumber.value  );
 							
 							// zoom to bounds of markers
 
@@ -430,6 +433,10 @@ var start = new Date().getTime();
     </script>
 
     <script>
+	    /*
+		 * Map Generation for the search results. When a query is submitted, the results are placed on the map 
+		 * based upon what city/state location that they fall under.
+		 */
         var map = L.map('map').setView([31.0, -98.0], 10);
 
 		
@@ -477,44 +484,6 @@ var start = new Date().getTime();
                 .setContent("You clicked the map at " + e.latlng.toString())
                 .openOn(map);
         }
-
-
-        //Query Claven for lat/longs ...
-	/*	
-        function getVector() {
-            //alert($("#id_textarea").val());
-            //console.log($("#id_textarea").val());
-            $.ajax({
-                    url: "http://localhost:8080/api/v0/geotag",
-                    type: "POST",
-                    contentType: "text/plain",
-                    data: "Texas, US"
-                })
-                //data: $("#id_textarea").val()
-                .done(function(data) {
-                    //console.log(data);
-                    $("#results").text(JSON.stringify(data));
-
-                    // add results to map
-                    var bounds = [];
-                    $.each(data.resolvedLocations, (function(idx, val) {
-                        //console.log(val);
-                        bounds.push([val.geoname.latitude, val.geoname.longitude]);
-                        L.marker([val.geoname.latitude, val.geoname.longitude], {
-                                icon: window.pizzaIcon
-                            }).addTo(map)
-                            .bindPopup(val.geoname.name);
-                    }));
-
-                    // zoom to bounds of markers
-                    map.fitBounds(bounds);
-
-                });
-        }
-
-
-*/
-
         map.on('click', onMapClick);
     </script>
 
