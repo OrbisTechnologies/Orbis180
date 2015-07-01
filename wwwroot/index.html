@@ -93,35 +93,39 @@
         <!--<div class = "row">-->
         <div class="col-md-4">
             <form class="form-horizontal">
-                <fieldset>
+                <fieldset style="height:450px;width:100%;">
 
                     <!-- Form Name -->
                     <legend>Search</legend>
 
                     <!-- Search input-->
                     <div class="form-group">
-                        <label class="col-md-5 control-label" for="searchinput"><font size=4>Keyword Search</font></label>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="daterange">Date Range</label>
-                        <div class="col-md-4">
-                            <input class="form-control input-md" type="text" id="date-from" placeholder="From" data-date-format="yyyy-mm-dd">
-
-							<p><i>*Required</i></p>
-                            <input class="form-control input-md" type="text" id="date-to" placeholder="To" data-date-format="yyyy-mm-dd">
-							<p><i>*Required</i></p>
+                        <label class="col-md-4 control-label" for="daterange">Date Range (*Required)</label>
+                        <div class="col-md-8">
+			<table>
+			<td>
+				<span title="(yyyy-mm-dd)">
+                            <input class="form-control input-md" type="text" id="date-from" placeholder="From" data-date-format="yyyy-mm-dd"> 
+				</span> 
+			</td>
+			<td>
+				<span title="(yyyy-mm-dd)">
+			    <input class="form-control input-md" type="text" id="date-to" placeholder="To" data-date-format="yyyy-mm-dd">
+				</span> 
+			</td>
+                        </table>   
+							
                             <input  type="hidden" id="date-from-internal" >
                             <input  type="hidden" id="date-to-internal">
 							
-                            <p><i>(yyyy-mm-dd)</i></p>
                         </div>
                     </div>
 
                     <!-- Select Basic -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="selectlocation">Location</label>
-                        <div class="col-md-4">
-
+                        <label class="col-md-4 control-label" for="selectlocation">Location (*Required)</label>
+                        <div class="col-md-8">
+			<div class="input-group input-group-md">
                             <select multiple id="selectlocation" name="selectlocation" class="form-control">
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -180,19 +184,20 @@
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
                             </select>
+				</div>
                         </div>
-						<p><i>*Required</i></p>
                     </div>
 
 
 
                     <!-- Text input-->
-					<div class="form-group">
-                        <label class="col-md-5 control-label" for="searchinput"><font size=4>Advanced Search</font></label>
-                    </div>
+				<!--	<div class="form-group" > -->
+                        <!--<label class="col-md-6 control-label" for="searchinput"><font size=3>Advanced Search</font></label>-->
+<!--			<h4 style="margin-left: 0.5cm;">Advanced Search</h4> -->
+<!--                    </div> -->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="keyword">Keyword</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
 
                             <input id="keyword" name="keyword" type="text" class="form-control input-md">
                             <!--<span class="help-block">(or dd/mm/yyyy-dd/mm/yyyy)</span>-->
@@ -202,21 +207,21 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="foodgroup">Food Group</label>
                         <div class="col-md-4">
-                            <select multiple id="foodgroup" name="foodgroup" class="form-control">
+			<span title="Does not include beverages, cake mix, sugary snacks, or animal food">
+                            <select id="foodgroup" name="foodgroup" class="form-control">
 				<option value="" selected="selected">None</option>
-                                <option value="fruits">Fruits</option>
-                                <option value="vegetables">Vegetables</option>
-                                <option value="grains">Grains</option>
-                                <option value="proteins">Proteins</option>
-                                <option value="dairy">Dairy</option>
-				<option value="meat">Meat</option>
+                                <option value="Fruits">Fruits</option>
+                                <option value="Vegetables">Vegetables</option>
+                                <option value="Grains">Grains</option>
+                                <option value="Proteins">Proteins</option>
+                                <option value="Dairy">Dairy</option>
+			    </span>
                             </select>
-			    <p><i>does not include beverages, cake mix, sugary snacks, or animal food</i></p>
+			    
                         </div>
+			<button id="btnSubmit" type="button" class="btn btn-default" style="width:130px">Submit Search</button>
                     </div>
-                    <button id="btnSubmit" type="button" class="btn btn-default">Submit Search</button>
-
-
+                   
 					
                     <!-- Text input-->
                     <script>
@@ -253,16 +258,18 @@
                         });
                     </script>
 
-                    <div id="detailed-table" class="list-group" style="overflow:auto; height:300px;">
+                    <div id="detailed-table" class="list-group col-md-8" style="overflow:auto; height:275px; width:425px;">
+
                     </div>
         </div>
 
 
         <div class="col-md-8">
-            <div class="col-xs-6 col-sm-3 img-responsive" style="height:600px;width:100%" id="map">
+            <div class="col-xs-6 col-sm-3 img-responsive" style="height:575px;width:100%" id="map">
 
             </div>
         </div>
+
     </div>
 
 
@@ -287,16 +294,28 @@
          *table
          *@param the json response received from the JQuery AJAX request
          */
+function GetMultipleSelections(parameter) { 
+  document.getElementById(parameter).size = 1;                // reduce screen size 
+  var picked = ''; 
+  for (i=0; i<document.getElementById(parameter).options.length; i++) { 
+    if (document.getElementById(parameter).options[i].selected == true) { picked += document.getElementById(parameter)[i].value+','; } 
+  }  
+  document.getElementById(parameter).selectedIndex = -1;        // reset list 
+  return picked; 
+}
 var start = new Date().getTime();
 //•	http://localhost:<Port#>/dataIngestion/rest/data/searchQuery?bngDateRng=2004-05-20&endDateRng=2014-05-20&loc=MD&advSearch=Pizza&foodGroup=Meat
  $("#btnSubmit").click(function() {
+					selectlocation = GetMultipleSelections('selectlocation');
+                    selectlocation = selectlocation.substring(0, selectlocation.length-1);
+                    console.log(selectlocation);                                                                             
                     foodgroup = document.getElementById('foodgroup').value;
-                    selectlocation = document.getElementById('selectlocation').value;
+                    //selectlocation = document.getElementById('selectlocation').value;
                     keyword = document.getElementById('keyword').value;
 					begindate = document.getElementById('date-from-internal').value;
 					enddate = document.getElementById('date-to-internal').value;
 					var endpoint = 'http://localhost:8080/dataIngestion/rest/data/searchQuery?';
-					var form_parameter = 'bngDateRng=' + begindate + '&endDateRng=' + enddate + '&loc=' + selectlocation + '&advSearch=' + keyword + '&foodGroup=' + foodgroup;
+					var form_parameter = 'bngDateRng=' + begindate + '&endDateRng=' + enddate + '&loc=' + selectlocation + '&advSearch=' + keyword + '&foodGroup=' + foodgroup; //keywordSearch
 					var full_search = endpoint + form_parameter;
 					foodgroup = "";
 					locationtarget = selectlocation;
@@ -312,10 +331,8 @@ var start = new Date().getTime();
                         //url: 'https://api.fda.gov/food/enforcement.json?api_key=LEsaCnFqu5NnXynoyvcNjtaSTEde5r7inxEfcTIH',
                     
                     }).done(function(result) {
-						
-						var end = new Date().getTime();
-						var responseTime = end - start;
-					
+					var end = new Date().getTime();
+				    var responseTime = end - start;
                         //Return the search results
 			returnSearch(result);
 			//post the statistics such as query count to monitor service
@@ -330,14 +347,8 @@ var start = new Date().getTime();
 					
                     function returnSearch(json_test) {
 					    $( '#detailed-table' ).empty();
-					    var num_results = '<h2><font face="calibri">' + json_test.results.bindings.length + ' Total Results</font></h2>';
+					    var num_results = '<h4><font face="calibri">' + json_test.results.bindings.length + ' Total Results</font></h4>';
 					    $(num_results).appendTo('#detailed-table');
-						for(i=0;i<markers.length;i++) {
-							map.removeLayer(markers[i]);
-						}  
-						
-						
-						
                         for (var i = 0; i < json_test.results.bindings.length; i++) {
 			    var classification = json_test.results.bindings[i].classification.value;
 		            var recall_status = json_test.results.bindings[i].status.value;
@@ -351,33 +362,32 @@ var start = new Date().getTime();
 			    recall_date = recall_date.substr(0, recall_date.indexOf('T')); 
                             var elm = '<div class="list-group-item">' +
                                 '<div data-toggle="collapse" data-parent="#detailed-table" href="#collapse' + i + '">' +
-                                '<h4 class="list-group-item-heading">Recall Number: ' + json_test.results.bindings[i].recallNumber.value + '</h4>' +
+                                '<h4 class="list-group-item-heading"><b>Recall Number:</b> ' + json_test.results.bindings[i].recallNumber.value + '</h4>' +
                                 '<p class="list-group-item-text">' +
-                                '<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span> Report Date: ' + report_date + '</span>' +
-                                '<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span> Location: ' + json_test.results.bindings[i].location.value + '</span>' +
-                                '<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span> Recalling Firm: ' + json_test.results.bindings[i].recallingFirm.value + '</span>' +
+                                '<span class="glyphicon glyphicon-calendar" aria-hidden="false"></span><span><b>Report Date</b>: ' + report_date + '</span>' +
+                                '<span class="glyphicon glyphicon-map-marker" aria-hidden="false"></span><span><b>Location:</b>' + json_test.results.bindings[i].location.value + '</span>' +
+                                '<span class="glyphicon glyphicon-info-sign" aria-hidden="false"></span><span><b>Recalling Firm:</b>' + json_test.results.bindings[i].recallingFirm.value + '</span>' +
                                 '</p>' +
                                 '</div>' +
                                 '<div id="collapse' + i + '" class="panel-collapse collapse">' +
                                 '<div class="panel-body">' +
                                 '<ul class="list-unstyled">' +
-                                '<li>Status: ' + recall_status[1] + '</li>' +
-                                '<li>Distribution Pattern: ' + json_test.results.bindings[i].distPattern.value + '</li>' +
-                                '<li>Product Quantity: ' + json_test.results.bindings[i].productQty.value + '</li>' +
-                                '<li>Recall Initiation Date: ' + recall_date + '</li>' +
+                                '<li><b>Status:</b>' + json_test.results.bindings[i].status.value + '</li>' +
+                                '<li><b>Distribution Pattern:</b>' + json_test.results.bindings[i].distPattern.value + '</li>' +
+                                '<li><b>Product Quantity:</b>' + json_test.results.bindings[i].productQty.value + '</li>' +
+                                '<li><b>Recall Initiation Date:</b>' + recall_date + '</li>' +
 								
-                                '<li>City/State: ' + json_test.results.bindings[i].location.value + '</li>' +
-                                '<li>Event ID: ' + json_test.results.bindings[i].eventId.value + '</li>' +
-                                '<li>Product Description: Cass-Clay , Swiss Chip, 3 Gallon(11.34 L).</li>' +
-                                '<li>Country: US</li>' +
+                                '<li><b>City/State:</b>' + json_test.results.bindings[i].location.value + '</li>' +
+                                '<li><b>Event ID:</b>' + json_test.results.bindings[i].eventId.value + '</li>' +
+                                '<li><b>Product Description:</b>' + json_test.results.bindings[i].productDescription.value + '</font></li>' +
+                                '<li><b>Country:</b> US</li>' +
 
 				'<li>Code Info: ' + json_test.results.bindings[i].codeInfo.value + '</li>' +
-                                '<li>Recalling Firm: ' + json_test.results.bindings[i].recallingFirm.value + '</li>' +
-                                '<li>Recall Reason: ' + json_test.results.bindings[i].recallReason.value + '</li>' +
-                                '<li>Report Date: ' + report_date + '</li>' +
-                                '<li>Voluntary Mandated: Voluntary: Firm Initiated</li>' +
-                                '<li>Classification: Class ' + classification[1] + '</li>' +
-                                '<li>Initial Firm Notification: ' + notification_type[1] + '</li>' +
+                                '<li><b>Recalling Firm:</b> ' + json_test.results.bindings[i].recallingFirm.value + '</li>' +
+                                '<li><b>Recall Reason:</b> ' + json_test.results.bindings[i].recallReason.value + '</li>' +
+                                '<li><b>Report Date:</b> ' + report_date + '</li>' +
+                                '<li><b>Voluntary Mandated:</b> Voluntary: Firm Initiated</li>' +
+                                '<li><b>Classification:</b>' + json_test.results.bindings[i].classification.value + '</li>' +
 								
                                 '</ul>' +
                                 '</div>' +
@@ -388,14 +398,11 @@ var start = new Date().getTime();
 							//var map = L.map('map')
 								//console.log(val);
 								bounds.push([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value]);
-							var newMarker =  L.marker([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value], {
-								icon: window.pizzaIcon
-							}).addTo(map);
-							newMarker.bindPopup('Recall Number: ' + json_test.results.bindings[i].recallNumber.value  );
-								markers.push(newMarker);
-								//L.marker().addTo(map)
-								console.log("adding @"+[json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value])
-							    
+								L.marker([json_test.results.bindings[i].latitude.value, json_test.results.bindings[i].longitude.value], {
+									icon: window.pizzaIcon
+								}).addTo(map)
+								.bindPopup('Recall Number: ' + json_test.results.bindings[i].recallNumber.value  );
+							
 							// zoom to bounds of markers
 
 							map.fitBounds(bounds);
@@ -423,10 +430,9 @@ var start = new Date().getTime();
     </script>
 
     <script>
-        var map = L.map('map').setView([37.097816, -99.330963], 3);
+        var map = L.map('map').setView([31.0, -98.0], 10);
 
 		
-		var markers = new Array();
 		var bounds = [];
 
         window.pizzaIcon = L.icon({
@@ -445,6 +451,8 @@ var start = new Date().getTime();
             id: 'examples.map-i875mjb7'
         }).addTo(map);
 
+
+        L.marker([51.5, -0.09]).addTo(map)
 
         L.circle([51.508, -0.11], 500, {
             color: 'red',
