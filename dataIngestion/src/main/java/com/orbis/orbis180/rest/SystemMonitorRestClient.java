@@ -96,6 +96,13 @@ public class SystemMonitorRestClient {
      return retval;
    }
   
+    public void  clearData() {
+      //TODO: Implement Caching and Connection pooling
+        dbStore = new DatabaseDAO();
+        dbStore.clear();
+        return;
+   }
+  
   /***
    * Summary
    * @return A Summary of aggregate statistics of usage 
