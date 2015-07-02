@@ -26,11 +26,15 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0779-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "128 units"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -38,23 +42,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "THE FARMERS MARKET Fruit & Cheese Snack Mix with Caramel Dip Net Wt. 7 oz. (198g) Best If Enjoyed By: 12/06/14, DISTRIBUTED BY GIANT EAGLE, INC., PITTSBURGH, PA 15238-2809 UPC 030034087708; Nature Made Snack Pack W/ Cheese Net Wt. 7 oz. (198g) Best If Enjoyed By: 12/06/14 UPC 717524720627; Nature Made Apple, Grapes and Cheese Net Wt. 7 oz. (198g) Best If Enjoyed By: 12/06/14 UPC 717524720627"
         },
-        "productQty" : {
+        "foodGroup" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "Fruits"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 02332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -62,12 +66,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -75,11 +79,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -89,7 +93,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -100,11 +104,11 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0778-2015"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -112,23 +116,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "Apple Cinnamon Parfait Net Wt. 6.5 oz. (184g) Best If Enjoyed By: 12/06/14, DISTRIBUTED BY GIANT EAGLE, INC., PITTSBURGH, PA 15238-2809 UPC 030034999735"
         },
         "productQty" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "44 units"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 02332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -136,12 +140,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -149,11 +153,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -163,7 +167,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -174,11 +178,11 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0777-2015"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -186,23 +190,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "Gourmet Mix Fruit Delight Net Wt. 64 oz. (1814g) Best If Enjoyed By: 12/03/14, Dist. By: Wegmans Food Markets, Inc., Rochester, NY 14603 UPC 077890241516"
         },
         "productQty" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "128 units"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 02332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -210,12 +214,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -223,11 +227,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -237,7 +241,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -248,11 +252,15 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0781-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "50 units"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -260,23 +268,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "Plain Transparent Label Apples & Grapes Tray with Caramel Apple Dip Net Wt. 9 oz. (255g) Best If Enjoyed By: 12/08/14"
         },
-        "productQty" : {
+        "foodGroup" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "Fruits"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 02332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -284,12 +292,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -297,11 +305,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -311,7 +319,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -322,11 +330,15 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0780-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "96 units"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -334,23 +346,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "Apple Slices, Grapes, Cheese Net Wt. 7 oz. (198g) Best If Enjoyed By: 12/07/14, Nature Made UPC 717524773944"
         },
-        "productQty" : {
+        "foodGroup" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "Fruits"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 02332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -358,12 +370,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -371,11 +383,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -385,7 +397,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -396,11 +408,11 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0776-2015"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -408,23 +420,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "Del Monte Fresh Produce Fruit Gourmet Bowl Net Wt. 40 oz. (1134g) Best If Enjoyed By: 12/06/14, UPC 717524773968; Plain Transparent Label with a green and red border-Gourmet Bowl Net Wt. 64 oz. (1814g) Best If Enjoyed By: 12/06/14; THE FARMERS MARKET Gourmet Bowl Net Wt. 64 oz. (1814g) Best If Enjoyed By: 12/06/14, DISTRIBUTED BY GIANT EAGLE, INC., PITTSBURGH, PA 15238-2809 UPC 030034080259"
         },
         "productQty" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "187 units"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 02332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -432,12 +444,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -445,11 +457,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -459,7 +471,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -470,11 +482,15 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0775-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "60 units"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -482,23 +498,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "Red Apples W/ Dip Net Wt. 5 oz. (142g) Best If Enjoyed By: 12/08/14, Del Monte Fresh Produce UPC 717524719430"
         },
-        "productQty" : {
+        "foodGroup" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "Fruits"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 02332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -506,12 +522,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -519,11 +535,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -533,7 +549,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -544,11 +560,11 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0773-2015"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -556,23 +572,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "Del Monte Fresh Produce Red Apple Slices Net Wt. 12 oz. (340g) Best If Enjoyed By: 12/08/14, UPC 717524719119; Plain Transparent Label Red Apple Slices Net Wt. 12 oz. (340g) Best If Enjoyed By: 12/08/14; THE FARMERS MARKET Red Apple Slices Net Wt. 12 oz. (340g) Best If Enjoyed By: 12/08/14, DISTRIBUTED BY GIANT EAGLE, INC., PITTSBURGH, PA 15238-2809 UPC 030034303334"
         },
         "productQty" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "170 units"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 02332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -580,12 +596,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -593,11 +609,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -607,7 +623,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -618,11 +634,15 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0770-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "156 units"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -630,23 +650,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "Veggie and Apples W/ Cheese, Total Wt: 7 oz. (198g) Best If Enjoyed By: 12/08/14, DISTRIBUTED BY SHEETZ DISTRIBUTION SERVICES, LLC. CLAYSBURG, PA 16625 UPC 7594465008860"
         },
-        "productQty" : {
+        "foodGroup" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "Fruits"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 2332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -654,12 +674,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -667,11 +687,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -681,7 +701,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -692,11 +712,11 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0769-2015"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -704,23 +724,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "Harvest Blend, Net Wt. 4 oz. (113g)  Best If Enjoyed By: 12/05/2014, DISTRIBUTED BY 7-ELEVEN, INC., DALLAS, TX 75201 UPC 052548558253"
         },
         "productQty" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "1200 units"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 2332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -728,12 +748,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -741,11 +761,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -755,7 +775,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -766,11 +786,15 @@
       {
         "recallNumber" : {
           "type" : "literal",
-          "value" : "F-0761-2015"
+          "value" : "F-0772-2015"
+        },
+        "productQty" : {
+          "type" : "literal",
+          "value" : "768 units"
         },
         "location" : {
           "type" : "literal",
-          "value" : "Reno,NV"
+          "value" : "Jessup,MD"
         },
         "status" : {
           "type" : "literal",
@@ -778,23 +802,23 @@
         },
         "productDescription" : {
           "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
+          "value" : "Del Monte Fresh Produce Pineapple Medley Net Wt. 8 oz. (227g) Best If Enjoyed By: 12/06/14, UPC 717524778178; THE FARMERS MARKET Pineapple Medley Net Wt. 8 oz. (227g) Best If Enjoyed By: 12/06/14, DISTRIBUTED BY GIANT EAGLE, INC., PITTSBURGH, PA 15238-2809 UPC 030034303235; THE FARMERS MARKET Pineapple Medley Net Wt. 16 oz. (454g) Best If Enjoyed By: 12/06/14, DISTRIBUTED BY GIANT EAGLE, INC., PITTSBURGH, PA 15238-2809 UPC 03003303242; THE FARMERS MARKET Pineapple Medley Net Wt. 32 oz. (907g) Best If Enjoyed By: 12/06/14, DISTRIBUTED BY GIANT EAGLE, INC., PITTSBURGH, PA 15238-2809 UPC 030034303259; Del Monte Fresh Produce Pineapple Medley Net Wt. 16 oz. (454g) Best If Enjoyed By: 12/06/14, UPC 717524773968"
         },
-        "productQty" : {
+        "foodGroup" : {
           "type" : "literal",
-          "value" : "1228.50 lbs."
+          "value" : "Fruits"
         },
         "codeInfo" : {
           "type" : "literal",
-          "value" : "lot # 13254"
+          "value" : "Lot 2332101"
         },
         "recallingFirm" : {
           "type" : "literal",
-          "value" : "High Quality Organics, Inc."
+          "value" : "Del Monte Fresh Produce NA, Inc"
         },
         "distPattern" : {
           "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
+          "value" : "NJ, NY, OH, PA, RI, VA"
         },
         "voluntaryMandated" : {
           "type" : "literal",
@@ -802,12 +826,12 @@
         },
         "eventId" : {
           "type" : "literal",
-          "value" : "69912"
+          "value" : "69983"
         },
         "recallInitiationDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
+          "value" : "2014-12-09T00:00:00.000Z"
         },
         "classification" : {
           "type" : "literal",
@@ -815,11 +839,11 @@
         },
         "notification" : {
           "type" : "literal",
-          "value" : "Letter"
+          "value" : "Press Release"
         },
         "recallReason" : {
           "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
+          "value" : "Possible contamination with Listeria monocytogenes."
         },
         "longitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",
@@ -829,451 +853,7 @@
         "reportDate" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
           "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
-        },
-        "latitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        }
-      },
-      {
-        "recallNumber" : {
-          "type" : "literal",
-          "value" : "F-0761-2015"
-        },
-        "location" : {
-          "type" : "literal",
-          "value" : "Reno,NV"
-        },
-        "status" : {
-          "type" : "literal",
-          "value" : "Ongoing"
-        },
-        "productDescription" : {
-          "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
-        },
-        "productQty" : {
-          "type" : "literal",
-          "value" : "1228.50 lbs."
-        },
-        "codeInfo" : {
-          "type" : "literal",
-          "value" : "lot # 13254"
-        },
-        "recallingFirm" : {
-          "type" : "literal",
-          "value" : "High Quality Organics, Inc."
-        },
-        "distPattern" : {
-          "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
-        },
-        "voluntaryMandated" : {
-          "type" : "literal",
-          "value" : "Voluntary: Firm Initiated"
-        },
-        "eventId" : {
-          "type" : "literal",
-          "value" : "69912"
-        },
-        "recallInitiationDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
-        },
-        "classification" : {
-          "type" : "literal",
-          "value" : "Class I"
-        },
-        "notification" : {
-          "type" : "literal",
-          "value" : "Letter"
-        },
-        "recallReason" : {
-          "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
-        },
-        "longitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        },
-        "reportDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
-        },
-        "latitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        }
-      },
-      {
-        "recallNumber" : {
-          "type" : "literal",
-          "value" : "F-0761-2015"
-        },
-        "location" : {
-          "type" : "literal",
-          "value" : "Reno,NV"
-        },
-        "status" : {
-          "type" : "literal",
-          "value" : "Ongoing"
-        },
-        "productDescription" : {
-          "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
-        },
-        "productQty" : {
-          "type" : "literal",
-          "value" : "1228.50 lbs."
-        },
-        "codeInfo" : {
-          "type" : "literal",
-          "value" : "lot # 13254"
-        },
-        "recallingFirm" : {
-          "type" : "literal",
-          "value" : "High Quality Organics, Inc."
-        },
-        "distPattern" : {
-          "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
-        },
-        "voluntaryMandated" : {
-          "type" : "literal",
-          "value" : "Voluntary: Firm Initiated"
-        },
-        "eventId" : {
-          "type" : "literal",
-          "value" : "69912"
-        },
-        "recallInitiationDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
-        },
-        "classification" : {
-          "type" : "literal",
-          "value" : "Class I"
-        },
-        "notification" : {
-          "type" : "literal",
-          "value" : "Letter"
-        },
-        "recallReason" : {
-          "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
-        },
-        "longitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        },
-        "reportDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
-        },
-        "latitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        }
-      },
-      {
-        "recallNumber" : {
-          "type" : "literal",
-          "value" : "F-0761-2015"
-        },
-        "location" : {
-          "type" : "literal",
-          "value" : "Reno,NV"
-        },
-        "status" : {
-          "type" : "literal",
-          "value" : "Ongoing"
-        },
-        "productDescription" : {
-          "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
-        },
-        "productQty" : {
-          "type" : "literal",
-          "value" : "1228.50 lbs."
-        },
-        "codeInfo" : {
-          "type" : "literal",
-          "value" : "lot # 13254"
-        },
-        "recallingFirm" : {
-          "type" : "literal",
-          "value" : "High Quality Organics, Inc."
-        },
-        "distPattern" : {
-          "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
-        },
-        "voluntaryMandated" : {
-          "type" : "literal",
-          "value" : "Voluntary: Firm Initiated"
-        },
-        "eventId" : {
-          "type" : "literal",
-          "value" : "69912"
-        },
-        "recallInitiationDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
-        },
-        "classification" : {
-          "type" : "literal",
-          "value" : "Class I"
-        },
-        "notification" : {
-          "type" : "literal",
-          "value" : "Letter"
-        },
-        "recallReason" : {
-          "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
-        },
-        "longitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        },
-        "reportDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
-        },
-        "latitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        }
-      },
-      {
-        "recallNumber" : {
-          "type" : "literal",
-          "value" : "F-0761-2015"
-        },
-        "location" : {
-          "type" : "literal",
-          "value" : "Reno,NV"
-        },
-        "status" : {
-          "type" : "literal",
-          "value" : "Ongoing"
-        },
-        "productDescription" : {
-          "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
-        },
-        "productQty" : {
-          "type" : "literal",
-          "value" : "1228.50 lbs."
-        },
-        "codeInfo" : {
-          "type" : "literal",
-          "value" : "lot # 13254"
-        },
-        "recallingFirm" : {
-          "type" : "literal",
-          "value" : "High Quality Organics, Inc."
-        },
-        "distPattern" : {
-          "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
-        },
-        "voluntaryMandated" : {
-          "type" : "literal",
-          "value" : "Voluntary: Firm Initiated"
-        },
-        "eventId" : {
-          "type" : "literal",
-          "value" : "69912"
-        },
-        "recallInitiationDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
-        },
-        "classification" : {
-          "type" : "literal",
-          "value" : "Class I"
-        },
-        "notification" : {
-          "type" : "literal",
-          "value" : "Letter"
-        },
-        "recallReason" : {
-          "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
-        },
-        "longitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        },
-        "reportDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
-        },
-        "latitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        }
-      },
-      {
-        "recallNumber" : {
-          "type" : "literal",
-          "value" : "F-0761-2015"
-        },
-        "location" : {
-          "type" : "literal",
-          "value" : "Reno,NV"
-        },
-        "status" : {
-          "type" : "literal",
-          "value" : "Ongoing"
-        },
-        "productDescription" : {
-          "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
-        },
-        "productQty" : {
-          "type" : "literal",
-          "value" : "1228.50 lbs."
-        },
-        "codeInfo" : {
-          "type" : "literal",
-          "value" : "lot # 13254"
-        },
-        "recallingFirm" : {
-          "type" : "literal",
-          "value" : "High Quality Organics, Inc."
-        },
-        "distPattern" : {
-          "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
-        },
-        "voluntaryMandated" : {
-          "type" : "literal",
-          "value" : "Voluntary: Firm Initiated"
-        },
-        "eventId" : {
-          "type" : "literal",
-          "value" : "69912"
-        },
-        "recallInitiationDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
-        },
-        "classification" : {
-          "type" : "literal",
-          "value" : "Class I"
-        },
-        "notification" : {
-          "type" : "literal",
-          "value" : "Letter"
-        },
-        "recallReason" : {
-          "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
-        },
-        "longitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        },
-        "reportDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
-        },
-        "latitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        }
-      },
-      {
-        "recallNumber" : {
-          "type" : "literal",
-          "value" : "F-0761-2015"
-        },
-        "location" : {
-          "type" : "literal",
-          "value" : "Reno,NV"
-        },
-        "status" : {
-          "type" : "literal",
-          "value" : "Ongoing"
-        },
-        "productDescription" : {
-          "type" : "literal",
-          "value" : "Organic Cilantro Medium\nBulk - size is dependent on customer request;\nCertified Organic by QAI\nHigh Quality Organics\nReno, NV;\nProduct of Israel"
-        },
-        "productQty" : {
-          "type" : "literal",
-          "value" : "1228.50 lbs."
-        },
-        "codeInfo" : {
-          "type" : "literal",
-          "value" : "lot # 13254"
-        },
-        "recallingFirm" : {
-          "type" : "literal",
-          "value" : "High Quality Organics, Inc."
-        },
-        "distPattern" : {
-          "type" : "literal",
-          "value" : "CA, IA, TX, NJ, GA, OR, NH, CO, NY and one customer in Canada."
-        },
-        "voluntaryMandated" : {
-          "type" : "literal",
-          "value" : "Voluntary: Firm Initiated"
-        },
-        "eventId" : {
-          "type" : "literal",
-          "value" : "69912"
-        },
-        "recallInitiationDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2014-11-26T00:00:00.000Z"
-        },
-        "classification" : {
-          "type" : "literal",
-          "value" : "Class I"
-        },
-        "notification" : {
-          "type" : "literal",
-          "value" : "Letter"
-        },
-        "recallReason" : {
-          "type" : "literal",
-          "value" : "Immediate customer received a positive result for Salmonella of Organic Cilantro, Medium."
-        },
-        "longitude" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#double",
-          "type" : "literal",
-          "value" : "0.0"
-        },
-        "reportDate" : {
-          "datatype" : "http://www.w3.org/2001/XMLSchema#dateTime",
-          "type" : "literal",
-          "value" : "2015-01-07T00:00:00.000Z"
+          "value" : "2015-01-21T00:00:00.000Z"
         },
         "latitude" : {
           "datatype" : "http://www.w3.org/2001/XMLSchema#double",

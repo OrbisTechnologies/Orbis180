@@ -34,7 +34,7 @@ public class DatabaseQuery {
     private String sparqlQuery = "PREFIX openFDA: <http://www.orbistechnologies.com/ontologies/openFDA#>\n" +
                                     "PREFIX : <http://www.w3.org/2002/07/owl#>\n" +
                                     "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n" +
-                                    "Select ?recallNumber ?reportDate ?eventId ?recallingFirm ?status (CONCAT(?city, \",\",?state) AS ?location) ?latitude ?longitude ?foodGroup ?classification ?recallInitiationDate ?productDescription ?productQty ?codeInfo ?distPattern ?recallReason ?voluntaryMandated ?notification\n" +
+                                    "Select Distinct ?recallNumber ?reportDate ?eventId ?recallingFirm ?status (CONCAT(?city, \",\",?state) AS ?location) ?latitude ?longitude ?foodGroup ?classification ?recallInitiationDate ?productDescription ?productQty ?codeInfo ?distPattern ?recallReason ?voluntaryMandated ?notification\n" +
                                     "Where {\n" +
                                     "	?id a openFDA:EnforcementReport ;\n" +
                                     "    	?predicate ?object ;\n" +

@@ -22,7 +22,7 @@ public class DatabaseQueryTest {
     @Test
     public void testdatabaseQueryOne() throws IOException {
         
-        DatabaseQuery db = new DatabaseQuery("2015-01-01","2015-01-08",null,null,null);
+        DatabaseQuery db = new DatabaseQuery("2015-01-08","2015-01-15",null,null,null);
         File sampleData = new File(getClass().getClassLoader().getResource("data/DBQueryTestOne.json").getFile());
         String expResult = readFile(sampleData.getAbsolutePath(), Charset.forName("UTF-8"));
         String result = db.databaseQuery();
@@ -33,7 +33,7 @@ public class DatabaseQueryTest {
      @Test
     public void testdatabaseQueryTwo() throws IOException {
         
-        DatabaseQuery db = new DatabaseQuery("2015-01-01","2015-01-08","NV",null,null);
+        DatabaseQuery db = new DatabaseQuery("2015-01-01","2015-01-25","MD",null,null);
         File sampleData = new File(getClass().getClassLoader().getResource("data/DBQueryTestTwo.json").getFile());
         String expResult = readFile(sampleData.getAbsolutePath(), Charset.forName("UTF-8"));
         String result = db.databaseQuery();
