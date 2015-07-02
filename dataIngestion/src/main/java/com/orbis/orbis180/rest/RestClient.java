@@ -22,6 +22,7 @@ import java.io.IOException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
@@ -93,51 +94,20 @@ public class RestClient {
    * 
    * Get query parameters from the URL and search database using those parameters
    * @return Json data from the database.
-   */
+   */  
   @GET()
   @Path("/searchQuery")
   @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-  public String queryDatabase(@Context UriInfo info) throws IOException{
-
-          String bngDateRng =  info.getQueryParameters().getFirst("bngDateRng");
-          String endDateRng = info.getQueryParameters().getFirst("endDateRng");
-          String loc = info.getQueryParameters().getFirst("loc");
-          String advSearch = info.getQueryParameters().getFirst("advSearch");
-          String foodGroup = info.getQueryParameters().getFirst("foodGroup");
-
-          if(bngDateRng.isEmpty() || endDateRng.isEmpty() || loc.isEmpty())
-          {
-              return "Begnning Date or End Date or Location cannot be empty";
-          }else{
+  public String queryDatabase(@QueryParam("bngDateRng") String bngDateRng,
+                              @QueryParam("endDateRng") String endDateRng,
+                              @QueryParam("loc") String loc,
+                              @QueryParam("keywordSearch") String keywordSearch,
+                              @QueryParam("foodGroup") String foodGroup) {
+    
+      DatabaseQuery dbQuery = new DatabaseQuery(bngDateRng,endDateRng,loc,keywordSearch,foodGroup);
+      String dbOutput = dbQuery.databaseQuery();
+      return dbOutput;
           
-              if(advSearch.isEmpty() && foodGroup.isEmpty())
-              {   
-                    DatabaseQuery dbQuery = new DatabaseQuery(bngDateRng,endDateRng,loc,"","");
-                    String dbOutput = dbQuery.databaseQuery();
-
-                  return dbOutput;
-              }
-              else if(advSearch.isEmpty())
-              {
-                    DatabaseQuery dbQuery = new DatabaseQuery(bngDateRng,endDateRng,loc,advSearch,foodGroup);
-                     String dbOutput = dbQuery.databaseQuery();
-                  return dbOutput;
-              }
-              else if(foodGroup.isEmpty())
-              {
-                    DatabaseQuery dbQuery = new DatabaseQuery(bngDateRng,endDateRng,loc,advSearch,"");
-                     String dbOutput = dbQuery.databaseQuery();
-                  return dbOutput;
-              }
-              else
-              {
-                        DatabaseQuery dbQuery = new DatabaseQuery(bngDateRng,endDateRng,loc,advSearch,foodGroup);
-                        String dbOutput = dbQuery.databaseQuery();
-                  return dbOutput;
-              }
-          
-          }
-
   }
   
   /**

@@ -741,4 +741,88 @@ public Integer getQueryCountSince( java.util.Date date){
         return retval;
     }
     
+
+            
+    public List<WileyQuery> getQueryFreq(){
+        ArrayList<Statement> statements = new ArrayList<Statement>(); // list of Statements, PreparedStatements
+        Statement s;
+        ResultSet rs = null;
+        int returnVal=0;
+        List<WileyQuery> retval= new ArrayList<WileyQuery>();
+        
+        try{
+            if(conn==null){
+                String dbName = "derbyDB"; // the name of the database
+
+            /*
+             * This connection specifies create=true in the connection URL to
+             * cause the database to be created when connecting for the first
+             * time. To remove the database, remove the directory derbyDB (the
+             * same as the database name) and its contents.
+             *
+             * The directory derbyDB will be created under the directory that
+             * the system property derby.system.home points to, or the current
+             * directory (user.dir) if derby.system.home is not set.
+             */
+              
+                Class.forName("org.apache.derby.jdbc.EmbeddedDriver");  
+                conn = DriverManager.getConnection(protocol + dbName + dbLocation
+                    + ";create=true");
+                
+            }
+            /* Creating a statement object that we can use for running various
+             * SQL statements commands against the database.*/
+            
+            s = conn.createStatement();
+            statements.add(s);
+            DatabaseMetaData dbmd = conn.getMetaData();
+            //if the table doesn't exist
+            //rs = s.executeQuery("SELECT keyword, count(*)FROM queries " + "GROUP BY keyword ORDER BY Count(*) DESC");
+            rs = s.executeQuery("SELECT queryDate as date, count(keyword) as freq FROM queries " + "GROUP BY queryDate ORDER BY queryDate");
+            
+                while (rs.next()) {
+                    WileyQuery  outval = new WileyQuery();
+                    outval.count = rs.getInt("freq");
+                    outval.date = rs.getDate("date").toString();
+                    retval.add(outval);
+                }
+            
+            s.close();
+            rs.close();
+        }
+        
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        } finally {
+            // release all open resources to avoid unnecessary memory usage
+
+            // Statements and PreparedStatements
+            int i = 0;
+            while (!statements.isEmpty()) {
+                // PreparedStatement extend Statement
+                Statement st = (Statement)statements.remove(i);
+                try {
+                    if (st != null) {
+                        st.close();
+                        st = null;
+                    }
+                } catch (SQLException sqle) {
+                    System.out.println(sqle);
+                }
+            }
+
+            //Connection
+            try {
+                if (conn != null) {
+                    conn.close();
+                    conn = null;
+                }
+            } catch (SQLException sqle) {
+                System.out.println(sqle);
+            }
+        } 
+        return retval;
+    }
+    
 }
