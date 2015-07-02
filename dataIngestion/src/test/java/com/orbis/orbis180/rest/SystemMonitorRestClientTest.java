@@ -79,7 +79,6 @@ public class SystemMonitorRestClientTest {
         String expResult = "1";
         String result = clientInstance.queryCount();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
@@ -94,7 +93,6 @@ public class SystemMonitorRestClientTest {
         String expResult = "{\"QueriesSince\": 1, \"A_V_G_QueryTime\": 22, \"Y_T_D_Queries\": 1, \"QueriesPerDay\": 1, \"YearlyChangeInQueries\": null }";
         String result = clientInstance.sendSummary();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
     }
 
     /**
@@ -110,7 +108,6 @@ public class SystemMonitorRestClientTest {
         String expResult = "[{\"Date\":null,\"Location\":null,\"SearchField\":\"rice\",\"Count\":1,\"ResponseTime\":null}]";
         String result = clientInstance.sendTopTen();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
     }
     
 }
