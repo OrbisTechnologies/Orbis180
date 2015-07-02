@@ -91,7 +91,7 @@ public class SystemMonitorRestClientTest {
         String newquery = "{\"responseTime\":22, \"searchField\":\"rice\", \"location\":\"NY\"}";
         clientInstance = new SystemMonitorRestClient();
         clientInstance.consumeJSON(newquery);
-        String expResult = "{\"QueriesSince\": 0, \"A_V_G_QueryTime\": 22, \"Y_T_D_Queries\": 1, \"QueriesPerDay\": 1, \"YearlyChangeInQueries\": null }";
+        String expResult = "{\"QueriesSince\": 1, \"A_V_G_QueryTime\": 22, \"Y_T_D_Queries\": 1, \"QueriesPerDay\": 1, \"YearlyChangeInQueries\": null }";
         String result = clientInstance.sendSummary();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
