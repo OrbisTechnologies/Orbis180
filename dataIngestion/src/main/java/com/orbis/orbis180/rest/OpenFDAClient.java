@@ -119,7 +119,8 @@ public class OpenFDAClient {
      * 
      * */
     private void getOpenFDAData() {
-                
+        int nextFileCounter = 0;
+        
         mapperObj = new ObjectMapper();
         
         try {
@@ -129,14 +130,12 @@ public class OpenFDAClient {
             if(totalRecords == 0)
             {
                 getNumOfRecords();
-            }
+            }           
             
-            int nextFileCounter = MAX_RECORD_LIMIT;
             IStore dataStorage = StoreFactory.getFoodAPIStore();
             
             while((currNumOfRecords < totalRecords) && ((totalRecords - currNumOfRecords) > MAX_RECORD_LIMIT))
-            {
-                
+            { 
                 setRecordLimitParameter(MAX_RECORD_LIMIT);
                 setNextRecordsLimitParameter(nextFileCounter);
                 
@@ -165,11 +164,10 @@ public class OpenFDAClient {
      * */
     private void addDataToFile() throws IOException
     {    
-        int nextFileCounter = MAX_RECORD_LIMIT;
-        boolean isFirstLimitedPull = true;
+        int nextFileCounter = 0;
         
         mapperObj = new ObjectMapper();
-                
+        
         getRawData(getOpenFDADataLink());
         
         if(totalRecords == 0)
@@ -177,35 +175,8 @@ public class OpenFDAClient {
             getNumOfRecords();
         }
                 
-            while((currNumOfRecords < totalRecords) && ((totalRecords - currNumOfRecords) > MAX_RECORD_LIMIT))
-            {   
-
-                if((totalRecords - currNumOfRecords) < MAX_RECORD_LIMIT)
-                {
-
-                    if(isFirstLimitedPull)
-                    {
-                        nextFileCounter = currNumOfRecords;
-                        setJsonFileName(minDate,maxDate,currNumOfRecords + 100);
-                        isFirstLimitedPull = false;
-                    }
-
-                    setRecordLimitParameter(currNumOfRecords);
-                    setNextRecordsLimitParameter(nextFileCounter);
-
-
-                    logger.info("openFDADataLink addDataToFile 1: " + getOpenFDADataLink());
-
-                    getRawData(getOpenFDADataLink());
-
-                    writeDataToFile(true);
-
-                    nextFileCounter = nextFileCounter + 1;
-                    currNumOfRecords = currNumOfRecords + 1;
-
-
-                }else
-                {
+            while((currNumOfRecords < totalRecords) /**&& ((totalRecords - currNumOfRecords) > MAX_RECORD_LIMIT)**/)
+            {  
                     setRecordLimitParameter(MAX_RECORD_LIMIT);
                     setNextRecordsLimitParameter(nextFileCounter);                    
                     setJsonFileName(minDate,maxDate,nextFileCounter);                
@@ -220,7 +191,6 @@ public class OpenFDAClient {
                     nextFileCounter = nextFileCounter + resultsNode.size();
 
                     currNumOfRecords = currNumOfRecords + resultsNode.size();
-                }
             }
                    
     }
@@ -441,7 +411,7 @@ public class OpenFDAClient {
     protected void checkRecordLimit() throws IOException
     {
 
-        getDateLimit(minDateVal,maxDateVal);        
+        getDateLimit(minDateVal,maxDateVal);         
         addDataToFile();
          
         
@@ -455,7 +425,7 @@ public class OpenFDAClient {
                 setCurrentNumOfRecords(0);
 
              }
-        
+            System.out.println("Inside CheckRecordLimit");
             getRawData(getOpenFDADataLink());
             getNumOfRecords();
 
