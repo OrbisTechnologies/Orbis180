@@ -20,8 +20,11 @@
     <link href="css/simple-sidebar.css" rel="stylesheet">
 
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
+    <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+	<script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js'></script>
 
     <link href="../../favicon.ico" rel="icon">
 
@@ -398,18 +401,26 @@ var start = new Date().getTime();
                                 '</div>';
                             $(elm).appendTo('#detailed-table');
 						
-							//var map = L.map('map')
-								//console.log(val);
-								bounds.push([query_data.results.bindings[i].latitude.value, query_data.results.bindings[i].longitude.value]);
-								L.marker([query_data.results.bindings[i].latitude.value, query_data.results.bindings[i].longitude.value], {
-									icon: window.pizzaIcon
-								}).addTo(map)
-								.bindPopup('Recall Number: ' + query_data.results.bindings[i].recallNumber.value  );
-							
+								if((query_data.results.bindings[i].latitude.value!=0)||(query_data.results.bindings[i].longitude.value!=0)){
+									bounds.push([query_data.results.bindings[i].latitude.value, query_data.results.bindings[i].longitude.value]);
+									var newMarker =  L.marker([query_data.results.bindings[i].latitude.value, query_data.results.bindings[i].longitude.value], {
+										icon: window.pizzaIcon
+									}).addTo(markerClusters);
+									newMarker.bindPopup('Recall Number: ' + query_data.results.bindings[i].recallNumber.value  );
+									markers.push(newMarker);
+								//L.marker().addTo(map)
+									console.log("adding @"+[query_data.results.bindings[i].latitude.value, query_data.results.bindings[i].longitude.value])
+							    
 							// zoom to bounds of markers
 
-							map.fitBounds(bounds);
+								}
+								else{	
+									console.log("skipping @"+[query_data.results.bindings[i].latitude.value, query_data.results.bindings[i].longitude.value])
+							    
+								
+								}
                         }
+						map.fitBounds(bounds);
                     }
 				});
 		/*		
@@ -437,9 +448,12 @@ var start = new Date().getTime();
 		 * Map Generation for the search results. When a query is submitted, the results are placed on the map 
 		 * based upon what city/state location that they fall under.
 		 */
-        var map = L.map('map').setView([31.0, -98.0], 10);
-
+        var map = L.map('map', {maxZoom:18}).setView([37.097816, -99.330963], 3);
+		var markerClusters = L.markerClusterGroup();
 		
+		map.addLayer( markerClusters );
+		
+		var markers = new Array();
 		var bounds = [];
 
         window.pizzaIcon = L.icon({
