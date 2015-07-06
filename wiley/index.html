@@ -311,6 +311,9 @@ function GetMultipleSelections(parameter) {
  *Button click action that gathers the information from the form and queries the results from the rest endpoint to deliver the data to the user
  */
  $("#btnSubmit").click(function() {
+	 for(i=0;i<markers.length;i++) {
+		 markerClusters.removeLayer(markers[i]);
+	 }  
 					selectlocation = GetMultipleSelections('selectlocation');
                     selectlocation = selectlocation.substring(0, selectlocation.length-1);
                     console.log(selectlocation);                                                                             
