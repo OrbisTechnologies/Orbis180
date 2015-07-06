@@ -130,7 +130,8 @@
                         <div class="col-md-8">
 			<div class="input-group input-group-md">
                             <select multiple id="selectlocation" name="selectlocation" class="form-control">
-                                <option value="AL">Alabama</option>
+				<option value="">All States</option>                                
+				<option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AS">American Samoa</option>
                                 <option value="AZ">Arizona</option>
@@ -320,7 +321,7 @@ var start = new Date().getTime();
                     keyword = document.getElementById('keyword').value;
 					begindate = document.getElementById('date-from-internal').value;
 					enddate = document.getElementById('date-to-internal').value;
-					var endpoint = 'http://localhost:8080/dataIngestion/rest/data/searchQuery?';
+					var endpoint = 'http://wiley.orbistechnologies.com/dataIngestion/rest/data/searchQuery?';
 					var form_parameter = 'bngDateRng=' + begindate + '&endDateRng=' + enddate + '&loc=' + selectlocation + '&keywordSearch=' + keyword + '&foodGroup=' + foodgroup; //keywordSearch
 					var full_search = endpoint + form_parameter;
 					foodgroup = "";
@@ -347,7 +348,7 @@ var start = new Date().getTime();
 			data: JSON.stringify({"searchField":searchword,"responseTime":responseTime, "location":locationtarget}),
 			contentType: "application/json",
 			dataType: "json",
-			url: 'http://localhost:8080/dataIngestion/rest/monitor/query',
+			url: 'http://wiley.orbistechnologies.com/dataIngestion/rest/monitor/query',
 		})
                     });
 					
@@ -429,7 +430,7 @@ var start = new Date().getTime();
 			data: JSON.stringify(formData),
 			contentType: "application/json",
 			dataType: "json",
-			url: 'http://localhost:8080/dataIngestion/rest/monitor/query',
+			url: 'http://wiley.orbistechnologies.com/dataIngestion/rest/monitor/query',
 		})*/
 		
 	//	$.ajax({
@@ -437,7 +438,7 @@ var start = new Date().getTime();
 	//		data: JSON.stringify(formData),
 	//		contentType: "application/json",
 	//		dataType: "json",
-	//		url: 'http://localhost:8080/dataIngestion/rest/monitor/query',
+	//		url: 'http://wiley.orbistechnologies.com/dataIngestion/rest/monitor/query',
 	//	})
 				
 				

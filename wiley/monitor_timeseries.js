@@ -3,7 +3,7 @@ var class_type = (function(){
 			  var class_type = null;
 			  $.ajax({
 			  'async': false,
-	          url: 'http://localhost:8080/dataIngestion/rest/monitor/querytimes',
+	          url: 'http://wiley.orbistechnologies.com/dataIngestion/rest/monitor/querytimes',
 			  }
 				).done(function(data) {
 				class_type = data; 

@@ -19,15 +19,29 @@
   });
   return query_stats;
   })(); 
-*/
+  */
 
-var query_stats = {"QueriesSince": 345, "A_V_G_QueryTime": 68, "Y_T_D_Queries": 79, "QueriesPerDay": 3, "YearlyChangeInQueries": 23 };
+  
+var query_stats = (function(){
+			  var query_stats = null;
+			  $.ajax({
+			  'async': false,
+	          url: 'http://localhost:8080/dataIngestion/rest/monitor/summary',
+			  }
+				).done(function(data) {
+				query_stats = data; 
+  });
+  return query_stats;
+  })();
+  
+  
+//var query_stats = {"QueriesSince": 345, "A_V_G_QueryTime": 68, "Y_T_D_Queries": 79, "QueriesPerDay": 3, "YearlyChangeInQueries": 23 };
 
 //{"QueriesSince": null, "A_V_G_QueryTime": 68, "Y_T_D_Queries": null, "QueriesPerDay": 3, "YearlyChangeInQueries": null }
 function dsLineChartBasics() {
 
 	var margin = {top: 20, right: 0, bottom: 0, left: 0},
-	    width = 1150 - margin.left - margin.right,
+	    width = 875 - margin.left - margin.right,
 	    height = 125 - margin.top - margin.bottom
 		
 	    ;
@@ -67,7 +81,7 @@ function dsLineChart() {
 	 *Total recalls since 2004
 	 */
 	plot.append("text")
-		.text(query_stats.QueriesSince)
+		.text(query_stats.Y_T_D_Queries)
 		.attr("id","Title2")
 		.attr("x",100)
 		.attr("y",45)	
@@ -132,6 +146,7 @@ function dsLineChart() {
 	/*
 	 * Percent Recall Change per Calendar Year
 	 */
+	 /*
 	plot.append("text")
 		.text("+" + query_stats.YearlyChangeInQueries+ "%")
 		.attr("id","Title2")
@@ -144,8 +159,7 @@ function dsLineChart() {
 		.attr("x",1000)
 		.attr("y", height-15)
 		;
-		
-		
+	*/	
 
 }
 dsLineChart();
