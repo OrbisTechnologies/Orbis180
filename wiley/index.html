@@ -322,7 +322,7 @@ function GetMultipleSelections(parameter) {
                     keyword = document.getElementById('keyword').value;
 					begindate = document.getElementById('date-from-internal').value;
 					enddate = document.getElementById('date-to-internal').value;
-					var endpoint = 'http://localhost:8080/dataIngestion/rest/data/searchQuery?';
+					var endpoint = 'http://http://wiley.orbistechnologies.com/dataIngestion/rest/data/searchQuery?';
 					var form_parameter = 'bngDateRng=' + begindate + '&endDateRng=' + enddate + '&loc=' + selectlocation + '&keywordSearch=' + keyword + '&foodGroup=' + foodgroup; //keywordSearch
 					var full_search = endpoint + form_parameter;
 					foodgroup = "";
@@ -350,7 +350,7 @@ function GetMultipleSelections(parameter) {
 			data: JSON.stringify({"searchField":searchword,"responseTime":responseTime, "location":locationtarget}),
 			contentType: "application/json",
 			dataType: "json",
-			url: 'http://localhost:8080/dataIngestion/rest/monitor/query',
+			url: 'http://wiley.orbistechnologies.com/dataIngestion/rest/monitor/query',
 		})
 			returnSearch(result);
                     });
@@ -428,24 +428,6 @@ function GetMultipleSelections(parameter) {
                         }
                     }
 				});
-		/*		
-		$.ajax({
-			type: 'POST',
-			data: JSON.stringify(formData),
-			contentType: "application/json",
-			dataType: "json",
-			url: 'http://localhost:8080/dataIngestion/rest/monitor/query',
-		})*/
-		
-	//	$.ajax({
-	//		type: 'POST',
-	//		data: JSON.stringify(formData),
-	//		contentType: "application/json",
-	//		dataType: "json",
-	//		url: 'http://localhost:8080/dataIngestion/rest/monitor/query',
-	//	})
-				
-				
     </script>
 
     <script>
