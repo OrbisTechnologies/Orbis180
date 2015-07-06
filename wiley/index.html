@@ -306,7 +306,6 @@ function GetMultipleSelections(parameter) {
   document.getElementById(parameter).selectedIndex = -1;        // reset list 
   return picked; 
 }
-var start = new Date().getTime();
 //•	http://localhost:<Port#>/dataIngestion/rest/data/searchQuery?bngDateRng=2004-05-20&endDateRng=2014-05-20&loc=MD&advSearch=Pizza&foodGroup=Meat
 /*
  *Button click action that gathers the information from the form and queries the results from the rest endpoint to deliver the data to the user
@@ -331,6 +330,8 @@ var start = new Date().getTime();
 					begindate = "";
 					enddate = "";
 					console.log(full_search);
+	 
+					var start = new Date().getTime();
                     $.ajax({
                         'async': false,
 			url: full_search
@@ -340,7 +341,6 @@ var start = new Date().getTime();
 					var end = new Date().getTime();
 				    var responseTime = end - start;
                         //Return the search results
-			returnSearch(result);
 			//post the statistics such as query count to monitor service
 			$.ajax({
 			type: 'POST',
@@ -349,6 +349,7 @@ var start = new Date().getTime();
 			dataType: "json",
 			url: 'http://localhost:8080/dataIngestion/rest/monitor/query',
 		})
+			returnSearch(result);
                     });
 					
                     function returnSearch(query_data) {
@@ -408,6 +409,8 @@ var start = new Date().getTime();
 									}).addTo(markerClusters);
 									newMarker.bindPopup('Recall Number: ' + query_data.results.bindings[i].recallNumber.value  );
 									markers.push(newMarker);
+									
+									map.fitBounds(bounds);
 								//L.marker().addTo(map)
 									console.log("adding @"+[query_data.results.bindings[i].latitude.value, query_data.results.bindings[i].longitude.value])
 							    
@@ -420,7 +423,6 @@ var start = new Date().getTime();
 								
 								}
                         }
-						map.fitBounds(bounds);
                     }
 				});
 		/*		
@@ -475,13 +477,14 @@ var start = new Date().getTime();
         var popup = L.popup();
 
         function onMapClick(e) {
-
+/*
             getVector();
 
             popup
                 .setLatLng(e.latlng)
                 .setContent("You clicked the map at " + e.latlng.toString())
                 .openOn(map);
+*/
         }
         map.on('click', onMapClick);
     </script>
