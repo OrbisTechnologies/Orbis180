@@ -104,7 +104,7 @@ Source Software**</font>
 <font face="Calibri, serif">[<font size="3" style="font-size: 12pt">**http://jquery.com/**</font>](http://jquery.com/)</font>
 
 </td><td width="484" bgcolor="#cccccc" style="border: 1px solid #666666; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-
+wil
 <font face="Calibri, serif"><font size="3" style="font-size: 12pt">Used
 			in the creation of the User Interface </font></font>
 
@@ -297,8 +297,8 @@ located at</font></font>
 #<font face="Calibri, serif"><font size="3" style="font-size: 12pt">
 	Set up or used continuous monitoring
 
-#<font face="Calibri, serif"><font color="#000000"><font size="3" style="font-size: 12pt">Wiley
-takes a risk management approach to cybersecurity by performing
+#<font face="Calibri, serif"><font color="#000000"><font size="3" style="font-size: 12pt">
+Wiley takes a risk management approach to cybersecurity by performing
 continuous monitoring of end user interaction with the application. 
 In the Wiley application, the continuous monitoring was one on the
 search queries, to include collecting the number of queries performed
