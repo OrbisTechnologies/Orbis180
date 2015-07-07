@@ -59,7 +59,7 @@ public class DatabaseDAO {
              * the system property derby.system.home points to, or the current
              * directory (user.dir) if derby.system.home is not set.
              */
-            conn = DriverManager.getConnection(protocol + dbLocation + dbName 
+            conn = DriverManager.getConnection(protocol + dbName + dbLocation 
                     + ";create=true");
 
 
@@ -333,7 +333,7 @@ public class DatabaseDAO {
         } finally {
             // release all open resources to avoid unnecessary memory usage
 
-            // Statements and PreparedStatements
+            // Statements and PreparedStatement
             int i = 0;
             while (!statements.isEmpty()) {
                 // PreparedStatement extend Statement
@@ -610,7 +610,7 @@ public Integer getQueryCountSince( java.util.Date date){
             
             rs = s.executeQuery("select count( * ) as averagepermonth from queries group by queryDate");
             returnVal=0;
-            int dayCount=0;
+            int dayCount=1;
             while (rs.next()) {
                 returnVal += rs.getInt("averagepermonth");
                 dayCount++;
