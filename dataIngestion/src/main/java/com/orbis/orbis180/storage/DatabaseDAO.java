@@ -59,7 +59,7 @@ public class DatabaseDAO {
              * the system property derby.system.home points to, or the current
              * directory (user.dir) if derby.system.home is not set.
              */
-            conn = DriverManager.getConnection(protocol + dbName + dbLocation
+            conn = DriverManager.getConnection(protocol + dbLocation + dbName 
                     + ";create=true");
 
 
