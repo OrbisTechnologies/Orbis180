@@ -215,7 +215,7 @@
                             </select>
 			    
                         </div>
-			<button id="btnSubmit" type="button" class="btn btn-default" style="width:130px">Submit Search</button>
+			<button id="btnSubmit" type="button" data-loading-text="Processing..." class="btn btn-default" style="width:130px">Submit Search</button>
                     </div>
                    
 					
@@ -312,6 +312,7 @@ var start = new Date().getTime();
  *Button click action that gathers the information from the form and queries the results from the rest endpoint to deliver the data to the user
  */
  $("#btnSubmit").click(function() {
+			 var $btn = $("#btnSubmit").button('loading');			
 					selectlocation = GetMultipleSelections('selectlocation');
                     selectlocation = selectlocation.substring(0, selectlocation.length-1);
                     console.log(selectlocation);                                                                             
@@ -332,11 +333,13 @@ var start = new Date().getTime();
 					enddate = "";
 					console.log(full_search);
                     $.ajax({
-                        'async': false,
+                        'async': true,
 			url: full_search
                         //url: 'https://api.fda.gov/food/enforcement.json?api_key=LEsaCnFqu5NnXynoyvcNjtaSTEde5r7inxEfcTIH',
                     
                     }).done(function(result) {
+					//on sucess remove processing button status
+					$btn.button('reset');
 					var end = new Date().getTime();
 				    var responseTime = end - start;
                         //Return the search results
