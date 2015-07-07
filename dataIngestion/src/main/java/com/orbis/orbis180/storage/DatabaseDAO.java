@@ -610,7 +610,7 @@ public Integer getQueryCountSince( java.util.Date date){
             
             rs = s.executeQuery("select count( * ) as averagepermonth from queries group by queryDate");
             returnVal=0;
-            int dayCount=0;
+            int dayCount=1;
             while (rs.next()) {
                 returnVal += rs.getInt("averagepermonth");
                 dayCount++;
