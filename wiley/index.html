@@ -351,11 +351,12 @@ function GetMultipleSelections(parameter) {
 			//post the statistics such as query count to monitor service
 			$.ajax({
 			type: 'POST',
-			data: JSON.stringify({"searchField":searchword,"responseTime":responseTime, "location":locationtarget}),
+			data: JSON.stringify({"searchField":searchword,"responseTime":responseTime, "location":locationtarget.substr(0,99)}),
 			contentType: "application/json",
 			dataType: "json",
 			url: 'http://wiley.orbistechnologies.com/dataIngestion/rest/monitor/query',
 		})
+		//location could be overloaded by an arbitrarily large string TODO: fix this issue on the backend
 			returnSearch(result);
                     });
 					
