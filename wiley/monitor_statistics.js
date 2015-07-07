@@ -13,7 +13,7 @@
 			  var query_stats = null;
 			  $.ajax({
 			  'async': false,
-	          url: 'http://localhost:8080/dataIngestion/rest/monitor/queryCount' }
+	          url: 'http://wiley.orbistechnologies.com/dataIngestion/rest/monitor/queryCount' }
 				).done(function(data) {
 				query_stats = data; 
   });
@@ -26,7 +26,7 @@ var query_stats = (function(){
 			  var query_stats = null;
 			  $.ajax({
 			  'async': false,
-	          url: 'http://localhost:8080/dataIngestion/rest/monitor/summary',
+	          url: 'http://wiley.orbistechnologies.com/dataIngestion/rest/monitor/summary',
 			  }
 				).done(function(data) {
 				query_stats = data; 

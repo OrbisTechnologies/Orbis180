@@ -130,7 +130,8 @@
                         <div class="col-md-8">
 			<div class="input-group input-group-md">
                             <select multiple id="selectlocation" name="selectlocation" class="form-control">
-                                <option value="AL">Alabama</option>
+				<option value="AL,AK,AS,AZ,AR,CA,CO,CT,DE,DC,FL,GA,GU,HI,ID,IL,IN,IA,KS,KY,LA,ME,MD,MA,MI,MN,MS,MO,MT,NE,NV,NH,NJ,NM,NY,NC,ND,MP,OH,OK,OR,PA,PR,RI,SC,SD,TN,TX,UT,VT,VA,VI,WA,WV,WI,WY">All States</option>                                
+				<option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
                                 <option value="AS">American Samoa</option>
                                 <option value="AZ">Arizona</option>
@@ -428,6 +429,15 @@ function GetMultipleSelections(parameter) {
                         }
                     }
 				});
+		/*		
+		$.ajax({
+			type: 'POST',
+			data: JSON.stringify(formData),
+			contentType: "application/json",
+			dataType: "json",
+			url: 'http://wiley.orbistechnologies.com/dataIngestion/rest/monitor/query',
+		})*/
+		
     </script>
 
     <script>
